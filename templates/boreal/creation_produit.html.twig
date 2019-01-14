@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formCreationProduit 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+    <h3>
+      {% if editMode %}
+        Modifier un produit
+      {% else %}
+          Créer un produit
+      {% endif %}
+    </h3>
+    </br></br>
+
+    {{ form_start (formCreationProduit) }}
+
+    {{ form_row(formCreationProduit.reference, {'attr': {'placeholder': "Référence"}}) }}
+    {{ form_row(formCreationProduit.marque, {'attr': {'placeholder': "Marque"}}) }}
+    {{ form_row(formCreationProduit.modele, {'attr': {'placeholder': "Modèle"}}) }}
+    {{ form_row(formCreationProduit.image, {'attr': {'placeholder': "Url de l'image"}}) }}
+    {{ form_row(formCreationProduit.prix, {'attr': {'placeholder': "00.00€"}}) }}
+    {{ form_row(formCreationProduit.couleur, {'attr': {'placeholder': "Couleur"}}) }}
+    {{ form_row(formCreationProduit.poids, {'attr': {'placeholder': "00.00Kg"}}) }}
+    {{ form_row(formCreationProduit.dimensions, {'attr': {'placeholder': "(L)cm X (l)cm X (h)cm"}}) }}
+    {{ form_row(formCreationProduit.matiere, {'attr': {'placeholder': "Cuir, synthétique,..."}}) }}
+    {{ form_row(formCreationProduit.description, {'attr': {'placeholder': "Description"}}) }}
+
+    <button type="submit" class"btn btn-success" name="button">
+      {% if editMode %}
+        Enregistrer
+      {% else %}
+          Créer
+      {% endif %}
+    </button>
+
+    {{ form_end(formCreationProduit) }}
+
+{% endblock %}
