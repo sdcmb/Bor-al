@@ -12,7 +12,6 @@ class ProduitFixtures extends Fixture
     {
         $produitDesigual = new Produit();
         $produitLancaster = new Produit();
-        $produitRipcurl = new Produit();
         $produitDesigual2 = new Produit();
         $produitLancaster2 = new Produit();
         $produitLancaster3 = new Produit();
@@ -44,20 +43,6 @@ class ProduitFixtures extends Fixture
                 Ce petit sac seau Pur Treasure cognac par Lancaster comporte une petite poche fermée et une poche simple.
                 La bandoulière en chainette argentée est réglable à la longueur souhaitée.</p>")
                         ->setImage("http://www.boreal-maroquinerie.com/1929-8573-large/lancaster-cuir-parisienne-treasure.jpg");
-
-        $produitRipcurl->setReference("LTRFM1")
-                ->setMarque("Ripcurl")
-                ->setModele("High Desert F-light Global")
-                ->setCouleur("Violet")
-                ->setPrix("189.00")
-                ->setPoids("3.6")
-                ->setDimension("42cm x 79cm x 31cm")
-                ->setMatiere("Polyester")
-                ->setDescription("<p>Léger malgré son maxi volume (100 L), ce sac Rip Curl High Desert F-light Global a tout pour séduire les voyageurs à la recherche de confort durant leurs déplacements.
-                Il dispose en effet d'une poignée télescopique réglable et double canne, de 2 roulettes silencieuses utilisées pour les planches de Skate, ainsi que de 2 poignées de portage si vient le besoin de le transporter manuellement.
-                Le sac de voyage Rip Curl High Desert F-light Global 79 cm adopte un look décontracté et coloré avec ses imprimés tendances et féminins.
-                Son grand format est parfait pour voyager lors de longs séjours (3 semaines et plus).</p>")
-                ->setImage("http://www.boreal-maroquinerie.com/1881-8387-large/ripcurl-sac-voyage-roulette-79-cm.jpg");
 
         $produitDesigual2->setReference("18WAXF35")
                 ->setMarque("Desigual")
