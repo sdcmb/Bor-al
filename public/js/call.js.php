@@ -1,6 +1,5 @@
 <?php
-
-  if ( file_exists('../gestionSlider/defaultSpeed.txt') ) {
+if ( file_exists('../gestionSlider/defaultSpeed.txt') ) {
     $fichierVitesse = fopen('../gestionSlider/defaultSpeed.txt', 'r+');
   } else {
     $fichierVitesse = fopen('../gestionSlider/defaultSpeed.txt', 'w+');
