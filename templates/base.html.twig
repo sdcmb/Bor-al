@@ -21,7 +21,11 @@
 
 
           <form class="compte">
-            <a href=""><img src="{{ asset('images/iconCompte.png') }}" alt="compte" style="width:15%;"></a>
+            {% if not app.user %}
+              <a href="{{ path('security_login') }}"><img src="{{ asset('images/iconCompte.png') }}" alt="compte" style="width:15%;"></a>
+            {% else %}
+              <a href="{{ path('security_logout') }}"><img src="{{ asset('images/iconCompte.png') }}" alt="compte" style="width:15%;"></a>
+            {% endif %}
             <a href=""><img src="{{ asset('images/panier.svg') }}" alt="panier" style="width:15%;"></a>
           </form>
 
