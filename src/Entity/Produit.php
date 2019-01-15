@@ -19,27 +19,27 @@ class Produit
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $reference;
+    private $Reference;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $marque;
+    private $Marque;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $modele;
+    private $Modele;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $couleur;
+    private $Couleur;
 
     /**
      * @ORM\Column(type="float")
      */
-    private $prix;
+    private $Prix;
 
     /**
      * @ORM\Column(type="float", nullable=true)
@@ -49,7 +49,7 @@ class Produit
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $dimensions;
+    private $dimension;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -73,60 +73,60 @@ class Produit
 
     public function getReference(): ?string
     {
-        return $this->reference;
+        return $this->Reference;
     }
 
-    public function setReference(string $reference): self
+    public function setReference(string $Reference): self
     {
-        $this->reference = $reference;
+        $this->Reference = $Reference;
 
         return $this;
     }
 
     public function getMarque(): ?string
     {
-        return $this->marque;
+        return $this->Marque;
     }
 
-    public function setMarque(string $marque): self
+    public function setMarque(string $Marque): self
     {
-        $this->marque = $marque;
+        $this->Marque = $Marque;
 
         return $this;
     }
 
     public function getModele(): ?string
     {
-        return $this->modele;
+        return $this->Modele;
     }
 
-    public function setModele(string $modele): self
+    public function setModele(string $Modele): self
     {
-        $this->modele = $modele;
+        $this->Modele = $Modele;
 
         return $this;
     }
 
     public function getCouleur(): ?string
     {
-        return $this->couleur;
+        return $this->Couleur;
     }
 
-    public function setCouleur(string $couleur): self
+    public function setCouleur(string $Couleur): self
     {
-        $this->couleur = $couleur;
+        $this->Couleur = $Couleur;
 
         return $this;
     }
 
     public function getPrix(): ?float
     {
-        return $this->prix;
+        return $this->Prix;
     }
 
-    public function setPrix(float $prix): self
+    public function setPrix(float $Prix): self
     {
-        $this->prix = $prix;
+        $this->Prix = $Prix;
 
         return $this;
     }
@@ -143,14 +143,14 @@ class Produit
         return $this;
     }
 
-    public function getDimensions(): ?string
+    public function getDimension(): ?string
     {
-        return $this->dimensions;
+        return $this->dimension;
     }
 
-    public function setDimensions(?string $dimensions): self
+    public function setDimension(?string $dimension): self
     {
-        $this->dimensions = $dimensions;
+        $this->dimension = $dimension;
 
         return $this;
     }

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -53,42 +52,6 @@ class BorealController extends AbstractController
           'produit' => $produit
       ]);
     }
-
-    /**
-    * @Route ("/boreal/register", name="boreal_register")
-    * @Route ("/boreal/{id}/edit", name="boreal_edit_user")
-    **/
-    public function form(User $user = null, Request $request, ObjectManager $manager){
-
-      if (!$user) {
-        $user = new User();
-      }
-
-      $form = $this->createForm(UserType::class, $user);
-
-      $form->handleRequest($request);
-
-      if ($form->isSubmitted() && $form->isValid()) {
-        $manager->persist($user);
-        $manager->flush();
-
-        return $this->redirectToRoute('accueil');
-      }
-
-      return $this->render('boreal/register.html.twig', [
-          'formRegister' => $form->createView(),
-          'editMode' => $user->getId() !== null
-      ]);
-    }
-
-
-    /**
-    * @Route ("/boreal/login", name="boreal_login")
-    **/
-    public function login(){
-      return $this->render('boreal/login.html.twig');
-    }
-
 
     /**
     * @Route("/boreal/gestion-produits", name="gestionProduit")

@@ -6,7 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 
-        <link rel="stylesheet" href="style/style.css">
+        <link rel="stylesheet" href="{{ asset('style/style.css') }}">
 
         {% block stylesheets %}{% endblock %}
 
@@ -21,8 +21,8 @@
 
 
           <form class="compte">
-            <a href="{{ path('boreal_register') }}"><img src="{{ asset('images/iconCompte.png') }}" alt="compte" style="width:15%;"></a>
-            <a href="{{ path('boreal_login') }}"><img src="{{ asset('images/panier.svg') }}" alt="panier" style="width:15%;"></a>
+            <a href=""><img src="{{ asset('images/iconCompte.png') }}" alt="compte" style="width:15%;"></a>
+            <a href=""><img src="{{ asset('images/panier.svg') }}" alt="panier" style="width:15%;"></a>
           </form>
 
           <div class="topnav">

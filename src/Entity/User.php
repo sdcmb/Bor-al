@@ -1,133 +1,93 @@
 <?php
-  // src/Entity/User.php
-  namespace App\Entity;
 
-  use Doctrine\ORM\Mapping as ORM;
-  use Symfony\Component\Validator\Constraints as Assert;
-  use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-  use Symfony\Component\Security\Core\User\UserInterface;
+namespace App\Entity;
 
-  /**
-   * @ORM\Entity
-   * @UniqueEntity(fields="email", message="Email already taken")
-   */
-  class User implements UserInterface
-  {
-      /**
-       * @ORM\Id
-       * @ORM\Column(type="integer")
-       * @ORM\GeneratedValue(strategy="AUTO")
-       */
-      private $id;
+use Doctrine\ORM\Mapping as ORM;
 
-      /**
-       * @ORM\Column(type="string", length=255, unique=true)
-       * @Assert\NotBlank()
-       * @Assert\Email()
-       */
-      private $email;
+/**
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ */
+class User
+{
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
+    private $id;
 
-      /**
-       * @ORM\Column(type="string", length=255, unique=false)
-       * @Assert\NotBlank()
-       */
-      private $prenom;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
 
-      /**
-       * @ORM\Column(type="string", length=255, unique=false)
-       * @Assert\NotBlank()
-       */
-      private $nom;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $firstname;
 
-      /**
-       * The below length depends on the "algorithm" you use for encoding
-       * the password, but this works well with bcrypt.
-       *
-       * @ORM\Column(type="string", length=64)
-       * @Assert\NotBlank()
-       */
-      private $password;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $lastname;
 
-      /**
-       * @ORM\Column(type="array")
-       */
-      private $roles;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $password;
 
-      public function __construct()
-      {
-          $this->roles = array('ROLE_USER');
-      }
+    public $confirm_password;
 
-      // other properties and methods
-
-      public function getId() {
+    public function getId(): ?int
+    {
         return $this->id;
-      }
+    }
 
-      public function getEmail()
-      {
-          return $this->email;
-      }
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
 
-      public function setEmail($email)
-      {
-          $this->email = $email;
-      }
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
-      public function getUsername()
-      {
-          return $this->email;
-      }
+        return $this;
+    }
 
-      public function setUsername($mail)
-      {
-        $this->username = $email;
-      }
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
 
-      public function getPrenom()
-      {
-          return $this->prenom;
-      }
+    public function setFirstname(string $firstname): self
+    {
+        $this->firstname = $firstname;
 
-      public function setPrenom($prenom)
-      {
-          $this->prenom = $prenom;
-      }
+        return $this;
+    }
 
-      public function getNom()
-      {
-          return $this->nom;
-      }
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
 
-      public function setNom($nom)
-      {
-          $this->nom = $nom;
-      }
+    public function setLastname(string $lastname): self
+    {
+        $this->lastname = $lastname;
 
-      public function getPassword()
-      {
-          return $this->password;
-      }
+        return $this;
+    }
 
-      public function setPassword($password)
-      {
-          $this->password = $password;
-      }
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
 
-      public function getSalt()
-      {
-          // The bcrypt and argon2i algorithms don't require a separate salt.
-          // You *may* need a real salt if you choose a different encoder.
-          return null;
-      }
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
 
-      public function getRoles()
-      {
-          return $this->roles;
-      }
-
-      public function eraseCredentials()
-      {
-      }
-  }
-?>
+        return $this;
+    }
+}
