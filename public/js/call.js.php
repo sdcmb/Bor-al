@@ -1,11 +1,11 @@
 <?php
-  if ( file_exists('gestionSlider/defaultSpeed.txt') ) {
-    $fichierVitesse = fopen('gestionSlider/defaultSpeed.txt', 'r+');
+  if ( file_exists('../gestionSlider/defaultSpeed.txt') ) {
+    $fichierVitesse = fopen('../gestionSlider/defaultSpeed.txt', 'r+');
   } else {
-    $fichierVitesse = fopen('gestionSlider/defaultSpeed.txt', 'w+');
+    $fichierVitesse = fopen('../gestionSlider/defaultSpeed.txt', 'w+');
   }
 
-  if (filesize('../defaultSpeed.txt') == 0) {
+  if (filesize('../gestionSlider/defaultSpeed.txt') == 0) {
     fputs($fichierVitesse, "3000");
     fseek($fichierVitesse, 0);
   }
