@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD:public/js/call.js.php
   if ( file_exists('../gestionSlider/defaultSpeed.txt') ) {
     $fichierVitesse = fopen('../gestionSlider/defaultSpeed.txt', 'r+');
   } else {
@@ -6,6 +7,15 @@
   }
 
   if (filesize('../gestionSlider/defaultSpeed.txt') == 0) {
+=======
+  if ( file_exists('../defaultSpeed.txt') ) {
+    $fichierVitesse = fopen('../defaultSpeed.txt', 'r+');
+  } else {
+    $fichierVitesse = fopen('../defaultSpeed.txt', 'w+');
+  }
+
+  if (filesize('../defaultSpeed.txt') == 0) {
+>>>>>>> 495678394ffce990eabab9b1c79ca89474b6084c:public/js/call.js.php
     fputs($fichierVitesse, "3000");
     fseek($fichierVitesse, 0);
   }
