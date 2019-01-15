@@ -36,7 +36,12 @@ class BorealController extends AbstractController
     * @Route("/", name="accueil")
     */
     public function home(){
-      return $this->render('boreal/home.html.twig');
+
+      $fichiers = $this->getFichiersSliderActif();
+
+      return $this->render('boreal/home.html.twig', [
+        'fichiers' => $fichiers
+      ]);
     }
 
 
@@ -122,6 +127,39 @@ class BorealController extends AbstractController
           'formCreationProduit' => $form->createView(),
           'editMode' => $produit->getId() !== null
       ]);
+    }
+
+    public function getSliderActif() {
+      if (file_exists('gestionSlider/defaultSlider.txt')) {
+        $fichierSlider = fopen('gestionSlider/defaultSlider.txt', 'r+');
+      } else {
+        $fichierSlider = fopen('gestionSlider/defaultSlider.txt', 'w+');
+      }
+
+      if (filesize('gestionSlider/defaultSlider.txt') == 0) {
+        fputs($fichierSlider, "gestionSlider/img");
+        fseek($fichierSlider, 0);
+      }
+
+      $cheminSlider = fgets($fichierSlider);
+
+      fclose($fichierSlider);
+
+      return $cheminSlider;
+    }
+
+    public function getFichiersSliderActif() {
+      $cheminSlider = $this->getSliderActif();
+      $fichiers = array();
+
+      $slider = fopen("$cheminSlider", 'r+');
+
+      while(false !== ( $fichier = fgets($slider) )) {
+        $fichiers[] = $fichier;
+      }
+
+      return $fichiers;
+
     }
 
 }
