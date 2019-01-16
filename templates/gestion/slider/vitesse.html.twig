@@ -4,7 +4,13 @@
 
   <h2>Changer la vitesse du slider</h2></br>
 
+  <form action="{{ path('changerVitesse')}}" id="choixImages" method="post">
 
+    Temps (en seconde) :
+    <input type="text" name="vitesse">
+    <br><br>
+    <input type="submit" value="Valider" />
 
+  </form>
 
 {% endblock %}

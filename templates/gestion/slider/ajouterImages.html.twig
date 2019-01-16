@@ -4,7 +4,11 @@
 
   <h2>Ajouter des images</h2></br>
 
+  <form action="{{ path('ajouterImages') }}" id="choixImages" method="post">
 
+    <input name="fichier" type="file" value="Choisir une image" />
+    <input type="submit" value="Enregistrer l'image" />
 
+  </form>
 
 {% endblock %}
