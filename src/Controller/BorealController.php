@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class BorealController extends AbstractController
 {
@@ -44,7 +45,6 @@ class BorealController extends AbstractController
         'fichiers' => $fichiers
       ]);
     }
-
 
     /**
     * @Route ("/boreal/femmes/produit{id}", name="produit_femmes")
@@ -189,8 +189,55 @@ class BorealController extends AbstractController
     * @Route("/gestion/slider/ajouterImages", name="ajouterImages")
     * @Security("is_granted('ROLE_ADMIN')")
     */
-    public function ajouterImagesSlider() {
-      return $this->render('gestion/slider/ajouterImages.html.twig');
+    public function ajouterImagesSlider(Request $req) {
+
+      $reponse = '';
+
+      dump($req);
+
+      if ($req->request->count() > 0) {
+
+        dump(sys_get_temp_dir());
+        if($dossierFichierTempo = opendir(sys_get_temp_dir())){
+          if($dossierImage = opendir('gestionSlider/img')){
+
+            dump($req->request->get('fichier'));
+            $fichier = $req->request->get('fichier');
+
+            dump($req->files->get('fichier'));
+            //dump(mime_content_type($fichier));
+            //if(strpos(mime_content_type($fichier), 'image') !== false){
+
+              //$fichierTemporaire = $fichier["tmp_name"];
+              //$src = realpath(dirname($fichierTemporaire)).'\\'.basename($fichierTemporaire);
+
+              //$dst = 'gestionSlider/img/'.$fichier["name"];
+
+              $result = false;//copy($src, $dst);
+
+              if ($result == true){
+                $reponse = 'ok';
+              } else {
+                $reponse = 'echec';
+              }
+            //} else {
+              //$reponse = 'image';
+            //}
+          } else {
+            $reponse = 'dosImg';
+          }
+        } else {
+          $reponse = 'dosTemp';
+        }
+
+        closedir($dossierImage);
+        closedir($dossierFichierTempo);
+
+      }
+
+      return $this->render('gestion/slider/ajouterImages.html.twig', [
+        'reponse' => $reponse
+      ]);
     }
 
     /**

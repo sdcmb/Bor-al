@@ -6,8 +6,45 @@
 
   <form action="{{ path('ajouterImages') }}" id="choixImages" method="post">
 
-    <input name="fichier" type="file" value="Choisir une image" />
-    <input type="submit" value="Enregistrer l'image" />
+    {% if reponse == '' %}
+    {# 1e itération : choisir une image #}
+      <input name="fichier" type="file" value="Choisir une image" />
+      <input type="submit" value="Enregistrer l'image" />
+    {% else %}
+      {% if reponse == 'ok' %}
+      {# 2e itération : tout est ok #}
+        <img src="{{ asset('images/valid.png') }}" alt="valid">
+        La photo a bien été ajoutée à la liste des photos pour le slider
+      {% endif %}
+
+      {% if reponse == 'echec' %}
+      {# 2e itération : echec lors de la copie #}
+        <img src="{{ asset('images/erreur.png') }}" alt="erreur">
+        Echec lors de l'import de l'image
+      {% endif %}
+
+      {% if reponse == 'image' %}
+      {# 2e itération : le fichier n'est pas une image #}
+        <img src="{{ asset('images/erreur.png') }}" alt="erreur">
+        Veuillez sélectionner une image !
+      {% endif %}
+
+      {% if reponse == 'dosImg' %}
+      {# 2e itération : le dossier gestionSlider/img n'a pas pu etre ouvert #}
+        <img src="{{ asset('images/erreur.png') }}" alt="erreur">
+        Erreur d'ouverture du dossier images
+      {% endif %}
+
+      {% if reponse == 'dosTemp' %}
+      {# 2e itération : le dossier contenant les fichiers temporaires n'a pas pu etre ouvert #}
+        <img src="{{ asset('images/erreur.png') }}" alt="erreur">
+        Erreur d'ouverture du dossier contenant les fichiers temporaires
+      {% endif %}
+
+      <br><br>
+      <input type="submit" value="Enregistrer une autre image" />
+
+    {% endif %}
 
   </form>
 
