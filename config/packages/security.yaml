@@ -15,7 +15,8 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: true
+            anonymous: ~
+            http_basic: ~
 
             provider: in_database
 
@@ -38,9 +39,10 @@ security:
 
             # form_login: true
             # https://symfony.com/doc/current/security/form_login_setup.html
-
+    role_hierarchy:
+        ROLE_ADMIN:      ROLE_USER
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/profile, roles: ROLE_USER }

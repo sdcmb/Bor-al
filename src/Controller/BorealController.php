@@ -13,6 +13,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class BorealController extends AbstractController
 {
@@ -60,6 +62,7 @@ class BorealController extends AbstractController
 
     /**
     * @Route("/gestion/produits", name="gestionProduits")
+    * @Security("is_granted('ROLE_ADMIN')")
     */
     public function gestionProduit(){
       return $this->render('gestion/produits.html.twig');
@@ -68,6 +71,7 @@ class BorealController extends AbstractController
     /**
     * @Route ("/gestion/produits/creation", name="creationProduit")
     * @Route ("/gestion/produits/{id}/edit", name="boreal_edit_produit")
+    * @Security("is_granted('ROLE_ADMIN')")
     */
     public function formCreationProduit(Produit $produit = null, Request $request, ObjectManager $manager){
 
@@ -126,63 +130,72 @@ class BorealController extends AbstractController
     }
 
     /**
-    *   @Route("/gestion", name="gestion")
+    * @Route("/gestion", name="gestion")
+    * @Security("is_granted('ROLE_ADMIN')")
     */
     public function gestion() {
       return $this->render('gestion/home.html.twig');
     }
 
     /**
-    *   @Route("/gestion/slider", name="gestionSlider")
+    * @Route("/gestion/slider", name="gestionSlider")
+    * @Security("is_granted('ROLE_ADMIN')")
     */
     public function gestionSlider() {
       return $this->render('gestion/slider.html.twig');
     }
 
     /**
-    *   @Route("/gestion/clients", name="gestionClients")
+    * @Route("/gestion/clients", name="gestionClients")
+    * @Security("is_granted('ROLE_ADMIN')")
     */
     public function gestionClients() {
       return $this->render('gestion/clients.html.twig');
     }
 
     /**
-    *   @Route("/gestion/slider/creer", name="creerSlider")
+    * @Route("/gestion/slider/creer", name="creerSlider")
+    * @Security("is_granted('ROLE_ADMIN')")
     */
     public function creerSlider() {
       return $this->render('gestion/slider/creer.html.twig');
     }
 
     /**
-    *   @Route("/gestion/slider/modifier", name="modifierSlider")
+    * @Route("/gestion/slider/modifier", name="modifierSlider")
+    * @Security("is_granted('ROLE_ADMIN')")
     */
     public function modifierSlider() {
       return $this->render('gestion/slider/modifier.html.twig');
     }
 
     /**
-    *   @Route("/gestion/slider/supprimer", name="supprimerSlider")
+    * @Route("/gestion/slider/supprimer", name="supprimerSlider")
+    * @Security("is_granted('ROLE_ADMIN')")
     */
     public function supprimerSlider() {
       return $this->render('gestion/slider/supprimer.html.twig');
     }
 
     /**
-    *   @Route("/gestion/slider/choisir", name="choisirSlider")
+    * @Route("/gestion/slider/choisir", name="choisirSlider")
+    * @Security("is_granted('ROLE_ADMIN')")
     */
     public function choisirSlider() {
       return $this->render('gestion/slider/choisir.html.twig');
     }
 
     /**
-    *   @Route("/gestion/slider/ajouterImages", name="ajouterImages")
+    * @Route("/gestion/slider/ajouterImages", name="ajouterImages")
+    * @Security("is_granted('ROLE_ADMIN')")
     */
     public function ajouterImagesSlider() {
       return $this->render('gestion/slider/ajouterImages.html.twig');
     }
 
     /**
-    *   @Route("/gestion/slider/vitesse", name="changerVitesse")
+    * @Route("/gestion/slider/vitesse", name="changerVitesse")
+    * @Security("is_granted('ROLE_ADMIN')")
     */
     public function changerVitesseSlider() {
       return $this->render('gestion/slider/vitesse.html.twig');
