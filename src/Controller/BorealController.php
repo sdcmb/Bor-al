@@ -193,8 +193,6 @@ class BorealController extends AbstractController
 
       $reponse = '';
 
-      dump($req);
-
       if ($req->request->count() > 0) {
 
         dump(sys_get_temp_dir());
@@ -244,7 +242,18 @@ class BorealController extends AbstractController
     * @Route("/gestion/slider/vitesse", name="changerVitesse")
     * @Security("is_granted('ROLE_ADMIN')")
     */
-    public function changerVitesseSlider() {
+    public function changerVitesseSlider(Request $req) {
+
+      if ($req->request->count() > 0) {
+        $vitesseSlider = $req->request->get('vitesse') * 1000;
+
+        $fichierVitesse = fopen('gestionSlider/defaultSpeed.txt', 'w+');
+        fputs($fichierVitesse, $vitesseSlider);
+        fclose($fichierVitesse);
+
+        return $this->redirectToRoute('gestionSlider');
+      }
+
       return $this->render('gestion/slider/vitesse.html.twig');
     }
 
