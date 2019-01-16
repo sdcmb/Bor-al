@@ -173,8 +173,21 @@ class BorealController extends AbstractController
     * @Route("/gestion/slider/supprimer", name="supprimerSlider")
     * @Security("is_granted('ROLE_ADMIN')")
     */
-    public function supprimerSlider() {
-      return $this->render('gestion/slider/supprimer.html.twig');
+    public function supprimerSlider(Request $req) {
+
+      if ($req->request->count() > 0) {
+        $nomSliderChoisi = $req->request->get('cheminSlider');
+        $cheminSlider = 'gestionSlider/sliders/'.$nomSliderChoisi.'.txt';
+        unlink($cheminSlider);
+
+        return $this->redirectToRoute('gestionSlider');
+      }
+
+      $slidersAAfficher = $this->getChoixSlider(true);
+
+      return $this->render('gestion/slider/supprimer.html.twig', [
+        'slidersAAfficher' => $slidersAAfficher,
+      ]);
     }
 
     /**
