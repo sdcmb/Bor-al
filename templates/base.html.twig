@@ -8,7 +8,8 @@
 
         <link rel="stylesheet" href="{{ asset('style/style.css') }}">
 
-        {% block stylesheets %}{% endblock %}
+        <link href="https://fonts.googleapis.com/css?family=Karma:300,400,500,600,700&amp;subset=devanagari,latin-ext" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
     </head>
     <body>
@@ -20,8 +21,13 @@
           <a class="logo" href="{{ path('accueil')}}">Boréal</a>
 
           <form class="compte">
-            <a href="{{ path('boreal_register') }}"><img src="{{ asset('images/iconCompte.png') }}" alt="compte" ></a>
-            <a href="{{ path('boreal_login') }}"><img src="{{ asset('images/panier.svg') }}" alt="panier" ></a>
+
+            {% if not app.user %}
+              <a href="{{ path('security_login') }}"><img src="{{ asset('images/iconCompte.png') }}" alt="compte"></a>
+            {% else %}
+              <a href="{{ path('security_logout') }}"><img src="{{ asset('images/iconCompte.png') }}" alt="compte"></a>
+            {% endif %}
+            <a href=""><img src="{{ asset('images/panier.svg') }}" alt="panier" style="width:15%;"></a>
           </form>
 
           <div class="topnav">

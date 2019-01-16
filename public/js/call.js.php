@@ -1,14 +1,29 @@
+<?php
+if ( file_exists('../gestionSlider/defaultSpeed.txt') ) {
+    $fichierVitesse = fopen('../gestionSlider/defaultSpeed.txt', 'r+');
+  } else {
+    $fichierVitesse = fopen('../gestionSlider/defaultSpeed.txt', 'w+');
+  }
+
+  if (filesize('../gestionSlider/defaultSpeed.txt') == 0) {
+    fputs($fichierVitesse, "3000");
+    fseek($fichierVitesse, 0);
+  }
+
+  $vitesseSlider = fgets($fichierVitesse);
+  fseek($fichierVitesse, 0);
+?>
+
 ;jQuery(document).ready(function($) {
   $('#infinite-slider2').infiniteSlider2({
     // general settings
     width: 100,
-    height: '500',
+    height: '450',
     arrows: true,
     toggles: true,
     labels: false,
 
     // slide background settings
-    slideBackgroundColor: [],
     slideBackgroundImage: [],
 
     // arrow settings
@@ -47,8 +62,8 @@
 
     // advanced settings
     autoplay: true,
-    slideInterval: 3000,
-    slideDuration: 400,
+    slideInterval: <?php echo $vitesseSlider; ?>,
+    slideDuration: 300,
     cursor: 'pointer'
   });
 });
