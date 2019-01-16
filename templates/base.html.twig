@@ -6,7 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 
-        <link rel="stylesheet" href="style/style.css">
+        <link rel="stylesheet" href="{{ asset('style/style.css') }}">
 
         {% block stylesheets %}{% endblock %}
 
@@ -19,10 +19,9 @@
 
           <a class="logo" href="{{ path('accueil')}}">Boréal</a>
 
-
           <form class="compte">
-            <a href="{{ path('boreal_register') }}"><img src="{{ asset('images/iconCompte.png') }}" alt="compte" style="width:15%;"></a>
-            <a href="{{ path('boreal_login') }}"><img src="{{ asset('images/panier.svg') }}" alt="panier" style="width:15%;"></a>
+            <a href="{{ path('boreal_register') }}"><img src="{{ asset('images/iconCompte.png') }}" alt="compte" ></a>
+            <a href="{{ path('boreal_login') }}"><img src="{{ asset('images/panier.svg') }}" alt="panier" ></a>
           </form>
 
           <div class="topnav">
@@ -47,70 +46,69 @@
 
     </body>
 
-    <footer style="padding-top:100px;height:650px;;background-color:#473130;">
-        <div class="footer_div" style="padding-bottom:300px;">
+    <footer>
+        <div class="footer_div">
           <ul>
-            <div style="float : left; display: inline-block; margin-left:5%">
-              <li style="list-style : none;font-weight: bold; color : white;">Service Clients</li>
+            <div class="footer_info">
+              <li class="footer_titre">Service Clients</li>
                   <ul>
-                      <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Nous contacter</a></li>
-                      <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Livraison gratuite dès 40€</a></li>
-                      <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >30 jours pour changer d'avis</a></li>
-                      <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Paiement sécurisé</a></li>
-                      <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Retour gratuit</a></li>
-                      <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >La différence remboursée 2X</a></li>
-                      <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Avis des consommateurs</a></li>
+                      <li><a href="#">Livraison gratuite dès 40€</a></li>
+                      <li><a href="#">Nous contacter</a></li>
+                      <li><a href="#">30 jours pour changer d'avis</a></li>
+                      <li><a href="#">Paiement sécurisé</a></li>
+                      <li><a href="#">Retour gratuit</a></li>
+                      <li><a href="#">La différence remboursée 2X</a></li>
+                      <li><a href="#">Avis des consommateurs</a></li>
                   </ul>
             </div>
 
-            <div style="float : left; display: inline-block; margin-left:5%">
-              <li style="list-style : none; font-weight: bold; color : white;">A propos</li>
+            <div class="footer_info">
+              <li class="footer_titre">A propos</li>
               <ul>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Qui est Boréal ?</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Notre boutique</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Notre Engagement</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Espace entreprises</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Foire aux Questions</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Politique de Confidentialité</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Plan du site</a></li>
+                  <li><a href="#">Qui est Boréal ?</a></li>
+                  <li><a href="#">Notre boutique</a></li>
+                  <li><a href="#">Notre Engagement</a></li>
+                  <li><a href="#">Espace entreprises</a></li>
+                  <li><a href="#">Foire aux Questions</a></li>
+                  <li><a href="#">Politique de Confidentialité</a></li>
+                  <li><a href="#">Plan du site</a></li>
               </ul>
             </div>
 
-            <div style="float : left; display: inline-block; margin-left:5%">
-              <li style="list-style : none; font-weight: bold; color : white;">A propos</li>
+            <div class="footer_info">
+              <li class="footer_titre">A propos</li>
               <ul>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Qui est Boréal ?</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Notre boutique</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Notre Engagement</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Espace entreprises</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Foire aux Questions</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Politique de Confidentialité</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Plan du site</a></li>
+                  <li><a href="#">Qui est Boréal ?</a></li>
+                  <li><a href="#">Notre boutique</a></li>
+                  <li><a href="#">Notre Engagement</a></li>
+                  <li><a href="#">Espace entreprises</a></li>
+                  <li><a href="#">Foire aux Questions</a></li>
+                  <li><a href="#">Politique de Confidentialité</a></li>
+                  <li><a href="#">Plan du site</a></li>
               </ul>
             </div>
-
-            <div style="float : left; display: inline-block; margin-left:5%">
-              <li style="list-style : none; font-weight: bold; color : white;">A propos</li>
+            <div class="footer_info">
+              <li class="footer_titre">A propos</li>
               <ul>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Qui est Boréal ?</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Notre boutique</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Notre Engagement</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Espace entreprises</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Foire aux Questions</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Politique de Confidentialité</a></li>
-                  <li style="list-style : none; "><a href="#"  style="text-decoration : none;color : white;" >Plan du site</a></li>
+                  <li><a href="#">Qui est Boréal ?</a></li>
+                  <li><a href="#">Notre boutique</a></li>
+                  <li><a href="#">Notre Engagement</a></li>
+                  <li><a href="#">Espace entreprises</a></li>
+                  <li><a href="#">Foire aux Questions</a></li>
+                  <li><a href="#">Politique de Confidentialité</a></li>
+                  <li><a href="#">Plan du site</a></li>
               </ul>
             </div>
 
           </ul>
         </div>
 
-        <img src="https://www.freepngimg.com/thumb/decorative_line_gold/4-2-decorative-line-gold-png-thumb.png" style="max-width:100%;margin-left:43%;margin-top:-130px;">
+        <img src="https://www.freepngimg.com/thumb/decorative_line_gold/4-2-decorative-line-gold-png-thumb.png">
 
-        <div style="text-align:center;">
-          <label style="color : white; font-family: 'Playfair Display', serif; font-size:35px;">NEWSLETTER</label><br><br>
-          <input type="email" placeholder="Saisissez votre email" style="width:250px; height:51px;">
-          <input type="submit" value="Je m'inscris" style="color: white;text-transform: none;background: #DD985C;border-radius: 0;border: none;padding: 0 20px;height: 50px;line-height: 50px;font-weight: 600;min-width: 130px; margin-left:-4px;">
+        <div class="footer_newsletter">
+          <label>NEWSLETTER</label><br><br>
+          <input class="footer_email_nl" type="email" placeholder="Saisissez votre email" >
+          <input class="footer_bouton_nl" type="submit" value="Je m'inscris">
         </div>
 
     </footer>
