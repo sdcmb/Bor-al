@@ -37,6 +37,9 @@
             <a href="{{ path('gestionProduits')}}">Bagages</a>
             <a href="#">Nouveautés</a>
             <a href="#">Marques</a>
+            {% if is_granted('ROLE_ADMIN') %}
+              <a href="{{ path('gestion') }}">Gestion du site</a>
+            {% endif %}
           </div>
 
         </div>

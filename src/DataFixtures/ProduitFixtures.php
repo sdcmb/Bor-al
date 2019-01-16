@@ -90,7 +90,6 @@ class ProduitFixtures extends Fixture
 
         $manager->persist($produitDesigual);
         $manager->persist($produitLancaster);
-        $manager->persist($produitRipcurl);
         $manager->persist($produitDesigual2);
         $manager->persist($produitLancaster2);
         $manager->persist($produitLancaster3);
