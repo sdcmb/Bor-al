@@ -181,8 +181,24 @@ class BorealController extends AbstractController
     * @Route("/gestion/slider/choisir", name="choisirSlider")
     * @Security("is_granted('ROLE_ADMIN')")
     */
-    public function choisirSlider() {
-      return $this->render('gestion/slider/choisir.html.twig');
+    public function choisirSlider(Request $req) {
+      $slidersAAfficher = $this->getChoixSlider(false);
+
+      if ($req->request->count() > 0) {
+        $nomSliderChoisi = $req->request->get('cheminSlider');
+        $cheminSlider = 'gestionSlider/sliders/'.$nomSliderChoisi.'.txt';
+
+        $fichierSlider = fopen('gestionSlider/defaultSlider.txt', 'w+');
+        fputs($fichierSlider, $cheminSlider);
+        fclose($fichierSlider);
+
+        return $this->redirectToRoute('gestionSlider');
+      }
+
+      dump($slidersAAfficher);
+      return $this->render('gestion/slider/choisir.html.twig', [
+        'slidersAAfficher' => $slidersAAfficher
+      ]);
     }
 
     /**
@@ -195,14 +211,14 @@ class BorealController extends AbstractController
 
       if ($req->request->count() > 0) {
 
-        dump(sys_get_temp_dir());
+        //dump(sys_get_temp_dir());
         if($dossierFichierTempo = opendir(sys_get_temp_dir())){
           if($dossierImage = opendir('gestionSlider/img')){
 
-            dump($req->request->get('fichier'));
+            //dump($req->request->get('fichier'));
             $fichier = $req->request->get('fichier');
 
-            dump($req->files->get('fichier'));
+            //dump($req->files->get('fichier'));
             //dump(mime_content_type($fichier));
             //if(strpos(mime_content_type($fichier), 'image') !== false){
 
@@ -255,6 +271,34 @@ class BorealController extends AbstractController
       }
 
       return $this->render('gestion/slider/vitesse.html.twig');
+    }
+
+    public function getChoixSlider($supp) {
+      //s'il s'agit d'une suppression (supp == true),
+      //on n'affiche pas le slider actif, sinon on l'affiche
+
+      $slidersAAfficher = array();
+
+      $cheminSlider = $this->getSliderActif();
+      $defaultSlider = basename($cheminSlider, '.txt');
+
+      if($dossier = opendir('gestionSlider/sliders')){
+        while(false !== ($fichier = readdir($dossier))){
+          if($fichier != '.' && $fichier != '..'){
+
+            $nomFichier = basename($fichier, '.txt');
+            //dump($nomFichier);
+
+            if (!$supp || $nomFichier != $defaultSlider) {
+              // soit ce n'est pas la page supprimer, soit ce n'est pas le defaultSlider
+              $slidersAAfficher[] = $nomFichier;
+              //dump($slidersAAfficher);
+            }
+          }
+        }
+      }
+
+      return $slidersAAfficher;
     }
 
 }
