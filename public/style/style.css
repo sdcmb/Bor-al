@@ -82,111 +82,14 @@ nav a:hover{
 
 /**---------------------------------------accueil---------------------------------------**/
 
-                     /**------------------carousel--------------------**/
- {box-sizing:border-box}
+/**-----effet images hommes femmes accueil-----**/
 
- .mySlides fade img{
-      width: 100%;
+.slide_container{
+     width: 85%;
+     margin: auto;
+     margin-top: 5%;
 }
 
-/* Slideshow container */
-
-.slideshow-container {
-    max-width: 1300px;
-    position: relative;
-    margin: auto;
-    text-align: center;
-}
-
-/* Hide the images by default */
-
-.mySlides {
-    display: none;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-.dotdiv{
-     text-align: center;
-}
-
-.active, .dot:hover {
-    background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-}
-
-@keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-}
 
 /**-----effet images hommes femmes accueil-----**/
 
@@ -197,7 +100,7 @@ nav a:hover{
   .box1 .title{letter-spacing:1px}
   .box1 .icon,.box1 .title{margin:0;position:absolute}
   .box1{position:relative; margin-bottom: 200px;}
-  .box1:after,.box1:before{height:705px;background:rgba(0,0,0,.5);position:absolute;top:0;left:0;z-index:1;transform-origin:100% 0;transform:rotateZ(90deg)}
+  .box1:after,.box1:before{height:705px;background:rgba(0,0,0,.5);position:absolute;top:0;left:0;z-index:1;transform-origin:100% 0;transform:rotateX(90deg)}
   .box1:after{top:auto;transform-origin:0 100%}
   .box1:hover:after,.box1:hover:before{transform:rotateZ(0)}
   .box1 img{height:auto;transform:scale(1)}
@@ -213,27 +116,12 @@ nav a:hover{
 
 /**---------------------------------------login / register---------------------------------------**/
 
-.formulaire {
-    margin: 5% 10% 8% 23%;
-}
 
-.gauche, .droite {
-    display: inline-block;
-    width: 100%;
-}
 
-.gauche {
-    width: 28%;
-    padding-bottom: 5%;
-    vertical-align: top;
-}
 
-.droite {
-    border-left: 1px solid black;
-    margin-left: 10%;
-    padding-left: 20%;
-    width: 40%;
-}
+
+
+
 
 /**---------------------------------------produit---------------------------------------**/
 
