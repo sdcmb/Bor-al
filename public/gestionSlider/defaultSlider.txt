@@ -1,1 +1,1 @@
-gestionSlider/sliders/slider1.txt
+gestionSlider/sliders/slider4.txt

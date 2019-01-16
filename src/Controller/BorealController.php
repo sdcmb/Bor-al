@@ -182,7 +182,6 @@ class BorealController extends AbstractController
     * @Security("is_granted('ROLE_ADMIN')")
     */
     public function choisirSlider(Request $req) {
-      $slidersAAfficher = $this->getChoixSlider(false);
 
       if ($req->request->count() > 0) {
         $nomSliderChoisi = $req->request->get('cheminSlider');
@@ -195,9 +194,12 @@ class BorealController extends AbstractController
         return $this->redirectToRoute('gestionSlider');
       }
 
-      dump($slidersAAfficher);
+      $slidersAAfficher = $this->getChoixSlider(false);
+      $defaultSlider = basename($this->getSliderActif(), '.txt');
+
       return $this->render('gestion/slider/choisir.html.twig', [
-        'slidersAAfficher' => $slidersAAfficher
+        'slidersAAfficher' => $slidersAAfficher,
+        'defaultSlider' => $defaultSlider
       ]);
     }
 

@@ -8,7 +8,11 @@
 
   {% for slider in slidersAAfficher %}
     <div class="groupeSlider">
-      <input type="radio" id="casePour{{ slider }}" name="cheminSlider" value="{{ slider }}">
+      {% if slider == defaultSlider %}
+        <input type="radio" id="casePour{{ slider }}" name="cheminSlider" value="{{ slider }}" checked="checked">
+      {% else %}
+        <input type="radio" id="casePour{{ slider }}" name="cheminSlider" value="{{ slider }}">
+      {% endif %}
       <label for="casePour{{ slider }}">{{ slider }}</label>
     </div>
   {% endfor %}
