@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class BorealController extends AbstractController
 {
@@ -44,7 +45,6 @@ class BorealController extends AbstractController
         'fichiers' => $fichiers
       ]);
     }
-
 
     /**
     * @Route ("/boreal/femmes/produit{id}", name="produit_femmes")
@@ -173,32 +173,147 @@ class BorealController extends AbstractController
     * @Route("/gestion/slider/supprimer", name="supprimerSlider")
     * @Security("is_granted('ROLE_ADMIN')")
     */
-    public function supprimerSlider() {
-      return $this->render('gestion/slider/supprimer.html.twig');
+    public function supprimerSlider(Request $req) {
+
+      if ($req->request->count() > 0) {
+        $nomSliderChoisi = $req->request->get('cheminSlider');
+        $cheminSlider = 'gestionSlider/sliders/'.$nomSliderChoisi.'.txt';
+        unlink($cheminSlider);
+
+        return $this->redirectToRoute('gestionSlider');
+      }
+
+      $slidersAAfficher = $this->getChoixSlider(true);
+
+      return $this->render('gestion/slider/supprimer.html.twig', [
+        'slidersAAfficher' => $slidersAAfficher,
+      ]);
     }
 
     /**
     * @Route("/gestion/slider/choisir", name="choisirSlider")
     * @Security("is_granted('ROLE_ADMIN')")
     */
-    public function choisirSlider() {
-      return $this->render('gestion/slider/choisir.html.twig');
+    public function choisirSlider(Request $req) {
+
+      if ($req->request->count() > 0) {
+        $nomSliderChoisi = $req->request->get('cheminSlider');
+        $cheminSlider = 'gestionSlider/sliders/'.$nomSliderChoisi.'.txt';
+
+        $fichierSlider = fopen('gestionSlider/defaultSlider.txt', 'w+');
+        fputs($fichierSlider, $cheminSlider);
+        fclose($fichierSlider);
+
+        return $this->redirectToRoute('gestionSlider');
+      }
+
+      $slidersAAfficher = $this->getChoixSlider(false);
+      $defaultSlider = basename($this->getSliderActif(), '.txt');
+
+      return $this->render('gestion/slider/choisir.html.twig', [
+        'slidersAAfficher' => $slidersAAfficher,
+        'defaultSlider' => $defaultSlider
+      ]);
     }
 
     /**
     * @Route("/gestion/slider/ajouterImages", name="ajouterImages")
     * @Security("is_granted('ROLE_ADMIN')")
     */
-    public function ajouterImagesSlider() {
-      return $this->render('gestion/slider/ajouterImages.html.twig');
+    public function ajouterImagesSlider(Request $req) {
+
+      $reponse = '';
+
+      if ($req->request->count() > 0) {
+
+        //dump(sys_get_temp_dir());
+        if($dossierFichierTempo = opendir(sys_get_temp_dir())){
+          if($dossierImage = opendir('gestionSlider/img')){
+
+            //dump($req->request->get('fichier'));
+            $fichier = $req->request->get('fichier');
+
+            //dump($req->files->get('fichier'));
+            //dump(mime_content_type($fichier));
+            //if(strpos(mime_content_type($fichier), 'image') !== false){
+
+              //$fichierTemporaire = $fichier["tmp_name"];
+              //$src = realpath(dirname($fichierTemporaire)).'\\'.basename($fichierTemporaire);
+
+              //$dst = 'gestionSlider/img/'.$fichier["name"];
+
+              $result = false;//copy($src, $dst);
+
+              if ($result == true){
+                $reponse = 'ok';
+              } else {
+                $reponse = 'echec';
+              }
+            //} else {
+              //$reponse = 'image';
+            //}
+          } else {
+            $reponse = 'dosImg';
+          }
+        } else {
+          $reponse = 'dosTemp';
+        }
+
+        closedir($dossierImage);
+        closedir($dossierFichierTempo);
+
+      }
+
+      return $this->render('gestion/slider/ajouterImages.html.twig', [
+        'reponse' => $reponse
+      ]);
     }
 
     /**
     * @Route("/gestion/slider/vitesse", name="changerVitesse")
     * @Security("is_granted('ROLE_ADMIN')")
     */
-    public function changerVitesseSlider() {
+    public function changerVitesseSlider(Request $req) {
+
+      if ($req->request->count() > 0) {
+        $vitesseSlider = $req->request->get('vitesse') * 1000;
+
+        $fichierVitesse = fopen('gestionSlider/defaultSpeed.txt', 'w+');
+        fputs($fichierVitesse, $vitesseSlider);
+        fclose($fichierVitesse);
+
+        return $this->redirectToRoute('gestionSlider');
+      }
+
       return $this->render('gestion/slider/vitesse.html.twig');
+    }
+
+    public function getChoixSlider($supp) {
+      //s'il s'agit d'une suppression (supp == true),
+      //on n'affiche pas le slider actif, sinon on l'affiche
+
+      $slidersAAfficher = array();
+
+      $cheminSlider = $this->getSliderActif();
+      $defaultSlider = basename($cheminSlider, '.txt');
+
+      if($dossier = opendir('gestionSlider/sliders')){
+        while(false !== ($fichier = readdir($dossier))){
+          if($fichier != '.' && $fichier != '..'){
+
+            $nomFichier = basename($fichier, '.txt');
+            //dump($nomFichier);
+
+            if (!$supp || $nomFichier != $defaultSlider) {
+              // soit ce n'est pas la page supprimer, soit ce n'est pas le defaultSlider
+              $slidersAAfficher[] = $nomFichier;
+              //dump($slidersAAfficher);
+            }
+          }
+        }
+      }
+
+      return $slidersAAfficher;
     }
 
 }

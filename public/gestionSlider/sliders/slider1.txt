@@ -1,4 +1,5 @@
 gestionSlider/img/3.jpg
-gestionSlider/img/s3.jpggestionSlider/img/s4.jpg
+gestionSlider/img/s3.jpg
+gestionSlider/img/s4.jpg
 gestionSlider/img/slide_img_73_1.png
 gestionSlider/img/slide_img_75_1.png
