@@ -46,7 +46,7 @@ class BorealController extends AbstractController
 
     /**
     * @Route ("/boreal/femmes/produit{id}", name="produit_femmes")
-    **/
+    */
     public function show($id){
       $repo=$this->getDoctrine()->getRepository(Produit::class);
 
@@ -59,16 +59,16 @@ class BorealController extends AbstractController
     }
 
     /**
-    * @Route("/boreal/gestion-produits", name="gestionProduit")
-    **/
+    * @Route("/gestion/produits", name="gestionProduits")
+    */
     public function gestionProduit(){
-      return $this->render('boreal/produits.html.twig');
+      return $this->render('gestion/produits.html.twig');
     }
 
     /**
-    * @Route ("/boreal/creation-produit", name="creationProduit")
-    * @Route ("/boreal/gestion-produits/{id}/edit", name="boreal_edit_produit")
-    **/
+    * @Route ("/gestion/produits/creation", name="creationProduit")
+    * @Route ("/gestion/produits/{id}/edit", name="boreal_edit_produit")
+    */
     public function formCreationProduit(Produit $produit = null, Request $request, ObjectManager $manager){
 
       if (!$produit) {
@@ -86,7 +86,7 @@ class BorealController extends AbstractController
         return $this->redirectToRoute('accueil');
       }
 
-      return $this->render('boreal/creation_produit.html.twig', [
+      return $this->render('gestion/produits/creation_produit.html.twig', [
           'formCreationProduit' => $form->createView(),
           'editMode' => $produit->getId() !== null
       ]);
@@ -123,6 +123,69 @@ class BorealController extends AbstractController
 
       return $fichiers;
 
+    }
+
+    /**
+    *   @Route("/gestion", name="gestion")
+    */
+    public function gestion() {
+      return $this->render('gestion/home.html.twig');
+    }
+
+    /**
+    *   @Route("/gestion/slider", name="gestionSlider")
+    */
+    public function gestionSlider() {
+      return $this->render('gestion/slider.html.twig');
+    }
+
+    /**
+    *   @Route("/gestion/clients", name="gestionClients")
+    */
+    public function gestionClients() {
+      return $this->render('gestion/clients.html.twig');
+    }
+
+    /**
+    *   @Route("/gestion/slider/creer", name="creerSlider")
+    */
+    public function creerSlider() {
+      return $this->render('gestion/slider/creer.html.twig');
+    }
+
+    /**
+    *   @Route("/gestion/slider/modifier", name="modifierSlider")
+    */
+    public function modifierSlider() {
+      return $this->render('gestion/slider/modifier.html.twig');
+    }
+
+    /**
+    *   @Route("/gestion/slider/supprimer", name="supprimerSlider")
+    */
+    public function supprimerSlider() {
+      return $this->render('gestion/slider/supprimer.html.twig');
+    }
+
+    /**
+    *   @Route("/gestion/slider/choisir", name="choisirSlider")
+    */
+    public function choisirSlider() {
+      return $this->render('gestion/slider/choisir.html.twig');
+    }
+
+    /**
+    *   @Route("/gestion/slider/ajouterImages", name="ajouterImages")
+    */
+    public function ajouterImagesSlider() {
+      return $this->render('gestion/slider/ajouterImages.html.twig');
+    }
+
+    /**
+    *   @Route("/gestion/slider/vitesse", name="changerVitesse")
+    */
+    public function changerVitesseSlider() {
+      return $this->render('gestion/slider/vitesse.html.twig');
     }
 
 }
