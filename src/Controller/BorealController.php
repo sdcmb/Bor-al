@@ -157,16 +157,111 @@ class BorealController extends AbstractController
     * @Route("/gestion/slider/creer", name="creerSlider")
     * @Security("is_granted('ROLE_ADMIN')")
     */
-    public function creerSlider() {
-      return $this->render('gestion/slider/creer.html.twig');
+    public function creerSlider(Request $req) {
+
+      if ($req->request->count() > 0) {
+        $cheminSlider = 'gestionSlider/sliders/'.$req->request->get('nomSlider').'.txt';
+        $fichierSlider = fopen("$cheminSlider", 'w+');
+
+        if($dossier = opendir('gestionSlider/img')){
+          $index = 0;
+          while(false !== ($fichier = readdir($dossier))){
+            if($fichier != '.' && $fichier != '..'
+                    && !empty($req->request->get($index))) {
+
+              if ($req->request->get($index) == 'on'){
+
+                $src = 'gestionSlider/img/'.$fichier;
+                fputs($fichierSlider, "$src\n");
+
+              }
+            }
+            $index++;
+          }
+        }
+
+        closedir($dossier);
+        fclose($fichierSlider);
+
+        return $this->redirectToRoute('gestionSlider');
+      }
+
+      $fichiersAAfficher = $this->getFichiersSelection();
+
+      return $this->render('gestion/slider/creer.html.twig', [
+        'fichiersAAfficher' => $fichiersAAfficher
+      ]);
     }
 
     /**
     * @Route("/gestion/slider/modifier", name="modifierSlider")
     * @Security("is_granted('ROLE_ADMIN')")
     */
-    public function modifierSlider() {
-      return $this->render('gestion/slider/modifier.html.twig');
+    public function modifierSlider(Request $req) {
+
+      if ($req->request->get('cheminSlider') != null) {
+        //2e itération : choix des images
+
+        //dump($req->request->get('cheminSlider'));
+        $cheminSlider = 'gestionSlider/sliders/'.$req->request->get('cheminSlider').'.txt';
+        //dump($cheminSlider);
+        $fichiersAAfficher = $this->getFichierAModifier($cheminSlider);
+
+        $_SESSION["ancienChemin"] = $cheminSlider;
+
+        return $this->render('gestion/slider/modifier.html.twig', [
+          'fichiersAAfficher' => $fichiersAAfficher,
+          'nomSlider' => $req->request->get('cheminSlider')
+        ]);
+      }
+
+      if ($req->request->get('nomSlider') != null) {
+        //3e itération : modification du fichier
+
+        $ancienChemin = $_SESSION["ancienChemin"];
+        $nouveauChemin = 'gestionSlider/sliders/'.$req->request->get('nomSlider').'.txt';
+
+        if ($ancienChemin != $nouveauChemin) {
+          rename($ancienChemin, $nouveauChemin);
+
+          $defaultSlider = $this->getSliderActif();
+          if ($defaultSlider = $ancienChemin) {
+
+            $fichierSlider = fopen('gestionSlider/defaultSlide.txt', 'w+');
+            fputs($fichierSlider, $nouveauChemin);
+            fclose($fichierSlider);
+          }
+        }
+
+        $fichierSlider = fopen("$nouveauChemin", 'w+');
+
+        if($dossier = opendir('gestionSlider/img')){
+          $index = 0;
+          while(false !== ($fichier = readdir($dossier))){
+            if($fichier != '.' && $fichier != '..'
+                    && !empty($_POST["$index"])) {
+
+              if ($_POST["$index"] == 'on'){
+
+                $src = 'gestionSlider/img/'.$fichier;
+                fputs($fichierSlider, "$src\n");
+
+
+              }
+            }
+            $index++;
+          }
+        }
+
+        return $this->redirectToRoute('gestionSlider');
+      }
+
+      //1e itération : choix du slider
+      $slidersAAfficher = $this->getChoixSlider(false);
+
+      return $this->render('gestion/slider/modifier.html.twig', [
+        'slidersAAfficher' => $slidersAAfficher
+      ]);
     }
 
     /**
@@ -186,7 +281,7 @@ class BorealController extends AbstractController
       $slidersAAfficher = $this->getChoixSlider(true);
 
       return $this->render('gestion/slider/supprimer.html.twig', [
-        'slidersAAfficher' => $slidersAAfficher,
+        'slidersAAfficher' => $slidersAAfficher
       ]);
     }
 
@@ -314,6 +409,67 @@ class BorealController extends AbstractController
       }
 
       return $slidersAAfficher;
+    }
+
+    public function getFichiersSelection() {
+
+      $fichiersAAfficher = array();
+
+      if($dossier = opendir('gestionSlider/img')){
+        $index = 0;
+        while(false !== ($fichier = readdir($dossier))){
+          if($fichier != '.' && $fichier != '..'){
+
+            $fichiersAAfficher[] = [
+              'fichier' => $fichier,
+              'index' => $index
+            ];
+          }
+          $index++;
+        }
+      }
+      return $fichiersAAfficher;
+    }
+
+    public function getFichierAModifier($cheminSlider) {
+      dump($cheminSlider);
+
+      $fichiersAModifier = array();
+
+      // on parcours la liste des images à afficher
+      // on assignera un booléen à chaque image pour
+      // savoir s'il fait déjà parti du slider ou non
+      if($dossier = opendir('gestionSlider/img')) {
+        $slider = fopen("$cheminSlider", 'r+');
+        $index = 0;
+        while(false !== ($fichier = readdir($dossier))){
+          if($fichier != '.' && $fichier != '..'){
+
+            $dejaDedans = false;
+            while ((!$dejaDedans) && (false !== ( $cheminImage = fgets($slider) ))) {
+              $imageSlider = basename($cheminImage, "\n");
+              dump($imageSlider);
+              dump($fichier);
+              if ($imageSlider == $fichier) {
+                $dejaDedans = true;
+              }
+              dump($dejaDedans);
+            }
+            dump($dejaDedans);
+            $fichiersAModifier[] = [
+              'fichier' => $fichier,
+              'index' => $index,
+              'dejaDedans' => $dejaDedans
+            ];
+            fseek($slider, 0);
+          }
+          $index++;
+        }
+      }
+
+      dump($fichiersAModifier);
+
+      return $fichiersAModifier;
     }
 
 }

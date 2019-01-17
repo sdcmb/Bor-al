@@ -1,1 +1,1 @@
-gestionSlider/sliders/slider4.txt
+gestionSlider/sliders/fetes2018.txt
