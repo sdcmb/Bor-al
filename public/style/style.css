@@ -157,12 +157,12 @@ nav a:hover{
 }
 
 .product-card {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    padding: 2%;
-    flex: 1 30%;
-    background-color: #FFF;
+     text-align: center;
+     display: flex;
+     flex-direction: column;
+     padding: 2%;
+     flex: 1 25%;
+     background-color: #FFF;
 }
 
 .product-image img {
