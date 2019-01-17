@@ -2,9 +2,57 @@
 
 {% block body %}
 
-  <h2>Modifier un slider</h2></br>
+  <form action="" id="choixSlider" method="post">
 
+    {% if slidersAAfficher is defined %}
+    {# 1e itération : choix du slider #}
 
+      <h2>Selectionner le slider incorrect</h2></br>
+
+      {% for slider in slidersAAfficher %}
+        <div class="groupeSlider">
+          <input type="radio" id="casePour{{ slider }}" name="cheminSlider" value="{{ slider }}">
+          <label for="casePour{{ slider }}">{{ slider }}</label>
+        </div>
+      {% endfor %}
+
+    {% else %}
+    {# 2e itération : choix des images #}
+
+      <h2>Effectuer les modifications voulues</h2></br>
+
+      <div id="selectionImages">
+
+        {% for fichier in fichiersAAfficher %}
+
+          <div class="groupeImg">
+            {% if fichier['dejaDedans'] %}
+              <input type="checkbox" id="casePour{{ fichier['fichier'] }}" name="{{ fichier['index'] }}" value="on" checked='checked'>
+            {% else %}
+              <input type="checkbox" id="casePour{{ fichier['fichier'] }}" name="{{ fichier['index'] }}" value="on">
+            {% endif %}
+            <label for="casePour{{ fichier['fichier'] }}">
+              {{ fichier['fichier'] }} : <br>
+              <img src="{{ asset('gestionSlider/img/' ~ fichier['fichier']) }}" alt="{{ fichier['fichier'] }}">
+            </label>
+          </div>
+
+        {% endfor %}
+
+      </div>
+
+      <div id="nomSlider">
+        <input type="text" name="nomSlider" value="{{ nomSlider }}">
+      </div>
+
+    {% endif %}
+
+    <br><br>
+    <div id="bouton">
+      <input type="submit" value="Valider">
+    </div>
+
+  </form>
 
 
 {% endblock %}
