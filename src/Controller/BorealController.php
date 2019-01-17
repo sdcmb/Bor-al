@@ -319,44 +319,49 @@ class BorealController extends AbstractController
 
       $reponse = '';
 
+      dump($_FILES);
+      dump($req->files);
+
       if ($req->request->count() > 0) {
+        if ($req->files->count() > 0) {
+          //dump(sys_get_temp_dir());
+          if($dossierFichierTempo = opendir(sys_get_temp_dir())){
+            if($dossierImage = opendir('gestionSlider/img')){
 
-        //dump(sys_get_temp_dir());
-        if($dossierFichierTempo = opendir(sys_get_temp_dir())){
-          if($dossierImage = opendir('gestionSlider/img')){
+              //dump($req->request->get('fichier'));
+              $fichier = $_FILES['fichier'];
 
-            //dump($req->request->get('fichier'));
-            $fichier = $req->request->get('fichier');
+              //dump($req->files->get('fichier'));
+              if(strpos(mime_content_type($fichier), 'image') !== false){
 
-            //dump($req->files->get('fichier'));
-            //dump(mime_content_type($fichier));
-            //if(strpos(mime_content_type($fichier), 'image') !== false){
+                $fichierTemporaire = $fichier["tmp_name"];
+                $src = realpath(dirname($fichierTemporaire)).'\\'.basename($fichierTemporaire);
 
-              //$fichierTemporaire = $fichier["tmp_name"];
-              //$src = realpath(dirname($fichierTemporaire)).'\\'.basename($fichierTemporaire);
+                $dst = 'gestionSlider/img/'.$fichier["name"];
 
-              //$dst = 'gestionSlider/img/'.$fichier["name"];
+                $result = copy($src, $dst);
 
-              $result = false;//copy($src, $dst);
-
-              if ($result == true){
-                $reponse = 'ok';
+                if ($result == true){
+                  $reponse = 'ok';
+                } else {
+                  $reponse = 'echec';
+                }
               } else {
-                $reponse = 'echec';
+                $reponse = 'image';
               }
-            //} else {
-              //$reponse = 'image';
-            //}
+            } else {
+              $reponse = 'dosImg';
+            }
           } else {
-            $reponse = 'dosImg';
+            $reponse = 'dosTemp';
           }
+
+          closedir($dossierImage);
+          closedir($dossierFichierTempo);
+          
         } else {
-          $reponse = 'dosTemp';
+          $reponse = 'erreur';
         }
-
-        closedir($dossierImage);
-        closedir($dossierFichierTempo);
-
       }
 
       return $this->render('gestion/slider/ajouterImages.html.twig', [

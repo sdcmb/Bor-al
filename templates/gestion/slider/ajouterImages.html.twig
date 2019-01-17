@@ -8,8 +8,8 @@
 
     {% if reponse == '' %}
     {# 1e itération : choisir une image #}
-      <input name="fichier" type="file" value="Choisir une image" />
-      <input type="submit" value="Enregistrer l'image" />
+      <input name="fichier" type="file" value="Choisir une image">
+      <input type="submit" value="Enregistrer l'image">
     {% else %}
       {% if reponse == 'ok' %}
       {# 2e itération : tout est ok #}
@@ -39,6 +39,12 @@
       {# 2e itération : le dossier contenant les fichiers temporaires n'a pas pu etre ouvert #}
         <img src="{{ asset('images/erreur.png') }}" alt="erreur">
         Erreur d'ouverture du dossier contenant les fichiers temporaires
+      {% endif %}
+
+      {% if reponse == 'erreur' %}
+      {# 2e itération : erreur lors du passage du fichier d'une itération à la suivante #}
+        <img src="{{ asset('images/erreur.png') }}" alt="erreur">
+        Erreur lors du passage du fichier en paramètre
       {% endif %}
 
       <br><br>
