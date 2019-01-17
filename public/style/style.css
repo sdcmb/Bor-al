@@ -128,16 +128,25 @@ nav a:hover{
 .filtre{
     display: inline-block;
     text-align: center;
-    width: 25%;
+    width: 20%;
     border: solid 1px;
 }
 
 .filtre label{
     padding-left: 40px;
+}
 
-    & select{
-     width: 50px;
-    }
+.filtre select{
+     margin-bottom: 10px;
+     border-radius: 5px;
+
+}
+
+.aff_product{
+     display: inline-block;
+     width:75%;
+     vertical-align: top;
+     margin: auto;
 }
 
 .products {
@@ -157,11 +166,12 @@ nav a:hover{
 }
 
 .product-image img {
-    width: 100%;
+    width: 200px;
 }
 
 .product-info{
     margin-top: -25px;
+    font-size:20px;
 }
 
 /**---------------------------------------Footer---------------------------------------**/
