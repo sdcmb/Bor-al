@@ -11,10 +11,10 @@
       {% for fichier in fichiersAAfficher %}
 
         <div class="groupeImg">
-          <input type="checkbox" id="casePour{{ fichier[0] }}" name="{{ fichier[1] }}" value="on">
-          <label for="casePour{{ fichier[0] }}">
-            {{ fichier[0] }} : <br>
-            <img src="{{ asset('gestionSlider/img/' ~ fichier[0]) }}" alt="{{ fichier[0] }}">
+          <input type="checkbox" id="casePour{{ fichier['fichier'] }}" name="{{ fichier['index'] }}" value="on">
+          <label for="casePour{{ fichier['fichier'] }}">
+            {{ fichier['fichier'] }} : <br>
+            <img src="{{ asset('gestionSlider/img/' ~ fichier['fichier']) }}" alt="{{ fichier['fichier'] }}">
           </label>
         </div>
 
