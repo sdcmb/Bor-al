@@ -4,7 +4,32 @@
 
   <h2>Créer un slider</h2></br>
 
+  <form action="" id="creerSlider" method="post">
 
+    <div id="selectionImages">
 
+      {% for fichier in fichiersAAfficher %}
+
+        <div class="groupeImg">
+          <input type="checkbox" id="casePour{{ fichier[0] }}" name="{{ fichier[1] }}" value="on">
+          <label for="casePour{{ fichier[0] }}">
+            {{ fichier[0] }} : <br>
+            <img src="{{ asset('gestionSlider/img/' ~ fichier[0]) }}" alt="{{ fichier[0] }}">
+          </label>
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+    <div id="nomSlider">
+      <input type="text" name="nomSlider">
+    </div>
+
+    <div id="bouton">
+      <input type="submit" value="Valider">
+    </div>
+
+  </form>
 
 {% endblock %}

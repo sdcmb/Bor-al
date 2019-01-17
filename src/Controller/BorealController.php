@@ -157,8 +157,40 @@ class BorealController extends AbstractController
     * @Route("/gestion/slider/creer", name="creerSlider")
     * @Security("is_granted('ROLE_ADMIN')")
     */
-    public function creerSlider() {
-      return $this->render('gestion/slider/creer.html.twig');
+    public function creerSlider(Request $req) {
+
+      if ($req->request->count() > 0) {
+        $cheminSlider = 'gestionSlider/sliders/'.$req->request->get('nomSlider').'.txt';
+        $fichierSlider = fopen("$cheminSlider", 'w+');
+
+        if($dossier = opendir('gestionSlider/img')){
+          $index = 0;
+          while(false !== ($fichier = readdir($dossier))){
+            if($fichier != '.' && $fichier != '..'
+                    && !empty($req->request->get($index))) {
+
+              if ($req->request->get($index) == 'on'){
+
+                $src = 'gestionSlider/img/'.$fichier;
+                fputs($fichierSlider, "$src\n");
+
+              }
+            }
+            $index++;
+          }
+        }
+
+        closedir($dossier);
+        fclose($fichierSlider);
+
+        return $this->redirectToRoute('gestionSlider');
+      }
+
+      $fichiersAAfficher = $this->getFichiersSelection();
+
+      return $this->render('gestion/slider/creer.html.twig', [
+        'fichiersAAfficher' => $fichiersAAfficher
+      ]);
     }
 
     /**
@@ -186,7 +218,7 @@ class BorealController extends AbstractController
       $slidersAAfficher = $this->getChoixSlider(true);
 
       return $this->render('gestion/slider/supprimer.html.twig', [
-        'slidersAAfficher' => $slidersAAfficher,
+        'slidersAAfficher' => $slidersAAfficher
       ]);
     }
 
@@ -314,6 +346,24 @@ class BorealController extends AbstractController
       }
 
       return $slidersAAfficher;
+    }
+
+    public function getFichiersSelection() {
+
+      $fichiersAAfficher = array();
+
+      if($dossier = opendir('gestionSlider/img')){
+        $index = 0;
+        while(false !== ($fichier = readdir($dossier))){
+          if($fichier != '.' && $fichier != '..'){
+
+            $fichiersAAfficher[] = [$fichier, $index];
+
+          }
+          $index++;
+        }
+      }
+      return $fichiersAAfficher;
     }
 
 }
