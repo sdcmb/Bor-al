@@ -18,7 +18,7 @@ if ( file_exists('../gestionSlider/defaultSpeed.txt') ) {
   $('#infinite-slider2').infiniteSlider2({
     // general settings
     width: 100,
-    height: '800',
+    height: '700',
     arrows: true,
     toggles: true,
     labels: false,

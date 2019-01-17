@@ -15,6 +15,15 @@ class ProduitFixtures extends Fixture
         $produitDesigual2 = new Produit();
         $produitLancaster2 = new Produit();
         $produitLancaster3 = new Produit();
+        $produitLancaster4 = new Produit();
+        $produitLancaster5 = new Produit();
+        $produitLancaster6 = new Produit();
+        $produitLancaster7 = new Produit();
+        $produitLancaster8 = new Produit();
+        $produitLancaster9 = new Produit();
+        $produitLancaster10 = new Produit();
+        $produitLancaster11 = new Produit();
+        $produitLancaster12 = new Produit();
 
         $produitDesigual->setReference("18WAXP90")
                 ->setMarque("Desigual")
@@ -87,12 +96,152 @@ class ProduitFixtures extends Fixture
                  Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
                 ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
 
+           $produitLancaster4->setReference("229-16")
+                   ->setMarque("Lancaster")
+                   ->setModele("Cuir Dune")
+                   ->setCouleur("Bordeaux / Noir")
+                   ->setPrix("110.00")
+                   ->setPoids("0.1")
+                   ->setDimension("19cm x 12cm x 3cm")
+                   ->setMatiere("Cuir de vachette pleine fleur")
+                   ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
+                   A associer avec un sac Dune  pour un total look tendance !
+                   Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
+                    Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
+                   ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
+
+
+         $produitLancaster5->setReference("329-16")
+                ->setMarque("Lancaster")
+                ->setModele("Cuir Dune")
+                ->setCouleur("Bordeaux / Noir")
+                ->setPrix("110.00")
+                ->setPoids("0.1")
+                ->setDimension("19cm x 12cm x 3cm")
+                ->setMatiere("Cuir de vachette pleine fleur")
+                ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
+                A associer avec un sac Dune  pour un total look tendance !
+                Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
+                 Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
+                ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
+
+
+
+          $produitLancaster6->setReference("429-16")
+                   ->setMarque("Lancaster")
+                   ->setModele("Cuir Dune")
+                   ->setCouleur("Bordeaux / Noir")
+                   ->setPrix("110.00")
+                   ->setPoids("0.1")
+                   ->setDimension("19cm x 12cm x 3cm")
+                   ->setMatiere("Cuir de vachette pleine fleur")
+                   ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
+                   A associer avec un sac Dune  pour un total look tendance !
+                   Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
+                    Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
+                   ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
+
+
+
+         $produitLancaster7->setReference("529-16")
+                 ->setMarque("Lancaster")
+                 ->setModele("Cuir Dune")
+                 ->setCouleur("Bordeaux / Noir")
+                 ->setPrix("110.00")
+                 ->setPoids("0.1")
+                 ->setDimension("19cm x 12cm x 3cm")
+                 ->setMatiere("Cuir de vachette pleine fleur")
+                 ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
+                 A associer avec un sac Dune  pour un total look tendance !
+                 Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
+                  Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
+                 ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
+
+
+
+       $produitLancaster8->setReference("629-16")
+               ->setMarque("Lancaster")
+               ->setModele("Cuir Dune")
+               ->setCouleur("Bordeaux / Noir")
+               ->setPrix("110.00")
+               ->setPoids("0.1")
+               ->setDimension("19cm x 12cm x 3cm")
+               ->setMatiere("Cuir de vachette pleine fleur")
+               ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
+               A associer avec un sac Dune  pour un total look tendance !
+               Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
+                Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
+               ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
+
+     $produitLancaster9->setReference("629-16")
+             ->setMarque("Lancaster")
+             ->setModele("Cuir Dune")
+             ->setCouleur("Bordeaux / Noir")
+             ->setPrix("110.00")
+             ->setPoids("0.1")
+             ->setDimension("19cm x 12cm x 3cm")
+             ->setMatiere("Cuir de vachette pleine fleur")
+             ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
+             A associer avec un sac Dune  pour un total look tendance !
+             Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
+              Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
+             ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
+
+   $produitLancaster10->setReference("629-16")
+          ->setMarque("Lancaster")
+          ->setModele("Cuir Dune")
+          ->setCouleur("Bordeaux / Noir")
+          ->setPrix("110.00")
+          ->setPoids("0.1")
+          ->setDimension("19cm x 12cm x 3cm")
+          ->setMatiere("Cuir de vachette pleine fleur")
+          ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
+          A associer avec un sac Dune  pour un total look tendance !
+          Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
+           Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
+          ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
+     $produitLancaster11->setReference("629-16")
+             ->setMarque("Lancaster")
+             ->setModele("Cuir Dune")
+             ->setCouleur("Bordeaux / Noir")
+             ->setPrix("110.00")
+             ->setPoids("0.1")
+             ->setDimension("19cm x 12cm x 3cm")
+             ->setMatiere("Cuir de vachette pleine fleur")
+             ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
+             A associer avec un sac Dune  pour un total look tendance !
+             Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
+              Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
+             ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
+   $produitLancaster12->setReference("629-16")
+           ->setMarque("Lancaster")
+           ->setModele("Cuir Dune")
+           ->setCouleur("Bordeaux / Noir")
+           ->setPrix("110.00")
+           ->setPoids("0.1")
+           ->setDimension("19cm x 12cm x 3cm")
+           ->setMatiere("Cuir de vachette pleine fleur")
+           ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
+           A associer avec un sac Dune  pour un total look tendance !
+           Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
+            Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
+           ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
+
 
         $manager->persist($produitDesigual);
         $manager->persist($produitLancaster);
         $manager->persist($produitDesigual2);
         $manager->persist($produitLancaster2);
         $manager->persist($produitLancaster3);
+        $manager->persist($produitLancaster4);
+        $manager->persist($produitLancaster5);
+        $manager->persist($produitLancaster6);
+        $manager->persist($produitLancaster7);
+        $manager->persist($produitLancaster8);
+        $manager->persist($produitLancaster9);
+        $manager->persist($produitLancaster10);
+        $manager->persist($produitLancaster11);
+        $manager->persist($produitLancaster12);
 
 
         $manager->flush();
