@@ -157,12 +157,24 @@ nav a:hover{
 }
 
 .product-card {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    padding: 2%;
-    flex: 1 30%;
-    background-color: #FFF;
+     text-align: center;
+     display: flex;
+     flex-direction: column;
+     flex-wrap: wrap;
+     padding: 0%;
+     flex: 1 30%;
+     background-color: #FFF;
+
+}
+
+.load{
+     display: none;
+}
+
+.noContent{
+  color: black !important;
+  background-color: transparent !important;
+  pointer-events: none;
 }
 
 .product-image img {
@@ -173,6 +185,28 @@ nav a:hover{
     margin-top: -25px;
     font-size:20px;
 }
+
+
+
+
+#loadmore {
+    margin: 5px auto;
+    padding: 8px 0;
+    width: 15%;
+    border-radius: 10px;
+    text-align: center;
+    color: #000000;
+    display: block;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+    font-weight: bold;
+}
+
+#loadmore:hover {
+    background: #f6f6f6;
+}
+
+
 
 /**---------------------------------------Footer---------------------------------------**/
 

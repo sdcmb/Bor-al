@@ -59,15 +59,19 @@
 
             <div class="product-card">
 
-              <div class="product-image">
-                  <a href="{{ path('produit_femmes', {'id' : produit.id}) }}"><img src="{{ produit.image }}" alt"produit"></a>
-              </div>
+			  <div class="load">
 
-              <h4>{{ produit.marque }} {{ produit.modele }}</h4>
+	              <div class="product-image">
+	                  <a href="{{ path('produit_femmes', {'id' : produit.id}) }}"><img src="{{ produit.image }}" alt"produit"></a>
+	              </div>
 
-              <div class="product-info">
-                  <p>{{ produit.prix }}€<p>
-              </div>
+	              <h4>{{ produit.marque }} {{ produit.modele }}</h4>
+
+	              <div class="product-info">
+	                  <p>{{ produit.prix }}€<p>
+	              </div>
+
+			   </div>
 
             </div>
 
@@ -75,6 +79,8 @@
 
   </section>
 
-</div>
+	<a href="#" id="loadmore">Afficher plus de produits</a>
 
+</div>
+<script src="{{ asset('js/loadMore.js') }}"></script>
 {% endblock %}
