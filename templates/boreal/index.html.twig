@@ -6,12 +6,12 @@
 
 <menu class="filtre">
 
-		<label>
 			Filtres
-		 <img src="https://image.flaticon.com/icons/png/128/149/149271.png" alt="filtre" style="width:2%;"><br>
+		 <img src="{{ asset('images/filtre.png') }}" alt="filtre" style="width:2%;"><br>
 
 		<label>
 				<select name="product-type" id="product-type" class="filter">
+
 						<option value="0">Marque</option>
 						<option value="1">Product type 1</option>
 						<option value="2">Product type 2</option>
@@ -21,6 +21,7 @@
 
 		<label>
 				<select name="platform" id="platform" class="filter">
+
 						<option value="0">Modèle</option>
 						<option value="windows">Windows</option>
 						<option value="osx">OSX</option>
@@ -28,8 +29,9 @@
 				</select>
 		</label><br>
 
-    <label>
+    		<label>
 				<select name="platform" id="platform" class="filter">
+
 						<option value="0">Couleur</option>
 						<option value="windows">Windows</option>
 						<option value="osx">OSX</option>
@@ -39,6 +41,7 @@
 
 		<label>
 				<select name="platform" id="platform" class="filter">
+
 						<option value="0">Matière</option>
 						<option value="windows">Windows</option>
 						<option value="osx">OSX</option>
@@ -48,7 +51,7 @@
 </menu>
 
 
-<div style="display: inline-block; border:solid 1px; width:70%; vertical-align: top;">
+<div class="aff_product">
 
   <section class="products">
 
@@ -57,11 +60,13 @@
             <div class="product-card">
 
               <div class="product-image">
-                  <a href="{{ path('produit_femmes', {'id' : produit.id}) }}"><img src="{{ produit.image }}" alt"produit"  style="width:200px;"></a>
+                  <a href="{{ path('produit_femmes', {'id' : produit.id}) }}"><img src="{{ produit.image }}" alt"produit"></a>
               </div>
+
               <h4>{{ produit.marque }} {{ produit.modele }}</h4>
+
               <div class="product-info">
-                  <p style="font-size:20px;">{{ produit.prix }}€<p>
+                  <p>{{ produit.prix }}€<p>
               </div>
 
             </div>
