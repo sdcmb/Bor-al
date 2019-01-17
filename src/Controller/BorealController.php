@@ -319,10 +319,11 @@ class BorealController extends AbstractController
 
       $reponse = '';
 
-      dump($_FILES);
-      dump($req->files);
+      //dump($_FILES);
+      //dump($req->files);
+      //dump($req);
 
-      if ($req->request->count() > 0) {
+      if (($req->request->count() > 0) || ($req->files->count() > 0)) {
         if ($req->files->count() > 0) {
           //dump(sys_get_temp_dir());
           if($dossierFichierTempo = opendir(sys_get_temp_dir())){
@@ -332,7 +333,7 @@ class BorealController extends AbstractController
               $fichier = $_FILES['fichier'];
 
               //dump($req->files->get('fichier'));
-              if(strpos(mime_content_type($fichier), 'image') !== false){
+              if(strpos($fichier['type'], 'image') !== false){
 
                 $fichierTemporaire = $fichier["tmp_name"];
                 $src = realpath(dirname($fichierTemporaire)).'\\'.basename($fichierTemporaire);
@@ -358,7 +359,7 @@ class BorealController extends AbstractController
 
           closedir($dossierImage);
           closedir($dossierFichierTempo);
-          
+
         } else {
           $reponse = 'erreur';
         }
