@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<input class="retour_arriere"type="image" src="{{ asset('images/retour.png') }}" onclick="javascript:history.back()">
 
   <h2>Gestion des clients</h2>
-  
+
   <div class="gestion">
 
       <h3><a href="{{ path('creationProduit')}}">Création produit</a></h3>

@@ -2,6 +2,7 @@
 
 {% block body %}
 
+<input class="retour_arriere"type="image" src="{{ asset('images/retour.png') }}" onclick="javascript:history.back()">
   <h2>Gestion du slider</h2></br>
 
 
@@ -12,7 +13,7 @@
        <h3><a href="{{ path('modifierSlider')}}">Modif slider</a></h3>
 
        <h3><a href="{{ path('supprimerSlider')}}">Supprimer slider</a></h3>
-       
+
        <h3><a href="{{ path('choisirSlider')}}">Choix Slider</a></h3>
 
        <h3><a href="{{ path('ajouterImages')}}">Ajout images</a></h3>

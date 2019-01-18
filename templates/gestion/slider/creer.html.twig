@@ -2,6 +2,8 @@
 
 {% block body %}
 
+<input class="retour_arriere"type="image" src="{{ asset('images/retour.png') }}" onclick="javascript:history.back()">
+
   <h2>Créer un slider</h2></br>
 
   <form action="" id="creerSlider" method="post">
@@ -21,13 +23,16 @@
       {% endfor %}
 
     </div>
+    <div class="creer">
 
-    <div id="nomSlider">
-      <input type="text" name="nomSlider">
-    </div>
+         <div id="nomSlider">
+              <input type="text" name="nomSlider">
+         </div>
 
-    <div id="bouton">
-      <input type="submit" value="Valider">
+         <div id="bouton">
+              <input type="submit" value="Valider">
+         </div>
+         
     </div>
 
   </form>
