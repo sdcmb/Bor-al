@@ -286,6 +286,29 @@ class BorealController extends AbstractController
     }
 
     /**
+    * @Route("/gestion/slider/supprimerImage", name="supprimerImage")
+    * @Security("is_granted('ROLE_ADMIN')")
+    */
+    public function supprimerImage(Request $req) {
+
+      if ($req->request->count() > 0) {
+        $nomImageChoisi = $req->request->get('cheminImage');
+        $cheminImage = 'gestionSlider/img/'.$nomImageChoisi;
+        // dump($nomImageChoisi);
+        // dump($cheminImage);
+        unlink($cheminImage);
+
+        return $this->redirectToRoute('gestionSlider');
+      }
+
+      $fichiersAAfficher = $this->getFichiersSelection();
+
+      return $this->render('gestion/slider/supprimerImage.html.twig', [
+        'fichiersAAfficher' => $fichiersAAfficher
+      ]);
+    }
+
+    /**
     * @Route("/gestion/slider/choisir", name="choisirSlider")
     * @Security("is_granted('ROLE_ADMIN')")
     */
