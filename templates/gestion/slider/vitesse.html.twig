@@ -2,9 +2,11 @@
 
 {% block body %}
 
+<input class="retour_arriere"type="image" src="{{ asset('images/retour.png') }}" onclick="javascript:history.back()">
+
   <h2>Changer la vitesse du slider</h2></br>
 
-  <form action="" id="changVitesse" method="post">
+  <form class="changerVitesse" action="" id="changVitesse" method="post">
 
     Temps (en seconde) :
     <input type="text" name="vitesse">

@@ -4,6 +4,8 @@
 
 {% block body %}
 
+<input class="retour_arriere" type="image" src="{{ asset('images/retour.png') }}" onClick="document.location.href = document.referrer" />
+
     <h3>
       {% if editMode %}
         Modifier un produit

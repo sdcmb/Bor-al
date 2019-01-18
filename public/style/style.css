@@ -209,6 +209,8 @@ nav a:hover{
 
 /**---------------------------------------Pages de gestion du site---------------------------------------**/
 
+/**----------------------accueils----------------------**/
+
 h2{
      text-align: center;
      font-size: 250%;
@@ -224,8 +226,68 @@ h2{
      padding-bottom: 25px;
 }
 
+.retour_arriere{
+     width: 3%;
+     position: absolute;
+}
 
+/**----------------------créer slider----------------------**/
 
+.groupeImg{
+     text-align: center;
+     width: 30%;
+     display: inline-block;
+     padding-bottom: 5%
+}
+
+.groupeImg label{
+     font-size: 25px;
+}
+
+.groupeImg img{
+     max-width: 75%
+}
+
+.creer{
+     text-align: center;
+     margin-bottom: 50px;
+}
+
+.creer input{
+     margin-top: 1%;
+     width: 10%;
+}
+
+/**----------------------modifier slider----------------------**/
+
+.groupeSlider{
+     text-align: center;
+     margin: 1%;
+     font-size: 25px;
+}
+
+.validModif{
+     text-align: center;
+     margin-bottom: 50px;
+}
+
+#nomSlider{
+     text-align: center;
+}
+
+/**----------------------Ajout Images slider----------------------**/
+
+.ajoutImg{
+     text-align: center;
+     margin: 2%;
+}
+
+/**----------------------Vitesse slider----------------------**/
+
+.changerVitesse{
+     text-align: center;
+     margin: 2%;
+}
 
 /**-----------------------------------------------------------------------------------------------------**/
 
