@@ -246,7 +246,6 @@ class BorealController extends AbstractController
                 $src = 'gestionSlider/img/'.$fichier;
                 fputs($fichierSlider, "$src\n");
 
-
               }
             }
             $index++;
@@ -292,13 +291,60 @@ class BorealController extends AbstractController
     public function supprimerImage(Request $req) {
 
       if ($req->request->count() > 0) {
-        $nomImageChoisi = $req->request->get('cheminImage');
-        $cheminImage = 'gestionSlider/img/'.$nomImageChoisi;
+        $nomImageChoisie = $req->request->get('cheminImage');
+        $cheminImageChoisie = 'gestionSlider/img/'.$nomImageChoisie;
         // dump($nomImageChoisi);
         // dump($cheminImage);
-        unlink($cheminImage);
+        unlink($cheminImageChoisie);
 
-        return $this->redirectToRoute('gestionSlider');
+        //on supprime la photos de tous les sliders dans lesquels elle est
+        if($dossier = opendir('gestionSlider/sliders')) {
+          while (false !== ($nomSlider = readdir($dossier))) {
+            if ($nomSlider != '.' && $nomSlider != '..') {
+              $cheminSlider = 'gestionSlider/sliders/'.$nomSlider;
+              $slider = fopen($cheminSlider, 'r+');
+              $estDedans = false;
+              while ((!($estDedans) && false !== ( $cheminImage = fgets($slider) ))) {
+                if ($cheminImageChoisie."\n" == $cheminImage) {
+                  $estDedans = true;
+                }
+              }
+              fseek($slider, 0);
+              //dump($estDedans);
+              if ($estDedans) {
+                $cheminTemporaire = 'gestionSlider/sliders/tempo.txt';
+                $tempo = fopen($cheminTemporaire, 'w+');
+
+                while (false !== ($cheminImage = fgets($slider))) {
+                  fputs($tempo, "$cheminImage");
+                }
+
+                fclose($slider);
+                // réouverture du fichier du slider en supprimant le contenu
+                $slider = fopen($cheminSlider, 'w+');
+                fseek($tempo, 0);
+
+                // on remet le contenu sans l'image supprimée
+                //dump($cheminImageChoisie);
+                while (false !== ($cheminImage = fgets($tempo))) {
+                  //dump($cheminImage);
+                  if ($cheminImage != $cheminImageChoisie."\n") {
+                    fputs($slider, "$cheminImage");
+                  }
+                }
+                fclose($tempo);
+                unlink($cheminTemporaire);
+              }
+              fclose($slider);
+            }
+          }
+        }
+        //return $this->redirectToRoute('gestionSlider');
+
+        $fichiersAAfficher = $this->getFichiersSelection();
+        return $this->render('gestion/slider/supprimerImage.html.twig', [
+          'fichiersAAfficher' => $fichiersAAfficher
+        ]);
       }
 
       $fichiersAAfficher = $this->getFichiersSelection();

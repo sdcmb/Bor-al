@@ -1,0 +1,3 @@
+gestionSlider/img/slide_img_67_1.png
+gestionSlider/img/slide_img_73_1.png
+gestionSlider/img/slide_img_75_1.png
