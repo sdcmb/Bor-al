@@ -339,12 +339,7 @@ class BorealController extends AbstractController
             }
           }
         }
-        //return $this->redirectToRoute('gestionSlider');
-
-        $fichiersAAfficher = $this->getFichiersSelection();
-        return $this->render('gestion/slider/supprimerImage.html.twig', [
-          'fichiersAAfficher' => $fichiersAAfficher
-        ]);
+        return $this->redirectToRoute('gestionSlider');
       }
 
       $fichiersAAfficher = $this->getFichiersSelection();
