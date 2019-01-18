@@ -4,24 +4,24 @@
 
   <h2>Choisir le slider à afficher</h2></br>
 
-<form action="" id="choixSlider" method="post">
+  <form action="" id="choixSlider" method="post">
 
-  {% for slider in slidersAAfficher %}
-    <div class="groupeSlider">
-      {% if slider == defaultSlider %}
-        <input type="radio" id="casePour{{ slider }}" name="cheminSlider" value="{{ slider }}" checked="checked">
-      {% else %}
-        <input type="radio" id="casePour{{ slider }}" name="cheminSlider" value="{{ slider }}">
-      {% endif %}
-      <label for="casePour{{ slider }}">{{ slider }}</label>
+    {% for slider in slidersAAfficher %}
+      <div class="groupeSlider">
+        {% if slider == defaultSlider %}
+          <input type="radio" id="casePour{{ slider }}" name="cheminSlider" value="{{ slider }}" checked="checked">
+        {% else %}
+          <input type="radio" id="casePour{{ slider }}" name="cheminSlider" value="{{ slider }}">
+        {% endif %}
+        <label for="casePour{{ slider }}">{{ slider }}</label>
+      </div>
+    {% endfor %}
+
+    <br><br>
+    <div id="bouton">
+      <input type="submit" value="Valider">
     </div>
-  {% endfor %}
 
-  <br><br>
-  <div id="bouton">
-    <input type="submit" value="Valider">
-  </div>
-
-</form>
+  </form>
 
 {% endblock %}
