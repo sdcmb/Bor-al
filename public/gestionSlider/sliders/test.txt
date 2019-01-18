@@ -1,0 +1,4 @@
+gestionSlider/img/3.jpg
+gestionSlider/img/Paris ETERNAL 1.jpg
+gestionSlider/img/slide_img_73_1.png
+gestionSlider/img/slide_img_75_1.png
