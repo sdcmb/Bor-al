@@ -2,9 +2,11 @@
 
 {% block body %}
 
+<input class="retour_arriere"type="image" src="{{ asset('images/retour.png') }}" onclick="javascript:history.back()">
+
   <h2>Ajouter des images</h2></br>
 
-  <form enctype=multipart/form-data action="" id="ajoutImages" method="post">
+  <form class="ajoutImg" enctype=multipart/form-data action="" id="ajoutImages" method="post">
 
     {% if reponse == '' %}
     {# 1e itération : choisir une image #}

@@ -157,12 +157,24 @@ nav a:hover{
 }
 
 .product-card {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    padding: 2%;
-    flex: 1 30%;
-    background-color: #FFF;
+     text-align: center;
+     display: flex;
+     flex-direction: column;
+     flex-wrap: wrap;
+     padding: 0%;
+     flex: 1 30%;
+     background-color: #FFF;
+
+}
+
+.load{
+     display: none;
+}
+
+.noContent{
+  color: black !important;
+  background-color: transparent !important;
+  pointer-events: none;
 }
 
 .product-image img {
@@ -173,6 +185,132 @@ nav a:hover{
     margin-top: -25px;
     font-size:20px;
 }
+
+
+
+
+#loadmore {
+    margin: 5px auto;
+    padding: 8px 0;
+    width: 15%;
+    border-radius: 10px;
+    text-align: center;
+    color: #000000;
+    display: block;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+    font-weight: bold;
+}
+
+#loadmore:hover {
+    background: #f6f6f6;
+}
+
+
+/**---------------------------------------Pages de gestion du site---------------------------------------**/
+
+/**----------------------accueils----------------------**/
+
+h2{
+     text-align: center;
+     font-size: 250%;
+     font-weight: normal;
+}
+
+.gestion{
+     text-align: center;
+     margin-bottom: 5%
+}
+.gestion h3{
+     font-size: 150%;
+     padding-bottom: 25px;
+}
+
+.retour_arriere{
+     width: 3%;
+     position: absolute;
+}
+
+form{text-align: center;}
+
+form input[type=text]{
+     height: 50px;
+     font-size: 30px;
+     text-align: center;
+}
+
+form input[type=submit]{
+     text-align: center;
+     margin-bottom: 50px;
+     height: 30px;
+     font-size: 20px;
+}
+
+form input[type=file]{
+     text-align: center;
+     height: 30px;
+     font-size: 20px;
+}
+
+form p{
+     font-size: 30px;
+}
+
+
+
+/**----------------------créer slider----------------------**/
+
+.groupeImg{
+     text-align: center;
+     width: 30%;
+     display: inline-block;
+     padding-bottom: 5%
+}
+
+.groupeImg label{
+     font-size: 25px;
+}
+
+.groupeImg img{
+     max-width: 75%
+}
+
+.creer{
+     text-align: center;
+     margin-bottom: 50px;
+}
+
+.creer input{
+     margin-top: 1%;
+     width: 10%;
+}
+
+/**----------------------modifier slider----------------------**/
+
+.groupeSlider{
+     text-align: center;
+     margin: 1%;
+     font-size: 25px;
+}
+
+
+
+/**----------------------Ajout Images slider----------------------**/
+
+.ajoutImg{
+     text-align: center;
+     margin: 2%;
+}
+
+/**----------------------Vitesse slider----------------------**/
+
+.changerVitesse{
+     text-align: center;
+     margin: 2%;
+}
+
+/**-----------------------------------------------------------------------------------------------------**/
+
 
 /**---------------------------------------Footer---------------------------------------**/
 
