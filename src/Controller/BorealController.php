@@ -6,8 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Produit;
 use App\Entity\User;
+use App\Entity\Panier;
 use App\Form\UserType;
-use App\Form\ProductType;
+use App\Form\ProduitType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,7 +25,7 @@ class BorealController extends AbstractController
      */
     public function index()
     {
-        $repo=$this->getDoctrine()->getRepository(Produit::class);
+        $repo = $this->getDoctrine()->getRepository(Produit::class);
 
         $produits = $repo->findAll();
 
@@ -47,10 +48,10 @@ class BorealController extends AbstractController
     }
 
     /**
-    * @Route ("/boreal/femmes/produit{id}", name="produit_femmes")
+    * @Route ("/boreal/femmes/produit?id={id}", name="produit_femmes")
     */
     public function show($id){
-      $repo=$this->getDoctrine()->getRepository(Produit::class);
+      $repo = $this->getDoctrine()->getRepository(Produit::class);
 
       $produit = $repo->find($id);
 
@@ -540,6 +541,73 @@ class BorealController extends AbstractController
       dump($fichiersAModifier);
 
       return $fichiersAModifier;
+    }
+
+    public function produitIsAlreadyInPanier($produitId) {
+      $repo = $this->getDoctrine()->getRepository(Panier::class);
+
+      $panier = $repo->find($produitId);
+
+      if (empty($panier)) {
+        return false;
+      }
+      else
+      {
+        return true;
+      }
+    }
+
+    /**
+    * @Route("/boreal/femmes/produit?ProduitId={ProduitId}?UserId={UserId}", name="ajouterPanier")
+    */
+    public function ajouterPanier(ObjectManager $manager, $ProduitId, $UserId) {
+      $panier = new Panier();
+
+      $repo = $this->getDoctrine()->getRepository(Produit::class);
+
+      $produit = $repo->find($ProduitId);
+
+      if ($this->produitIsAlreadyInPanier($ProduitId)==true) {
+        $panier->setUserId($UserId)
+               ->setProduitId($ProduitId)
+               ->setQuantite($panier->getQuantite() + 1);
+      }
+      else
+      {
+        $panier->setUserId($UserId)
+               ->setProduitId($ProduitId)
+               ->setQuantite(1);
+      }
+
+      $manager->persist($panier);
+      $manager->flush();
+
+      return $this->render('boreal/show.html.twig', [
+        'controller_name' => 'BorealController',
+        'produit' => $produit
+      ]);
+    }
+
+    /**
+    * @Route("/boreal/panier", name="afficherPanier")
+    */
+    public function afficherPanier() {
+
+      $produits = array();
+
+      $repo1 = $this->getDoctrine()->getRepository(Panier::class);
+      $repo2 = $this->getDoctrine()->getRepository(Produit::class);
+
+      $paniers = $repo1->findAll();
+      foreach ($paniers as $panier) {
+        $produit = $repo2->find($panier->getProduitId());
+        $produits[] = $produit;
+      }
+
+      return $this->render('boreal/panier.html.twig', [
+        'controller_name' => 'BorealController',
+        'produits' => $produits
+      ]);
     }
 
 }

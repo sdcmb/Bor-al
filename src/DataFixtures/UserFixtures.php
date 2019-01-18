@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
+use App\Entity\Panier;
 
 class UserFixtures extends Fixture
 {
@@ -42,5 +43,6 @@ class UserFixtures extends Fixture
         $manager->persist($severine);
 
         $manager->flush();
+
     }
 }

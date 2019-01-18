@@ -7,8 +7,11 @@
         <div class="content">
             <img src="{{ produit.image }}" alt"sac_desigual" style="display:inline-block; padding-right:300px;">
             <p style="display:inline-block; font-size:40px;">{{ produit.prix }}€ </br>
-            <a href="#" class"button primary-button" style="font-size:25px;">Ajouter au panier</a><p>
-
+            {% if app.user %}
+              <a href="{{ path('ajouterPanier', {'ProduitId': produit.id, 'UserId': app.user.getId }) }}" class"button primary-button" style="font-size:25px;">Ajouter au panier</a></p>
+            {% else %}
+              <a href="{{ path('security_login') }}" class"button primary-button" style="font-size:25px;">Ajouter au panier</a></p>
+            {% endif %}
 
             <p style="font-size:20px;">Détail :
             <p>{{ produit.description | raw }}</p>

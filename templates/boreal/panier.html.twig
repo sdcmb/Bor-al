@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <h1>Panier</h1>
+  {% for produit in produits %}
+  <div class="produit_panier">
+      <h2> {{ produit.marque }} {{ produit.modele }} </h2>
+      <img src="{{ produit.image }}" alt"produit">
+      <p>{{ produit.prix }}€ </br>
+    </div>
+  {% endfor %}
+
+{% endblock %}
