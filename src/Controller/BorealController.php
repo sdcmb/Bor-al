@@ -450,7 +450,13 @@ class BorealController extends AbstractController
         return $this->redirectToRoute('gestionSlider');
       }
 
-      return $this->render('gestion/slider/vitesse.html.twig');
+      $fichierVitesse = fopen('gestionSlider/defaultSpeed.txt', 'r+');
+      $vitesseActuelle = fgets($fichierVitesse) / 1000;
+      fclose($fichierVitesse);
+
+      return $this->render('gestion/slider/vitesse.html.twig', [
+        'vitesseActuelle' => $vitesseActuelle
+      ]);
     }
 
     public function getChoixSlider($supp) {
