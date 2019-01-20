@@ -6,8 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Produit;
 use App\Entity\User;
+use App\Entity\Panier;
 use App\Form\UserType;
-use App\Form\ProductType;
+use App\Form\ProduitType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,7 +25,7 @@ class BorealController extends AbstractController
      */
     public function index()
     {
-        $repo=$this->getDoctrine()->getRepository(Produit::class);
+        $repo = $this->getDoctrine()->getRepository(Produit::class);
 
         $produits = $repo->findAll();
 
@@ -47,10 +48,10 @@ class BorealController extends AbstractController
     }
 
     /**
-    * @Route ("/boreal/femmes/produit{id}", name="produit_femmes")
+    * @Route ("/boreal/femmes/produit?id={id}", name="produit_femmes")
     */
     public function show($id){
-      $repo=$this->getDoctrine()->getRepository(Produit::class);
+      $repo = $this->getDoctrine()->getRepository(Produit::class);
 
       $produit = $repo->find($id);
 
@@ -246,7 +247,6 @@ class BorealController extends AbstractController
                 $src = 'gestionSlider/img/'.$fichier;
                 fputs($fichierSlider, "$src\n");
 
-
               }
             }
             $index++;
@@ -292,12 +292,54 @@ class BorealController extends AbstractController
     public function supprimerImage(Request $req) {
 
       if ($req->request->count() > 0) {
-        $nomImageChoisi = $req->request->get('cheminImage');
-        $cheminImage = 'gestionSlider/img/'.$nomImageChoisi;
+        $nomImageChoisie = $req->request->get('cheminImage');
+        $cheminImageChoisie = 'gestionSlider/img/'.$nomImageChoisie;
         // dump($nomImageChoisi);
         // dump($cheminImage);
-        unlink($cheminImage);
+        unlink($cheminImageChoisie);
 
+        //on supprime la photos de tous les sliders dans lesquels elle est
+        if($dossier = opendir('gestionSlider/sliders')) {
+          while (false !== ($nomSlider = readdir($dossier))) {
+            if ($nomSlider != '.' && $nomSlider != '..') {
+              $cheminSlider = 'gestionSlider/sliders/'.$nomSlider;
+              $slider = fopen($cheminSlider, 'r+');
+              $estDedans = false;
+              while ((!($estDedans) && false !== ( $cheminImage = fgets($slider) ))) {
+                if ($cheminImageChoisie."\n" == $cheminImage) {
+                  $estDedans = true;
+                }
+              }
+              fseek($slider, 0);
+              //dump($estDedans);
+              if ($estDedans) {
+                $cheminTemporaire = 'gestionSlider/sliders/tempo.txt';
+                $tempo = fopen($cheminTemporaire, 'w+');
+
+                while (false !== ($cheminImage = fgets($slider))) {
+                  fputs($tempo, "$cheminImage");
+                }
+
+                fclose($slider);
+                // réouverture du fichier du slider en supprimant le contenu
+                $slider = fopen($cheminSlider, 'w+');
+                fseek($tempo, 0);
+
+                // on remet le contenu sans l'image supprimée
+                //dump($cheminImageChoisie);
+                while (false !== ($cheminImage = fgets($tempo))) {
+                  //dump($cheminImage);
+                  if ($cheminImage != $cheminImageChoisie."\n") {
+                    fputs($slider, "$cheminImage");
+                  }
+                }
+                fclose($tempo);
+                unlink($cheminTemporaire);
+              }
+              fclose($slider);
+            }
+          }
+        }
         return $this->redirectToRoute('gestionSlider');
       }
 
@@ -409,7 +451,13 @@ class BorealController extends AbstractController
         return $this->redirectToRoute('gestionSlider');
       }
 
-      return $this->render('gestion/slider/vitesse.html.twig');
+      $fichierVitesse = fopen('gestionSlider/defaultSpeed.txt', 'r+');
+      $vitesseActuelle = fgets($fichierVitesse) / 1000;
+      fclose($fichierVitesse);
+
+      return $this->render('gestion/slider/vitesse.html.twig', [
+        'vitesseActuelle' => $vitesseActuelle
+      ]);
     }
 
     public function getChoixSlider($supp) {
@@ -499,6 +547,73 @@ class BorealController extends AbstractController
       dump($fichiersAModifier);
 
       return $fichiersAModifier;
+    }
+
+    public function produitIsAlreadyInPanier($produitId) {
+      $repo = $this->getDoctrine()->getRepository(Panier::class);
+
+      $panier = $repo->find($produitId);
+
+      if (empty($panier)) {
+        return false;
+      }
+      else
+      {
+        return true;
+      }
+    }
+
+    /**
+    * @Route("/boreal/femmes/produit?ProduitId={ProduitId}?UserId={UserId}", name="ajouterPanier")
+    */
+    public function ajouterPanier(ObjectManager $manager, $ProduitId, $UserId) {
+      $panier = new Panier();
+
+      $repo = $this->getDoctrine()->getRepository(Produit::class);
+
+      $produit = $repo->find($ProduitId);
+
+      if ($this->produitIsAlreadyInPanier($ProduitId)==true) {
+        $panier->setUserId($UserId)
+               ->setProduitId($ProduitId)
+               ->setQuantite($panier->getQuantite() + 1);
+      }
+      else
+      {
+        $panier->setUserId($UserId)
+               ->setProduitId($ProduitId)
+               ->setQuantite(1);
+      }
+
+      $manager->persist($panier);
+      $manager->flush();
+
+      return $this->render('boreal/show.html.twig', [
+        'controller_name' => 'BorealController',
+        'produit' => $produit
+      ]);
+    }
+
+    /**
+    * @Route("/boreal/panier", name="afficherPanier")
+    */
+    public function afficherPanier() {
+
+      $produits = array();
+
+      $repo1 = $this->getDoctrine()->getRepository(Panier::class);
+      $repo2 = $this->getDoctrine()->getRepository(Produit::class);
+
+      $paniers = $repo1->findAll();
+      foreach ($paniers as $panier) {
+        $produit = $repo2->find($panier->getProduitId());
+        $produits[] = $produit;
+      }
+
+      return $this->render('boreal/panier.html.twig', [
+        'controller_name' => 'BorealController',
+        'produits' => $produits
+      ]);
     }
 
 }
