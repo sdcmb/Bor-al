@@ -23,13 +23,43 @@ class BorealController extends AbstractController
     /**
      * @Route("/boreal/femmes", name="boreal/femmes")
      */
-    public function index()
+    public function produitsFemme()
     {
         $repo = $this->getDoctrine()->getRepository(Produit::class);
 
         $produits = $repo->findAll();
 
-        return $this->render('boreal/index.html.twig', [
+        return $this->render('boreal/produitsFemme.html.twig', [
+            'controller_name' => 'BorealController',
+            'produits' => $produits
+        ]);
+    }
+
+    /**
+     * @Route("/boreal/hommes", name="boreal/hommes")
+     */
+    public function produitsHomme()
+    {
+        $repo = $this->getDoctrine()->getRepository(Produit::class);
+
+        $produits = $repo->findAll();
+
+        return $this->render('boreal/produitsHomme.html.twig', [
+            'controller_name' => 'BorealController',
+            'produits' => $produits
+        ]);
+    }
+
+    /**
+     * @Route("/boreal/accessoires", name="boreal/accessoires")
+     */
+    public function accessoires()
+    {
+        $repo = $this->getDoctrine()->getRepository(Produit::class);
+
+        $produits = $repo->findAll();
+
+        return $this->render('boreal/accessoires.html.twig', [
             'controller_name' => 'BorealController',
             'produits' => $produits
         ]);
