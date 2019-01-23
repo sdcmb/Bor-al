@@ -34,6 +34,11 @@ class Produit
     /**
      * @ORM\Column(type="string", length=255)
      */
+     private $Categorie;
+
+     /**
+      * @ORM\Column(type="string")
+      */
     private $Couleur;
 
     /**
@@ -103,6 +108,18 @@ class Produit
     public function setModele(string $Modele): self
     {
         $this->Modele = $Modele;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?string
+    {
+        return $this->$Categorie;
+    }
+
+    public function setCategorie(string $Categorie): self
+    {
+        $this->Categorie = $Categorie;
 
         return $this;
     }
