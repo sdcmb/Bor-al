@@ -66,6 +66,21 @@ class BorealController extends AbstractController
     }
 
     /**
+     * @Route("/boreal/bagages", name="boreal/bagages")
+     */
+    public function bagages()
+    {
+        $repo = $this->getDoctrine()->getRepository(Produit::class);
+
+        $produits = $repo->findAll();
+
+        return $this->render('boreal/bagages.html.twig', [
+            'controller_name' => 'BorealController',
+            'produits' => $produits
+        ]);
+    }
+
+    /**
     * @Route("/", name="accueil")
     */
     public function home(){

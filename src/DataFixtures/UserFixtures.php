@@ -24,12 +24,13 @@ class UserFixtures extends Fixture
         $tony->setEmail("tony.montana@gmail.com")
             ->setLastname("Montana")
             ->setFirstname("Tony")
-            ->setPassword('$2y$13$xjs2IU7Wuz7sasRgD3SxzOcnKQeaIGYogQa8SFbEdHnbookg3BHjO'); //SayHello2MyLittleFriend
+            ->setPassword('$2y$13$qspWl/W0kSHRS3fNXWJXqun.utNW8mR/Mu9npJBoeioGLpGHhK0E2'); //SayHello2MyLittleFriend
+
 
         $gerard->setEmail("gerard.2par2@gmail.com")
             ->setLastname("Deuxpardeux")
             ->setFirstname("Gérard")
-            ->setPassword('$2y$13$xjs2IU7Wuz7sasRgD3SxzOcnKQeaIGYogQa8SFbEdHnbookg3BHjO'); //Gerard2par2
+            ->setPassword('$2y$13$sgzTB77abmJWHy9hNuWtFuDujOinFBapwcovG0D6JS5mo0BWgwqY2'); //Gerard2par2
 
         $severine->setEmail("boreal@gmail.com")
             ->setLastname("Praud")
