@@ -4,26 +4,26 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use App\Entity\Produit;
+use App\Entity\Produits;
 
 class ProduitFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $produitDesigual = new Produit();
-        $produitLancaster = new Produit();
-        $produitDesigual2 = new Produit();
-        $produitLancaster2 = new Produit();
-        $produitLancaster3 = new Produit();
-        $produitLancaster4 = new Produit();
-        $produitLancaster5 = new Produit();
-        $produitLancaster6 = new Produit();
-        $produitLancaster7 = new Produit();
-        $produitLancaster8 = new Produit();
-        $produitLancaster9 = new Produit();
-        $produitLancaster10 = new Produit();
-        $produitLancaster11 = new Produit();
-        $produitLancaster12 = new Produit();
+        $produitDesigual = new Produits();
+        $produitLancaster = new Produits();
+        $produitDesigual2 = new Produits();
+        $produitLancaster2 = new Produits();
+        $produitLancaster3 = new Produits();
+        $produitLancaster4 = new Produits();
+        $produitLancaster5 = new Produits();
+        $produitLancaster6 = new Produits();
+        $produitLancaster7 = new Produits();
+        $produitLancaster8 = new Produits();
+        $produitLancaster9 = new Produits();
+        $produitLancaster10 = new Produits();
+        $produitLancaster11 = new Produits();
+        $produitLancaster12 = new Produits();
 
         $produitDesigual->setReference("18WAXP90")
                 ->setMarque("Desigual")
