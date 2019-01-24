@@ -28,7 +28,7 @@ class ProduitFixtures extends Fixture
         $produitDesigual->setReference("18WAXP90")
                 ->setMarque("Desigual")
                 ->setModele("Ares Varsovia")
-                ->setCategorie("Femme")
+                ->setCategorie("femme")
                 ->setCouleur("Bordeaux / Noir")
                 ->setPrix("69.95")
                 ->setPoids("0.7")
