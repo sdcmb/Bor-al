@@ -31,112 +31,34 @@
           </form>
 
           <div class="topnav">
-            <div class="dropdown">
-              <button class="dropbtn">Femme</button>
-              <div class="dropdown-content">
-
-                <div id="femmeGauche">
-                  <a class="sous-categorie" href="#">Sac à main</a>
-                  <ul>
-                    <li><a href="#">Sac bandoulière</a></li>
-                    <li><a href="#">Sac shopping</a></li>
-                    <li><a href="#">Sac à dos</a></li>
-                    <li><a href="#">Pochette</a></li>
-                  </ul>
-                </div>
-
-                <div id="femmeCentre">
-                  <a class="sous-categorie" href="#">Petite maroquinerie</a>
-                  <ul>
-                    <li><a href="#">Portefeuille</a></li>
-                    <li><a href="#">Porte-chéquier</a></li>
-                    <li><a href="#">Porte-monnaie</a></li>
-                    <li><a href="#">Porte-carte</a></li>
-                  </ul>
-                </div>
-
-                <div id="femmeDroite">
-                  <a class="sous-categorie" href="#">Business</a>
-                  <ul>
-                    <li><a href="#">Porte-documents</a></li>
-                    <li><a href="#">Sacoche ordinateur</a></li>
-                  </ul>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="dropdown">
-              <button class="dropbtn">Homme</button>
-              <div class="dropdown-content">
-                <a class="sous-categorie" href="#">Sac homme</a>
-                <ul>
-                  <li><a href="#">Pochette bandoulière</a></li>
-                  <li><a href="#">Pochette main</a></li>
-                  <li><a href="#">Sac à dos</a></li>
-                  <li><a href="#">Sac ceinture</a></li>
-                </ul>
-
-                <a class="sous-categorie" href="#">Petite maroquinerie</a>
-                <ul>
-                  <li><a href="#">Portefeuille</a></li>
-                  <li><a href="#">Porte-chéquier</a></li>
-                  <li><a href="#">Porte-monnaie</a></li>
-                  <li><a href="#">Porte-carte</a></li>
-                </ul>
-
-                <a class="sous-categorie" href="#">Business</a>
-                <ul>
-                  <li><a href="#">Porte-documents</a></li>
-                  <li><a href="#">Sacoche ordinateur</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="dropdown">
-              <button class="dropbtn">Bagage</button>
-              <div class="dropdown-content">
-                <a class="sous-categorie" href="#">Valises</a>
-                <ul>
-                  <li><a href="#">2 roues</a></li>
-                  <li><a href="#">4 roues</a></li>
-                  <li><a href="#">Cabine</a></li>
-                </ul>
-
-                <a class="sous-categorie" href="#">Sac de voyage</a>
-                <ul>
-                  <li><a href="#">Sac à roulette</a></li>
-                  <li><a href="#">Sac 48h</a></li>
-                </ul>
-
-                <a class="sous-categorie" href="#">Vanity</a>
-                <ul>
-                  <li><a href="#">Vanity souple</a></li>
-                  <li><a href="#">Vanity rigide</a></li>
-                  <li><a href="#">Trousse de toilette</a></li>
-                </ul>
-
-                <a class="sous-categorie" href="#">Accessoires</a>
-                <ul>
-                  <li><a href="#">Cadenas</a></li>
-                  <li><a href="#">Sangles</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="dropdown">
-              <button class="dropbtn">Marques</button>
-              <div class="dropdown-content">
-                <ul>
-                  <li><a href="#">Lancaster</a></li>
-                  <li><a href="#">Desigual</a></li>
-                  <li><a href="#">JL Foures</a></li>
-                  <li><a href="#">Airtex</a></li>
-                  <li><a href="#">Ripcurl</a></li>
-                  <li><a href="#">Hexagona</a></li>
-                </ul>
-              </div>
-            </div>
+            <ul>
+            	<li><a href="#">Femme</a></li>
+            	<li><a href="#">Homme</a>
+            		<ul>
+            			<li><a href="#">Photoshop</a></li>
+            			<li><a href="#">Illustrator</a></li>
+            			<li><a href="#">Web Design</a>
+            		    <ul>
+            			    <li><a href="#">HTML</a></li>
+            			    <li><a href="#">CSS</a></li>
+                      <li><a href="#">HTML</a></li>
+                      <li><a href="#">CSS</a></li>
+                      <li><a href="#">HTML</a></li>
+                      <li><a href="#">CSS</a></li>
+                      <li><a href="#">HTML</a></li>
+                      <li><a href="#">CSS</a></li>
+            		    </ul>
+            	    </li>
+            	   </ul>
+               </li>
+            	<li><a href="#">Bagages</a>
+            		<ul>
+            			<li><a href="#">Web Design</a></li>
+            			<li><a href="#">User Experience</a></li>
+            		</ul>
+            	</li>
+            	<li><a href="#">Marques</a></li>
+            </ul>
           </div>
 
             {% if is_granted('ROLE_ADMIN') %}
