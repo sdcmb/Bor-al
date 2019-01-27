@@ -18,7 +18,7 @@
           <input type="text" name="q" placeholder="Rechercher" class="input-text" maxlength="128" autocomplete="off">
           <input type="submit" value="" class="valider">
 
-          <a class="logo" href="{{ path('accueil')}}">Boréal</a>
+          <a class="logo" href="{{ path('accueil')}}"><img src="{{ asset('images/boreal_logo.png')}}"</a>
 
           <form class="compte">
 
@@ -27,14 +27,14 @@
             {% else %}
               <a href="{{ path('security_logout') }}"><img src="{{ asset('images/iconCompte.png') }}" alt="compte"></a>
             {% endif %}
-            <a href=""><img src="{{ asset('images/panier.svg') }}" alt="panier" style="width:15%;"></a>
+            <a href="{{ path('afficherPanier') }}"><img src="{{ asset('images/panier.svg') }}" alt="panier" style="width:15%;"></a>
           </form>
 
           <div class="topnav">
             <a href="{{ path('boreal/femmes')}}">Femmes</a>
-            <a href="#">Hommes</a>
-            <a href="#">Accessoires</a>
-            <a href="{{ path('gestionProduits')}}">Bagages</a>
+            <a href="{{ path('boreal/hommes')}}">Hommes</a>
+            <a href="{{ path('boreal/accessoires')}}">Accessoires</a>
+            <a href="{{ path('boreal/bagages')}}">Bagages</a>
             <a href="#">Nouveautés</a>
             <a href="#">Marques</a>
             {% if is_granted('ROLE_ADMIN') %}

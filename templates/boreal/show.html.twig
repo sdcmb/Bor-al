@@ -5,32 +5,47 @@
 <article>
 
         <div class="content">
-             <div class="titre-img">
-                  <div>
-                       <img src="{{ produit.image }}" alt"sac_desigual">
-                  </div>
+            <img src="{{ produit.image }}" alt"sac_desigual" style="display:inline-block; padding-right:300px;">
+            <p style="display:inline-block; font-size:40px;">{{ produit.prix }}€ </br>
+            {% if app.user %}
+              <a href="{{ path('ajouterPanier', {'ProduitId': produit.id, 'UserId': app.user.getId }) }}" class"button primary-button" style="font-size:25px;">Ajouter au panier</a></p>
+            {% else %}
+              <a href="{{ path('security_login') }}" class"button primary-button" style="font-size:25px;">Ajouter au panier</a></p>
+            {% endif %}
 
-                  <div>
-                       <h2>{{ produit.marque }} {{ produit.modele }}</h2>
+            <p style="font-size:20px;">Détail :
+            <p>{{ produit.description | raw }}</p>
 
-                       <p>Prix : {{ produit.prix }}€ </p></br>
-                       <a href="#" class"button primary-button">Ajouter au panier</a>
-                  </div>
-
-             </div>
-
-<div class="delimitation">&nbsp;</div>
-
-            <div class="detail-table">
-
-                      <div>
-                           <h3>Détail :</h3>
-                           <p>{{ produit.description | raw }}</p>
-                      </div>
-
-                      <div>
-                           <h3 class="fiche">Fiche technique :</h3>
-                           <table class="table table-hover">
+             <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Référence</th>
+            <th scope="col">{{ produit.reference }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-active">
+            <th scope="row">Poids</th>
+            <td>{{ produit.poids }}Kg</td>
+          </tr>
+          <tr>
+            <th scope="row">Modèle</th>
+            <td>{{ produit.modele }}</td>
+          </tr>
+          <tr class="table-primary">
+            <th scope="row">Matière</th>
+            <td>{{ produit.matiere }}</td>
+          </tr>
+          <tr class="table-secondary">
+            <th scope="row">Marque</th>
+            <td>{{ produit.marque }}</td>
+          </tr>
+          <tr class="table-danger">
+            <th scope="row">Dimensions (L*H*P)</th>
+            <td>{{ produit.dimension }}</td>
+          </tr>
+        </tbody>
+      </table>
 
                                 <tbody>
                                      <tr>

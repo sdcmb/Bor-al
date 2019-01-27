@@ -1,1 +1,1 @@
-gestionSlider/sliders/test.txt
+gestionSlider/sliders/collectionNoel.txt

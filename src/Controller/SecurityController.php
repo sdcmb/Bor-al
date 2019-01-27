@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
+use App\Entity\Panier;
 use App\ Form\RegistrationType;
 
 class SecurityController extends AbstractController
@@ -28,6 +29,7 @@ class SecurityController extends AbstractController
       $user->setPassword($hash);
 
       $manager->persist($user);
+
       $manager->flush();
 
       return $this->redirectToRoute('security_login');

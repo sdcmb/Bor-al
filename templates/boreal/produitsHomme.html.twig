@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+
+<menu class="filtre">
+
+			Filtres
+		 <img src="{{ asset('images/filtre.png') }}" alt="filtre" style="width:2%;"><br>
+
+		<label>
+				<select name="product-type" id="product-type" class="filter">
+
+						<option value="0">Marque</option>
+						<option value="1">Product type 1</option>
+						<option value="2">Product type 2</option>
+						<option value="3">Product type 3</option>
+				</select>
+		</label><br>
+
+		<label>
+				<select name="platform" id="platform" class="filter">
+
+						<option value="0">Modèle</option>
+						<option value="windows">Windows</option>
+						<option value="osx">OSX</option>
+						<option value="android">Android</option>
+				</select>
+		</label><br>
+
+    		<label>
+				<select name="platform" id="platform" class="filter">
+
+						<option value="0">Couleur</option>
+						<option value="windows">Windows</option>
+						<option value="osx">OSX</option>
+						<option value="android">Android</option>
+				</select>
+		</label><br>
+
+		<label>
+				<select name="platform" id="platform" class="filter">
+
+						<option value="0">Matière</option>
+						<option value="windows">Windows</option>
+						<option value="osx">OSX</option>
+						<option value="android">Android</option>
+				</select>
+		</label>
+</menu>
+
+
+<div class="aff_product">
+
+  <section class="products">
+
+      {% for produit in produits %}
+
+            <div class="product-card">
+
+			  <div class="load">
+
+	              <div class="product-image">
+	                  <a href="{{ path('produit_femmes', {'id' : produit.id}) }}"><img src="{{ produit.image }}" alt"produit"></a>
+	              </div>
+
+	              <h4>{{ produit.marque }} {{ produit.modele }}</h4>
+
+	              <div class="product-info">
+	                  <p>{{ produit.prix }}€<p>
+	              </div>
+
+			   </div>
+
+            </div>
+
+      {% endfor %}
+
+  </section>
+
+	<a href="#" id="loadmore">Afficher plus de produits</a>
+
+</div>
+<script src="{{ asset('js/loadMore.js') }}"></script>
+{% endblock %}
