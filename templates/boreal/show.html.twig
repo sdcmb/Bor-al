@@ -3,7 +3,7 @@
 {% block body %}
 
 <article>
-        <h2>{{ produit.marque }} {{ produit.modele }}</h2>
+
         <div class="content">
             <img src="{{ produit.image }}" alt"sac_desigual" style="display:inline-block; padding-right:300px;">
             <p style="display:inline-block; font-size:40px;">{{ produit.prix }}€ </br>
@@ -47,9 +47,38 @@
         </tbody>
       </table>
 
+                                <tbody>
+                                     <tr>
+                                          <th scope="col">Référence</th>
+                                          <th scope="col">{{ produit.reference }}</th>
+                                     </tr>
 
+                                     <tr class="table-active">
+                                          <th scope="row">Poids</th>
+                                          <td>{{ produit.poids }}Kg</td>
+                                     </tr>
+                                     <tr>
+                                          <th scope="row">Modèle</th>
+                                          <td>{{ produit.modele }}</td>
+                                     </tr>
+                                     <tr class="table-primary">
+                                          <th scope="row">Matière</th>
+                                          <td>{{ produit.matiere }}</td>
+                                     </tr>
+                                     <tr class="table-secondary">
+                                          <th scope="row">Marque</th>
+                                          <td>{{ produit.marque }}</td>
+                                     </tr>
+                                     <tr class="table-danger">
+                                          <th scope="row">Dimensions (L*H*P)</th>
+                                          <td>{{ produit.dimension }}</td>
+                                     </tr>
+                                </tbody>
+                           </table>
 
+                      </div>
 
+            </div>
 
         </div>
       </article>
