@@ -1,13 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-  <h1>Panier</h1>
+  <h1 class="panier">Votre panier :</h1>
   {% for produit in produits %}
+  <div class="delimitation">&nbsp;</div>
   <div class="produit_panier">
-      <h2> {{ produit.marque }} {{ produit.modele }} </h2>
-      <img src="{{ produit.image }}" alt"produit">
-      <p>{{ produit.prix }}€ </br>
+
+       <div class="panier-img">
+            <h2> {{ produit.marque }} {{ produit.modele }} </h2>
+            <img src="{{ produit.image }}" alt"produit">
+       </div>
+
+       <div class="panier-qtt">
+            <p>Quantité : </p>
+       </div>
+
+       <div class="panier-prix">
+            <p>Prix : {{ produit.prix }}€ </br>
+       </div>
+
+       <div class="panier-suppr">
+            <!-- Suppression d'un élément du panier -->
+       </div>
+
     </div>
   {% endfor %}
-
+  <div class="panier-total">
+       Total de votre panier :
+  </div>
 {% endblock %}

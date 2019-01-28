@@ -116,11 +116,57 @@ nav a:hover{
 
 /**---------------------------------------login / register---------------------------------------**/
 
+.connexion h1{
+     text-align: center;
+}
+
+.form-group input{
+     height: 20px;
+     font-size: 15px;
+     text-align: center;
+     margin-bottom: 2%;
+}
 
 
+/**---------------------------------------Panier---------------------------------------**/
+
+.panier{
+     text-align: center;
+     font-weight: normal;
+     text-decoration: underline;
+     margin-bottom: 2%;
+     font-size: 35px;
+}
 
 
+.produit_panier{
+     display: flex;
+     flex-wrap: wrap;
+     flex: 1 100%;
+     width: 70%;
+     margin: auto;
+     text-align: left;
+     font-size: 20px;
+}
 
+.produit_panier h2{
+     text-align: left;
+     font-size: 20px;
+}
+
+.produit_panier div{
+     width: 25%;
+     padding-bottom: 2%;
+}
+
+.produit_panier img{
+     max-width: 25%;
+}
+
+.panier-total{
+     text-align: center;
+     font-size: 35px;
+}
 
 
 /**---------------------------------------produit---------------------------------------**/
@@ -319,7 +365,7 @@ h2{
 
 form{text-align: center;}
 
-form input[type=text]{
+#nomSlider input[type=text]{
      height: 50px;
      font-size: 30px;
      text-align: center;
@@ -401,6 +447,7 @@ form p{
 /**---------------------------------------Footer---------------------------------------**/
 
 footer{
+     margin-top: 5%;
      padding-top:100px;
      height:650px;
      background-color:#473130;
