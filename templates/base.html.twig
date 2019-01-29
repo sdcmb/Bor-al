@@ -27,7 +27,11 @@
             {% else %}
               <a href="{{ path('security_logout') }}"><img src="{{ asset('images/iconCompte.png') }}" alt="compte"></a>
             {% endif %}
-            <a href="{{ path('afficherPanier') }}"><img src="{{ asset('images/panier.svg') }}" alt="panier"></a>
+            {% if not app.user %}
+              <a href="{{ path('security_login') }}"><img src="{{ asset('images/panier.svg') }}" alt="panier" style="width:15%;"></a>
+            {% else %}
+              <a href="{{ path('afficherPanier', {'UserId': app.user.getId} ) }}"><img src="{{ asset('images/panier.svg') }}" alt="panier" style="width:15%;"></a>
+            {% endif %}
           </form>
 
           <div class="topnav">

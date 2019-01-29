@@ -1,31 +1,40 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-  <h1 class="panier">Votre panier :</h1>
-  {% for produit in produits %}
-  <div class="delimitation">&nbsp;</div>
-  <div class="produit_panier">
+  {% set prixTotal = 0 %}
+  {% if produits is empty %}
+    <p>Votre panier est vide !</p>
+  {% else %}
+    <h1 class="panier">Votre panier :</h1>
+    {% for produit in produits %}
+      {% set prixTotal = prixTotal + produit.produit.prix * produit.quantite %}
+      <div class="delimitation">&nbsp;</div>
+        <div class="produit_panier">
 
-       <div class="panier-img">
-            <h2> {{ produit.marque }} {{ produit.modele }} </h2>
-            <img src="{{ produit.image }}" alt"produit">
-       </div>
+           <div class="panier-img">
+                <h2> {{ produit.produit.marque }} {{ produit.produit.modele }} </h2>
+                <img src="{{ produit.produit.image }}" alt"produit">
+           </div>
 
-       <div class="panier-qtt">
-            <p>Quantité : </p>
-       </div>
+           <div class="panier-qtt">
+                <p>Quantité : {{ produit.quantite }} </p>
+           </div>
 
-       <div class="panier-prix">
-            <p>Prix : {{ produit.prix }}€ </br>
-       </div>
+           <div class="panier-prix">
+                <p>Prix : {{ produit.produit.prix }}€ </br>
+           </div>
 
-       <div class="panier-suppr">
-            <!-- Suppression d'un élément du panier -->
-       </div>
+           <div class="panier-suppr">
+            <form class="retirerPanier" action="{{ path('supprimerPanier', {'UserId': app.user.getId,'ProduitId': produit.produit.id  }) }}" method="post">
+              <button type="submit" value="{{ produit.produit.id }}" name="supprimer">Retirer</button>
+            </form>
+           </div>
 
+        </div>
+      </div>
+    {% endfor %}
+    <div class="panier-total">
+      <h3>Montant total : {{ prixTotal }} €</h3>
     </div>
-  {% endfor %}
-  <div class="panier-total">
-       Total de votre panier :
-  </div>
+  {% endif %}
 {% endblock %}
