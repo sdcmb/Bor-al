@@ -2,12 +2,24 @@
 
 {% block body %}
   <h1>Panier</h1>
-  {% for produit in produits %}
-  <div class="produit_panier">
-      <h2> {{ produit.marque }} {{ produit.modele }} </h2>
-      <img src="{{ produit.image }}" alt"produit">
-      <p>{{ produit.prix }}€ </br>
-    </div>
-  {% endfor %}
+  {% set prixTotal = 0 %}
+  {% if produits is empty %}
+    <p>Votre panier est vide !</p>
+  {% else %}
+
+    {% for produit in produits %}
+      {% set prixTotal = prixTotal + produit.produit.prix * produit.quantite %}
+      <div class="produit_panier">
+        <h3> {{ produit.produit.marque }} {{ produit.produit.modele }} </h3>
+        <img src="{{ produit.produit.image }}" alt"produit">
+        <p>{{ produit.produit.prix }}€ </br>
+        <p>Quantité : {{ produit.quantite }} </p>
+        <form class="retirerPanier" action="{{ path('supprimerPanier', {'UserId': app.user.getId,'ProduitId': produit.produit.id  }) }}" method="post">
+          <button type="submit" value="{{ produit.produit.id }}" name="supprimer">Retirer</button>
+        </form>
+      </div>
+    {% endfor %}
+    <h3>Montant total : {{ prixTotal }} €</h3>
+  {% endif %}
 
 {% endblock %}
