@@ -1,0 +1,5 @@
+gestionSlider/img/s1.jpg
+gestionSlider/img/s2.jpg
+gestionSlider/img/s3.jpg
+gestionSlider/img/s4.jpg
+gestionSlider/img/s5.jpg

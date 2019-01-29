@@ -116,11 +116,57 @@ nav a:hover{
 
 /**---------------------------------------login / register---------------------------------------**/
 
+.connexion h1{
+     text-align: center;
+}
+
+.form-group input{
+     height: 20px;
+     font-size: 15px;
+     text-align: center;
+     margin-bottom: 2%;
+}
 
 
+/**---------------------------------------Panier---------------------------------------**/
+
+.panier{
+     text-align: center;
+     font-weight: normal;
+     text-decoration: underline;
+     margin-bottom: 2%;
+     font-size: 35px;
+}
 
 
+.produit_panier{
+     display: flex;
+     flex-wrap: wrap;
+     flex: 1 100%;
+     width: 70%;
+     margin: auto;
+     text-align: left;
+     font-size: 20px;
+}
 
+.produit_panier h2{
+     text-align: left;
+     font-size: 20px;
+}
+
+.produit_panier div{
+     width: 25%;
+     padding-bottom: 2%;
+}
+
+.produit_panier img{
+     max-width: 25%;
+}
+
+.panier-total{
+     text-align: center;
+     font-size: 35px;
+}
 
 
 /**---------------------------------------produit---------------------------------------**/
@@ -206,6 +252,92 @@ nav a:hover{
     background: #f6f6f6;
 }
 
+/**---------------------------------------affichage du détail d'un produit---------------------------------------**/
+
+.content{
+     padding-bottom: 5%;
+}
+
+.delimitation{
+    width: 70%;
+    height: 1px;
+    margin: 0px auto;
+    border-top: 1px solid #9DA6A7;
+}
+
+.titre-img{
+     padding-bottom: 10%;
+}
+
+.titre-img img{
+     max-width: 50%;
+     margin-left: 25%;
+}
+
+.titre-img h2{
+     text-align: inherit;
+     font-size: 60px;
+     font-weight: bold;
+
+}
+
+.titre-img p{
+     display:inline-block;
+     font-size:35px;
+}
+
+.titre-img a{
+     font-size:35px;
+     text-decoration: none;
+}
+.titre-img div{
+     width: 45%;
+     display :inline-block;
+}
+
+.detail-table{
+     padding-top: 5%;
+}
+.detail-table div{
+     margin-left: 2%;
+}
+
+.detail-table h3{
+     font-size: 20px;
+}
+
+.detail-table p{
+     font-size: 15px;
+     margin-left: 2%;
+}
+
+
+
+table{
+  border: 2px solid #9DA6A7;
+  width: 80%;
+  height: 400px;
+  text-align: left;
+  border-collapse: collapse;
+  font-size: 20px;
+  margin-left: 2%;
+}
+
+table td, table th {
+  padding: 0%;
+}
+
+table th{
+     font-weight: normal;
+}
+
+table tr:nth-child(odd) {
+  background: #9DA6A7;
+}
+
+
+
+
 
 /**---------------------------------------Pages de gestion du site---------------------------------------**/
 
@@ -233,7 +365,7 @@ h2{
 
 form{text-align: center;}
 
-form input[type=text]{
+#nomSlider input[type=text]{
      height: 50px;
      font-size: 30px;
      text-align: center;
@@ -315,6 +447,7 @@ form p{
 /**---------------------------------------Footer---------------------------------------**/
 
 footer{
+     margin-top: 5%;
      padding-top:100px;
      height:650px;
      background-color:#473130;
