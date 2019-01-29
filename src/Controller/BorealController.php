@@ -599,12 +599,8 @@ class BorealController extends AbstractController
     */
     public function ajouterPanier($ProduitId, $UserId) {
 
-      $repo = $this->getDoctrine()->getRepository(Produit::class);
-      $produit = $repo->find($ProduitId);
-
       $em = $this->getDoctrine()->getManager();
       $panier = $em->getRepository(Panier::class)->findOneBy(['UserId' => $UserId, 'ProduitId' => $ProduitId]);
-
 
       if (!$panier) {
         $panier = new Panier();
@@ -649,7 +645,7 @@ class BorealController extends AbstractController
     }
 
     /**
-    * @Route("/boreal/panier/{UserId}?{ProduitId}", name="supprimerPanier")
+    * @Route("/boreal/panier/{UserId}/{ProduitId}", name="supprimerPanier")
     */
     public function supprimerPanier($UserId, $ProduitId) {
 
@@ -657,8 +653,7 @@ class BorealController extends AbstractController
       $panier = $em->getRepository(Panier::class)->findOneBy(['UserId' => $UserId, 'ProduitId' => $ProduitId]);
 
       $panier->setQuantite($panier->getQuantite() - 1);
-
-      if ($panier->getQuantite() == 0) {
+      if ($panier->getQuantite() <= 0) {
         $em->remove($panier);
       }
 
@@ -666,5 +661,11 @@ class BorealController extends AbstractController
 
       return $this->redirectToRoute('afficherPanier', ['UserId' => $UserId]);
     }
+
+    //Ajouter date d'ajout au panier (postedAt de type DateTime)
+    //Créer une procédure dans la base de données vérifiant la date d'ajout et supprimant du panier si la date est supérieur à 2 jours
+
+    //Changer affichage des produits avec une seule fonction pour afficher la liste des produits et une autre pour afficher le détail
+    //En rajoutant le nom de la catégorie dans la bd et en le passant en parametre de la route
 
 }
