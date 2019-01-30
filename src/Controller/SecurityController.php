@@ -10,6 +10,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
 use App\Entity\Panier;
 use App\ Form\RegistrationType;
+use App\ Form\UpdateType;
 
 class SecurityController extends AbstractController
 {
@@ -50,4 +51,11 @@ class SecurityController extends AbstractController
    * @Route("/boreal/deconnexion", name="security_logout")
   */
   public function logout() {}
+
+  /**
+   * @Route("/boreal/modifier_compte", name="security_update")
+  */
+  public function modifierCompte(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder) {
+    return $this->render('security/modifierCompte.html.twig');
+  }
 }
