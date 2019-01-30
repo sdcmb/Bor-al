@@ -10,7 +10,7 @@ function verifMdp(value) {
         //$encoder = new UserPasswordEncoderInterface();
         //$encoded = $encoder->encodePassword(app.user, value);
     //?>
-    // if (value == <?php echo $encoded ?>) {
+    // if (<?php echo $encoded ?> == app.user.password) { 
     if (value == "test") {
         var elem = document.getElementById('saisieNouveauMdp');
         elem.style.opacity = 1;
