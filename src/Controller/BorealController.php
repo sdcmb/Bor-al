@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Produit;
+use App\Entity\Produits;
 use App\Entity\User;
 use App\Entity\Panier;
 use App\Form\UserType;
@@ -25,7 +25,7 @@ class BorealController extends AbstractController
      */
     public function produitsFemme()
     {
-        $repo = $this->getDoctrine()->getRepository(Produit::class);
+        $repo = $this->getDoctrine()->getRepository(Produits::class);
 
         $produits = $repo->findAll();
 
@@ -40,7 +40,7 @@ class BorealController extends AbstractController
      */
     public function produitsHomme()
     {
-        $repo = $this->getDoctrine()->getRepository(Produit::class);
+        $repo = $this->getDoctrine()->getRepository(Produits::class);
 
         $produits = $repo->findAll();
 
@@ -55,7 +55,7 @@ class BorealController extends AbstractController
      */
     public function accessoires()
     {
-        $repo = $this->getDoctrine()->getRepository(Produit::class);
+        $repo = $this->getDoctrine()->getRepository(Produits::class);
 
         $produits = $repo->findAll();
 
@@ -70,7 +70,7 @@ class BorealController extends AbstractController
      */
     public function bagages()
     {
-        $repo = $this->getDoctrine()->getRepository(Produit::class);
+        $repo = $this->getDoctrine()->getRepository(Produits::class);
 
         $produits = $repo->findAll();
 
@@ -96,7 +96,7 @@ class BorealController extends AbstractController
     * @Route ("/boreal/femmes/produit?id={id}", name="produit_femmes")
     */
     public function show($id){
-      $repo = $this->getDoctrine()->getRepository(Produit::class);
+      $repo = $this->getDoctrine()->getRepository(Produits::class);
 
       $produit = $repo->find($id);
 
@@ -630,7 +630,7 @@ class BorealController extends AbstractController
       $produits = array();
 
       $repo1 = $this->getDoctrine()->getRepository(Panier::class);
-      $repo2 = $this->getDoctrine()->getRepository(Produit::class);
+      $repo2 = $this->getDoctrine()->getRepository(Produits::class);
 
       $paniers = $repo1->findBy(['UserId'=>$UserId]);
       foreach ($paniers as $panier) {

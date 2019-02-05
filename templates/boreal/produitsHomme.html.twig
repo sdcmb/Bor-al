@@ -56,25 +56,27 @@
   <section class="products">
 
       {% for produit in produits %}
+				{% if produit.categorie == "Homme" or produit.categorie == "homme" %}
 
             <div class="product-card">
 
-			  <div class="load">
+							  <div class="load">
 
-	              <div class="product-image">
-	                  <a href="{{ path('produit_femmes', {'id' : produit.id}) }}"><img src="{{ produit.image }}" alt"produit"></a>
-	              </div>
+					              <div class="product-image">
+					                  <a href="{{ path('produit_femmes', {'id' : produit.id}) }}"><img src="{{ produit.image }}" alt"produit"></a>
+					              </div>
 
-	              <h4>{{ produit.marque }} {{ produit.modele }}</h4>
+					              <h4>{{ produit.marque }} {{ produit.modele }}</h4>
 
-	              <div class="product-info">
-	                  <p>{{ produit.prix }}€<p>
-	              </div>
+					              <div class="product-info">
+					                  <p>{{ produit.prix }}€<p>
+					              </div>
 
-			   </div>
+							   </div>
 
             </div>
 
+					{% endif %}
       {% endfor %}
 
   </section>

@@ -1,3 +1,97 @@
+.gest {
+  padding-bottom: 50px;
+}
+
+.topnav {
+  text-align:center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  height: 60px;
+  position:relative;
+}
+
+.topnav ul {
+  list-style:none;
+  padding:0 20px;
+  margin: 0;
+  height: 60px;
+}
+
+
+.topnav ul li {
+  display: inline-block;
+}
+
+.topnav ul li label {
+  color:#000000;
+  display:block;
+  padding:0px 40px;
+  text-decoration:none;
+  float: left;
+  height: 60px;
+  line-height: 60px;
+}
+
+.topnav ul li:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+
+
+.topnav ul li:hover > a{
+    color: #000000;
+}
+
+.topnav ul li:hover > ul {
+  display:block;
+}
+
+.topnav ul ul {
+  border-top: solid 0.25px;
+  padding:0;
+  display:none;
+  width: 100%;
+  height: auto;
+  padding-bottom: 75px;
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  padding-left: -350px;
+  background-color: #FFFFFF;
+  z-index: 1;
+}
+
+.topnav ul ul li {
+  width: 100%;
+}
+
+
+.topnav ul li ul li {
+  font-weight: bold;
+  text-align: left;
+  padding-left: 50px;
+  padding-top: 50px;
+  font-size: 13px;
+}
+
+.blockcat{
+  float: left;
+}
+
+.scat{
+  width: 150px;
+  font-size: 12px;
+  float: left;
+  text-align: left;
+  padding-left: 45px;
+}
+
+.scat a{
+  float: left;
+  display: block;
+}
+
 body{
   font-family: 'Poppins', sans-serif;
   color: black;

@@ -13,7 +13,7 @@
 
     </head>
     <body>
-      <nav>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
           <input type="text" name="q" placeholder="Rechercher" class="input-text" maxlength="128" autocomplete="off">
           <input type="submit" value="" class="valider">
@@ -35,18 +35,132 @@
           </form>
 
           <div class="topnav">
-            <a href="{{ path('boreal/femmes')}}">Femmes</a>
-            <a href="{{ path('boreal/hommes')}}">Hommes</a>
-            <a href="{{ path('boreal/accessoires')}}">Accessoires</a>
-            <a href="{{ path('boreal/bagages')}}">Bagages</a>
-            <a href="#">Nouveautés</a>
-            <a href="#">Marques</a>
-            {% if is_granted('ROLE_ADMIN') %}
-              <a href="{{ path('gestion') }}">Gestion du site</a>
-            {% endif %}
+            <ul>
+
+              <!--_________________Femme_________________-->
+            	<li><label>Femme</label>
+                <ul>
+                  <div class="blockcat">
+                    <li>Sac à main</li>
+                    <div class="scat">
+                      <a href="{{ path('boreal/femmes')}}">Sac bandoulière</a><br>
+                      <a href="#">Sac shopping</a><br>
+                      <a href="#">Sac à dos</a><br>
+                      <a href="#">Pochette</a>
+                    </div>
+                  </div>
+
+                  <div class="blockcat">
+                    <li>Petite maroquinerie</li>
+                    <div class="scat">
+                      <a href="#">Portefeuille</a><br>
+                      <a href="#">Porte-chéquier</a><br>
+                      <a href="#">Porte-monnaie</a><br>
+                      <a href="#">Porte-carte</a><br>
+                    </div>
+                  </div>
+
+                  <div class="blockcat">
+                    <li>Business</li>
+                    <div class="scat">
+                      <a href="#">Porte-documents</a><br>
+                      <a href="#">Sacoche ordinateur</a><br>
+                    </div>
+                  </div>
+                </ul>
+              </li>
+
+              <!--_________________Homme_________________-->
+            	<li><label>Homme</label>
+            		<ul>
+                  <div class="blockcat">
+                    <li>Sac homme</li>
+                    <div class="scat">
+                      <a href="{{ path('boreal/hommes')}}">Pochette bandoulière</a><br>
+                      <a href="#">Pochette main</a><br>
+                      <a href="#">Sac ceinture</a><br>
+                      <a href="#">Sac à dos</a>
+                    </div>
+                  </div>
+
+                  <div class="blockcat">
+                    <li>Petite maroquinerie</li>
+                    <div class="scat">
+                      <a href="#">Portefeuille</a><br>
+                      <a href="#">Porte-chéquier</a><br>
+                      <a href="#">Porte-monnaie</a><br>
+                      <a href="#">Porte-carte</a><br>
+                    </div>
+                  </div>
+
+                  <div class="blockcat">
+                    <li>Business</li>
+                    <div class="scat">
+                      <a href="#">Porte-documents</a><br>
+                      <a href="#">Sacoche ordinateur</a><br>
+                    </div>
+                  </div>
+            	  </ul>
+               </li>
+
+
+               <!--_________________Bagages_________________-->
+            	<li><label>Bagages</label>
+                <ul>
+
+                    <div class="blockcat">
+                      <li>Valises</li>
+                      <div class="scat">
+                        <a href="{{ path('boreal/bagages')}}">2 roues</a><br>
+                        <a href="#">4 roues</a><br>
+                        <a href="#">Cabine</a><br>
+                      </div>
+                    </div>
+
+                    <div class="blockcat">
+                      <li>Sac de voyage</li>
+                      <div class="scat">
+                        <a href="#">Sac à roulettes</a><br>
+                        <a href="#">48 h</a><br>
+                      </div>
+                    </div>
+
+                    <div class="blockcat">
+                      <li>Vanity</li>
+                      <div class="scat">
+                        <a href="#">Vanity souple</a><br>
+                        <a href="#">Vanity rigide</a><br>
+                        <a href="#">Trousse de toilette</a><br>
+                      </div>
+                    </div>
+
+                    <div class="blockcat">
+                      <li>Accessoires</li>
+                      <div class="scat">
+                        <a href="{{ path('boreal/accessoires')}}">Cadenas</a><br>
+                        <a href="#">Sangle</a><br>
+                      </div>
+                    </div>
+
+            	  </ul>
+            	</li>
+
+
+              <!--_________________Marques_________________-->
+            	<li><label>Marques</label>
+                <ul>
+            		</ul>
+              </li>
+
+              {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('gestion') }}" class="gest">Gestion du site</a></li>
+              {% endif %}
+            </ul>
           </div>
 
-        </div>
+
+
+
       </nav>
         <hr style="margin-bottom:50px;">
 
