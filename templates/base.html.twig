@@ -147,13 +147,14 @@
                 <ul>
             		</ul>
               </li>
+
+              {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('gestion') }}" class="gest">Gestion du site</a></li>
+              {% endif %}
             </ul>
           </div>
 
-            {% if is_granted('ROLE_ADMIN') %}
-              <a href="{{ path('gestion') }}">Gestion du site</a>
-            {% endif %}
-          </div>
+
 
 
       </nav>
