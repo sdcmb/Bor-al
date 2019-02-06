@@ -178,12 +178,20 @@ nav a:hover{
 
 /**-----effet images hommes femmes accueil-----**/
 
+.slide{
+  height: 50px;
+}
+
 .slide_container{
      width: 85%;
      margin: auto;
      margin-top: 5%;
 }
 
+
+#infinite-slider2{
+  height: 300px;
+}
 
 /**-----effet images hommes femmes accueil-----**/
 
@@ -267,9 +275,9 @@ nav a:hover{
 
 .filtre{
     display: inline-block;
-    text-align: center;
     width: 20%;
-    border: solid 1px;
+    border-right: solid 1px;
+    height: 600px;
 }
 
 .filtre label{
@@ -363,15 +371,55 @@ nav a:hover{
      padding-bottom: 10%;
 }
 
-.titre-img img{
-     max-width: 50%;
-     margin-left: 25%;
+.titre-img .mosaique{
+  width: 15%;
+  vertical-align: middle;
 }
 
-.titre-img h2{
+.titre-img .petit{
+  max-width: 60%;
+}
+
+.titre-img .principale{
+  vertical-align: middle;
+  width: 45%;
+  margin-right: -50px;
+  margin: 0;
+}
+
+.titre-img .principale #grosPlan{
+  max-width: 75%;
+  text-align: center;
+}
+
+.titre-img .nomPrix{
+  width: 30%;
+  vertical-align: top;
+}
+
+.titre-img #marque{
      text-align: inherit;
-     font-size: 60px;
+     font-size: 20px;
      font-weight: bold;
+     margin-right: 15px;
+}
+
+.titre-img #modele{
+     text-align: inherit;
+     font-size: 20px;
+     font-weight: normal;
+}
+
+.titre-img #prix{
+  font-size: 25px;
+  display: block;
+  margin-bottom: 50px;
+}
+
+.titre-img #couleur{
+  font-size: 18px;
+  display: inline-block;
+  vertical-align: middle;
 
 }
 
@@ -387,6 +435,96 @@ nav a:hover{
 .titre-img div{
      width: 45%;
      display :inline-block;
+}
+
+.choixCouleur{
+  margin-left: 75px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.rond {
+  display: none;
+}
+
+.choixCouleur .button {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 50px;
+  margin: 15px;
+  cursor: pointer;
+}
+
+.button span {
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+  background: #eeeeee;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  transition: ease .3s;
+}
+
+.button span:hover {
+  padding: 10px;
+}
+
+.orange .button span {
+  background: #FF5722;
+}
+
+.amber .button span {
+  background: #FFC107;
+}
+
+.lime .button span {
+  background: #8BC34A;
+}
+
+.layer {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: transparent;
+  /*transition: ease .3s;*/
+  z-index: -1;
+}
+
+.orange input:checked ~ .layer {
+  background: #F4511E;
+}
+
+.amber input:checked ~ .layer {
+  background: #FFB300;
+}
+
+.lime input:checked ~ .layer {
+  background: #7CB342;
+}
+
+.nomPrix .ajoutPanier {
+  margin-top: 100px;
+  background-color:#DD985C;
+  padding-right: 35px;
+  padding-left: 35px;
+  padding-bottom: 10px;
+}
+
+.nomPrix .ajoutPanier a{
+  color: white;
+  font-size: 15px;
 }
 
 .detail-table{
@@ -406,14 +544,17 @@ nav a:hover{
 }
 
 
+.desProd{
+  margin-bottom: 80px;
+}
 
 table{
   border: 2px solid #9DA6A7;
-  width: 80%;
-  height: 400px;
+  width: 50%;
+  height: 300px;
   text-align: left;
   border-collapse: collapse;
-  font-size: 20px;
+  font-size: 15px;
   margin-left: 2%;
 }
 
@@ -422,7 +563,8 @@ table td, table th {
 }
 
 table th{
-     font-weight: normal;
+     font-weight: bold;
+     padding-left: 10px;
 }
 
 table tr:nth-child(odd) {

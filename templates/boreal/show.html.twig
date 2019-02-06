@@ -7,16 +7,48 @@
         <div class="content">
 
              <div class="titre-img">
-                  <div>
-                       <img src="{{ produit.image }}" alt"sac_desigual">
+                  <div class="mosaique">
+                       <img class="petit" src="{{ produit.image }}" alt"sac_desigual">
+                       <img class="petit" src="{{ produit.image }}" alt"sac_desigual">
+                       <img class="petit" src="{{ produit.image }}" alt"sac_desigual">
+                       <img class="petit" src="{{ produit.image }}" alt"sac_desigual">
+                       <img class="petit" src="{{ produit.image }}" alt"sac_desigual">
                   </div>
-                  <div>
-                       <h2>{{ produit.marque }} {{ produit.modele }}</h2>
-                       <p>{{ produit.prix }}€ </br>
+
+                  <div class="principale">
+                    <img id="grosPlan" src="{{ produit.image }}" alt"sac_desigual">
+                  </div>
+
+                  <div class="nomPrix">
+                       <p id="marque">{{ produit.marque }}</p>
+                       <p id="modele">{{ produit.modele }}</p>
+                       <p id="prix">{{ produit.prix }}€</p>
+                       <p id="couleur">Couleurs :</p>
+
+                       <div class="choixCouleur">
+                         <label class="orange">
+                            <input type="radio" name="color" value="orange" class="rond">
+                            <div class="layer"></div>
+                            <div class="button"><span></span></div>
+                          </label>
+
+                          <label class="amber">
+                            <input type="radio" name="color" value="amber" class="rond">
+                            <div class="layer"></div>
+                            <div class="button"><span></span></div>
+                          </label>
+
+                          <label class="lime">
+                            <input type="radio" name="color" value="lime" class="rond">
+                            <div class="layer"></div>
+                            <div class="button"><span></span></div>
+                          </label>
+                       </div>
+
                             {% if app.user %}
-                            <a href="{{ path('ajouterPanier', {'ProduitId': produit.id, 'UserId': app.user.getId }) }}" class"button primary-button">Ajouter au panier</a></p>
+                            <p class="ajoutPanier"><a href="{{ path('ajouterPanier', {'ProduitId': produit.id, 'UserId': app.user.getId }) }}" class"button primary-button">Ajouter au panier</a></p>
                             {% else %}
-                            <a href="{{ path('security_login') }}" class"button primary-button">Ajouter au panier</a></p>
+                            <p class="ajoutPanier"><a href="{{ path('security_login') }}" class"button primary-button">Ajouter au panier</a></p>
                             {% endif %}
                   </div>
 
@@ -26,7 +58,7 @@
 
              <div class="detail-table">
 
-                  <div>
+                  <div class="desProd">
                        <h3>Détail :</h3>
                        <p>{{ produit.description | raw }}</p>
                   </div>
@@ -38,7 +70,7 @@
                             <tbody>
                                  <tr>
                                       <th scope="col">Référence</th>
-                                      <th scope="col">{{ produit.reference }}</th>
+                                      <td scope="col">{{ produit.reference }}</td>
                                  </tr>
 
                                  <tr class="table-active">
