@@ -14,30 +14,25 @@ class ProduitFixtures extends Fixture
         $produitLancaster = new Produits();
         $produitDesigual2 = new Produits();
         $produitLancaster2 = new Produits();
+        $produitArthurEtAston = new Produits();
+        $produitArthurEtAston2 = new Produits();
+        $produitJlFoures = new Produits();
+        $produitRiter = new Produits();
+        $produitDesigual3 = new Produits();
         $produitLancaster3 = new Produits();
-        $produitLancaster4 = new Produits();
-        $produitLancaster5 = new Produits();
-        $produitLancaster6 = new Produits();
-        $produitLancaster7 = new Produits();
-        $produitLancaster8 = new Produits();
-        $produitLancaster9 = new Produits();
-        $produitLancaster10 = new Produits();
-        $produitLancaster11 = new Produits();
-        $produitLancaster12 = new Produits();
 
-        $produitDesigual->setReference("18WAXP90")
+        $produitDesigual->setReference("19SAXPGF")
                 ->setMarque("Desigual")
-                ->setModele("Ares Varsovia")
+                ->setModele("Abby Siberia")
                 ->setCategorie("femme")
-                ->setCouleur("Bordeaux / Noir")
-                ->setPrix("69.95")
+                ->setCouleur("Cognac / Noir")
+                ->setPrix("62.96")
                 ->setPoids("0.7")
-                ->setDimension("24cm x 21cm x 6cm")
-                ->setMatiere("Textile / Synthétique")
-                ->setDescription("<p>On craque sans aucun doute pour ce joli modèle présentant de jolies teintes métallisées sur un effet patchwork.
-                Ce sac comporte une bandoulière fixe et réglable, un rabat aimanté sur le devant avec poche plaquée dessous et une poche zippée à l'arrière.
-                La partie intérieure comprend une poche zippée et une poche plaquée avec surpoche zippée sur une doublure textile bordeaux assortie.</p>")
-                        ->setImage("http://www.boreal-maroquinerie.com/1948-8662-large/desigual-bols-ares-varsovia.jpg");
+                ->setDimension("36cm x 24cm x 2cm")
+                ->setMatiere("Cuir")
+                ->setDescription("<p>Nous avons conçu ce sac en PU noir à bandoulière amovible en forme de demi-lune avec de discrets mandalas gravés ton sur ton.
+                Une bande horizontale à boucle orne l'accessoire et inclut un charm Desigual qui lui apporte une note contrastante de couleur rouge.</p>")
+                        ->setImage("http://www.boreal-maroquinerie.com/2039-9158-thickbox/desigual-bols-abby-siberia.jpg");
 
         $produitLancaster->setReference("571-28")
                 ->setMarque("Lancaster")
@@ -86,178 +81,100 @@ class ProduitFixtures extends Fixture
                 Au dos, un porte-monnaie à deux soufflets et entièrement zippé.</p>")
                 ->setImage("http://www.boreal-maroquinerie.com/1962-8730-large/lancaster-basic-sport.jpg");
 
-        $produitLancaster3->setReference("129-16")
-                ->setMarque("Lancaster")
-                ->setModele("Cuir Dune")
+        $produitArthurEtAston->setReference("1613605")
+                ->setMarque("Arthur et Aston")
+                ->setModele("Ligne Victoria")
                 ->setCategorie("Femme")
-                ->setCouleur("Bordeaux / Noir")
-                ->setPrix("110.00")
-                ->setPoids("0.1")
-                ->setDimension("19cm x 12cm x 3cm")
-                ->setMatiere("Cuir de vachette pleine fleur")
-                ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
-                A associer avec un sac Dune  pour un total look tendance !
-                Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
-                 Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
-                ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
+                ->setCouleur("Beige")
+                ->setPrix("43.60")
+                ->setPoids("0.6")
+                ->setDimension("24cm x 23cm x 7cm")
+                ->setMatiere("Cuir")
+                ->setDescription("<p>Sac à main , porté travers , en croute de cuir de vachette et doublure polyester.
+                Nouvelle collection été 2016.</p>")
+                ->setImage("http://www.boreal-maroquinerie.com/1179-4981-thickbox/arthur-et-aston-ligne-victoria.jpg");
 
-           $produitLancaster4->setReference("229-16")
-                   ->setMarque("Lancaster")
+           $produitArthurEtAston2->setReference("1647-10")
+                   ->setMarque("Arthur et Aston")
                    ->setModele("Cuir Dune")
-                   ->setCategorie("Femme")
-                   ->setCouleur("Bordeaux / Noir")
-                   ->setPrix("110.00")
-                   ->setPoids("0.1")
-                   ->setDimension("19cm x 12cm x 3cm")
-                   ->setMatiere("Cuir de vachette pleine fleur")
-                   ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
-                   A associer avec un sac Dune  pour un total look tendance !
-                   Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
-                    Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
-                   ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
+                   ->setCategorie("Homme")
+                   ->setCouleur("Noir")
+                   ->setPrix("179.00")
+                   ->setPoids("1.2")
+                   ->setDimension("35cm x 27cm x 12cm")
+                   ->setMatiere("Cuir")
+                   ->setDescription("<p>À en juger par son apparence, cette GIBECIERE CUIR EPAIS – Huilé de la marque ARTHUR & ASTON a tout d'un sac solide depuis les détails les plus flagrants jusqu'aux moindres petits détails.
+                   Entièrement confectionnée en cuir, le corps ainsi que la bandoulière témoignent parfaitement de sa solidité, faisant de ce sac un indispensable du quotidien.</p>")
+                   ->setImage("http://www.boreal-maroquinerie.com/1734-7685-thickbox/arthur-et-aston-cuir-huile.jpg");
 
 
-         $produitLancaster5->setReference("329-16")
-                ->setMarque("Lancaster")
-                ->setModele("Cuir Dune")
-                ->setCategorie("Femme")
-                ->setCouleur("Bordeaux / Noir")
-                ->setPrix("110.00")
+         $produitJlFoures->setReference("9247")
+                ->setMarque("JL Foures")
+                ->setModele("Cuir Baroudeur")
+                ->setCategorie("Homme")
+                ->setCouleur("Chataigne / Cognac")
+                ->setPrix("36.00")
                 ->setPoids("0.1")
-                ->setDimension("19cm x 12cm x 3cm")
-                ->setMatiere("Cuir de vachette pleine fleur")
-                ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
-                A associer avec un sac Dune  pour un total look tendance !
-                Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
-                 Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
-                ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
+                ->setDimension("10cm x 7cm x 2cm")
+                ->setMatiere("Cuir")
+                ->setDescription("<p>Porte monnaie cuvette , porte carte , JL FOURES , en cuir de vachette souple pleine fleur , au toucher gras et de fabrication française.</p>")
+                ->setImage("http://www.boreal-maroquinerie.com/2022-9057-thickbox/jl-foures-cuir-baroudeur.jpg");
 
 
 
-          $produitLancaster6->setReference("429-16")
-                   ->setMarque("Lancaster")
-                   ->setModele("Cuir Dune")
-                   ->setCategorie("Femme")
-                   ->setCouleur("Bordeaux / Noir")
-                   ->setPrix("110.00")
-                   ->setPoids("0.1")
-                   ->setDimension("19cm x 12cm x 3cm")
+          $produitRiter->setReference("96712")
+                   ->setMarque("Ritelle")
+                   ->setModele("Cuir Vachette")
+                   ->setCategorie("Homme")
+                   ->setCouleur("Noir")
+                   ->setPrix("139.00")
+                   ->setPoids("0.8")
+                   ->setDimension("24cm x 27cm x 11cm")
                    ->setMatiere("Cuir de vachette pleine fleur")
-                   ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
-                   A associer avec un sac Dune  pour un total look tendance !
-                   Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
-                    Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
-                   ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
+                   ->setDescription("<p>Sacoche homme , cuir vachette , finition grainée , et doublure polyester , de marque RITELLE.</p>")
+                   ->setImage("http://www.boreal-maroquinerie.com/1858-8285-thickbox/ritelle-cuir-vachette.jpg");
 
 
 
-         $produitLancaster7->setReference("529-16")
-                 ->setMarque("Lancaster")
-                 ->setModele("Cuir Dune")
+         $produitDesigual3->setReference("19SAXPEQ")
+                 ->setMarque("Desigual")
+                 ->setModele("Confeti Black Seattle")
                  ->setCategorie("Femme")
-                 ->setCouleur("Bordeaux / Noir")
-                 ->setPrix("110.00")
-                 ->setPoids("0.1")
-                 ->setDimension("19cm x 12cm x 3cm")
+                 ->setCouleur("Blanc")
+                 ->setPrix("71.95")
+                 ->setPoids("0.7")
+                 ->setDimension("27cm x 20cm x 10cm")
                  ->setMatiere("Cuir de vachette pleine fleur")
-                 ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
-                 A associer avec un sac Dune  pour un total look tendance !
-                 Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
-                  Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
-                 ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
+                 ->setDescription("<p>A utiliser ensemble ou séparément, ce CABAS DESIGUAL et sa pochette coordonnée vous rendront de multiples services. Du bureau à la plage, vous ne pourrez plus vous en séparer !
+                 Envie de changer de décor ? Pour un look plus ville votre cabas se retourne comme un gant et arbore une couleur unie très chic !</p>")
+                 ->setImage("http://www.boreal-maroquinerie.com/2034-9124-thickbox/desigual-bols-confetti-black-seattle.jpg");
 
 
 
-       $produitLancaster8->setReference("629-16")
+       $produitLancaster3->setReference("517-24")
                ->setMarque("Lancaster")
-               ->setModele("Cuir Dune")
+               ->setModele("Maya")
                ->setCategorie("Femme")
-               ->setCouleur("Bordeaux / Noir")
-               ->setPrix("110.00")
-               ->setPoids("0.1")
-               ->setDimension("19cm x 12cm x 3cm")
+               ->setCouleur("Gris / Noir")
+               ->setPrix("41.30")
+               ->setPoids("0.8")
+               ->setDimension("20cm x 17cm x 8cm")
                ->setMatiere("Cuir de vachette pleine fleur")
-               ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
-               A associer avec un sac Dune  pour un total look tendance !
-               Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
-                Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
-               ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
-
-     $produitLancaster9->setReference("629-16")
-             ->setMarque("Lancaster")
-             ->setModele("Cuir Dune")
-             ->setCategorie("Femme")
-             ->setCouleur("Bordeaux / Noir")
-             ->setPrix("110.00")
-             ->setPoids("0.1")
-             ->setDimension("19cm x 12cm x 3cm")
-             ->setMatiere("Cuir de vachette pleine fleur")
-             ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
-             A associer avec un sac Dune  pour un total look tendance !
-             Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
-              Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
-             ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
-
-   $produitLancaster10->setReference("629-16")
-          ->setMarque("Lancaster")
-          ->setModele("Cuir Dune")
-          ->setCategorie("Femme")
-          ->setCouleur("Bordeaux / Noir")
-          ->setPrix("110.00")
-          ->setPoids("0.1")
-          ->setDimension("19cm x 12cm x 3cm")
-          ->setMatiere("Cuir de vachette pleine fleur")
-          ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
-          A associer avec un sac Dune  pour un total look tendance !
-          Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
-           Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
-          ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
-
-     $produitLancaster11->setReference("629-16")
-             ->setMarque("Lancaster")
-             ->setModele("Cuir Dune")
-             ->setCategorie("Femme")
-             ->setCouleur("Bordeaux / Noir")
-             ->setPrix("110.00")
-             ->setPoids("0.1")
-             ->setDimension("19cm x 12cm x 3cm")
-             ->setMatiere("Cuir de vachette pleine fleur")
-             ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
-             A associer avec un sac Dune  pour un total look tendance !
-             Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
-              Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
-             ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
-
-   $produitLancaster12->setReference("629-16")
-           ->setMarque("Lancaster")
-           ->setModele("Cuir Dune")
-           ->setCategorie("Femme")
-           ->setCouleur("Bordeaux / Noir")
-           ->setPrix("110.00")
-           ->setPoids("0.1")
-           ->setDimension("19cm x 12cm x 3cm")
-           ->setMatiere("Cuir de vachette pleine fleur")
-           ->setDescription("<p>Réalisé en cuir de vachette pleine fleur grainé, ce portefeuille Dune Lancaster pour femme vous apportera totale satisfaction.
-           A associer avec un sac Dune  pour un total look tendance !
-           Chic et féminin avec sa bride décorative et son rabat, ce grand portefeuille Dune en cuir  signé Lancaster est aussi pratique que beau avec ses 16 fentes pour cartes, ses emplacements pour billets et son grand porte-monnaie zippé.
-            Son grand volume permet également de ranger un chéquier à l'intérieur.</p>")
-           ->setImage("http://www.boreal-maroquinerie.com/2017-9031-large/lancaster-cuir-dune.jpg");
+               ->setDescription("<p>Trotteur façon cuir de la ligne Maya de Lancaster. On craque pour sa petite poche colorée en forme d'enveloppe.
+               L'intérieur, également grainé, dispose d'une poche zippée et vous trouverez une seconde poche à fermeture Eclair au dos.</p>")
+               ->setImage("http://www.boreal-maroquinerie.com/1968-8766-thickbox/lancaster-maya.jpg");
 
 
         $manager->persist($produitDesigual);
         $manager->persist($produitLancaster);
         $manager->persist($produitDesigual2);
         $manager->persist($produitLancaster2);
+        $manager->persist($produitArthurEtAston);
+        $manager->persist($produitArthurEtAston2);
+        $manager->persist($produitJlFoures);
+        $manager->persist($produitRiter);
+        $manager->persist($produitDesigual3);
         $manager->persist($produitLancaster3);
-        $manager->persist($produitLancaster4);
-        $manager->persist($produitLancaster5);
-        $manager->persist($produitLancaster6);
-        $manager->persist($produitLancaster7);
-        $manager->persist($produitLancaster8);
-        $manager->persist($produitLancaster9);
-        $manager->persist($produitLancaster10);
-        $manager->persist($produitLancaster11);
-        $manager->persist($produitLancaster12);
 
 
         $manager->flush();
