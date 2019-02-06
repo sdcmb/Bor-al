@@ -1,1 +1,1 @@
-gestionSlider/sliders/collectionNoel.txt
+gestionSlider/sliders/lancasterStyle.txt
