@@ -178,12 +178,20 @@ nav a:hover{
 
 /**-----effet images hommes femmes accueil-----**/
 
+.slide{
+  height: 50px;
+}
+
 .slide_container{
      width: 85%;
      margin: auto;
      margin-top: 5%;
 }
 
+
+#infinite-slider2{
+  height: 300px;
+}
 
 /**-----effet images hommes femmes accueil-----**/
 
@@ -268,7 +276,8 @@ nav a:hover{
 .filtre{
     display: inline-block;
     width: 20%;
-    border: solid 1px;
+    border-right: solid 1px;
+    height: 600px;
 }
 
 .filtre label{
@@ -434,7 +443,7 @@ nav a:hover{
   vertical-align: middle;
 }
 
-input {
+.rond {
   display: none;
 }
 
