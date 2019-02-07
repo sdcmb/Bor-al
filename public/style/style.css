@@ -267,7 +267,7 @@ nav a:hover{
 
 .panier-total{
      text-align: center;
-     font-size: 35px;
+     font-size: 25px;
 }
 
 
@@ -520,9 +520,10 @@ nav a:hover{
   padding-right: 35px;
   padding-left: 35px;
   padding-bottom: 10px;
+  padding-top: 10px;
 }
 
-.nomPrix .ajoutPanier a{
+.nomPrix .ajoutPanier{
   color: white;
   font-size: 15px;
 }

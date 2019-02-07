@@ -46,9 +46,9 @@
                        </div>
 
                             {% if app.user %}
-                            <p class="ajoutPanier"><a href="{{ path('ajouterPanier', {'ProduitId': produit.id, 'UserId': app.user.getId }) }}" class"button primary-button">Ajouter au panier</a></p>
+                            <a href="{{ path('ajouterPanier', {'ProduitId': produit.id, 'UserId': app.user.getId }) }}" class"button primary-button"><p class="ajoutPanier">Ajouter au panier</p></a>
                             {% else %}
-                            <p class="ajoutPanier"><a href="{{ path('security_login') }}" class"button primary-button">Ajouter au panier</a></p>
+                            <a href="{{ path('security_login') }}" class"button primary-button"><p class="ajoutPanier">Ajouter au panier</p></a>
                             {% endif %}
                   </div>
 
