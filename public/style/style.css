@@ -267,7 +267,22 @@ nav a:hover{
 
 .panier-total{
      text-align: center;
-     font-size: 25px;
+     font-size: 20px;
+     margin-left: 72%;
+     border-top: 1px solid #9DA6A7;
+     width: 13%;
+}
+.panier-suppr p{
+     text-align: center;
+     width: 25%;
+     background-color:#9DA6A7;
+     padding-bottom: 5px;
+     padding-top: 5px;
+     border-radius: 5px;
+     font-size: 20px;
+}
+.panier-suppr a{
+     text-decoration: none;
 }
 
 

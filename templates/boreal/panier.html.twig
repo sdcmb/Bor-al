@@ -25,16 +25,14 @@
            </div>
 
            <div class="panier-suppr">
-            <form class="retirerPanier" action="{{ path('supprimerPanier', {'UserId': app.user.getId,'ProduitId': produit.produit.id  }) }}" method="post">
-              <button type="submit" value="{{ produit.produit.id }}" name="supprimer">Retirer</button>
-            </form>
+            <a href="{{ path('supprimerPanier', {'UserId': app.user.getId,'ProduitId': produit.produit.id  }) }}"><p>Retirer</p></a>
            </div>
 
         </div>
       </div>
     {% endfor %}
     <div class="panier-total">
-      <h3>Montant total : {{ prixTotal }} €</h3>
+      <p>Montant total : {{ prixTotal }} €</p>
     </div>
   {% endif %}
 {% endblock %}
