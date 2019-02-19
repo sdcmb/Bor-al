@@ -53,9 +53,27 @@ class SecurityController extends AbstractController
   public function logout() {}
 
   /**
-   * @Route("/boreal/modifier_compte", name="security_update")
+   * @Route("/boreal/modifierCompte", name="security_update")
   */
   public function modifierCompte(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder) {
+    return $this->render('security/modifierCompte.html.twig');
+  }
+
+  /**
+   * @Route("/boreal/modifierCompte", name="security_update_account")
+  */
+  public function modifierInfosCompte(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder) {
+    //enreg les changements
+
+    return $this->render('security/modifierCompte.html.twig');
+  }
+
+  /**
+   * @Route("/boreal/modifierCompte", name="security_update_password")
+  */
+  public function modifierMdpCompte(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder) {
+    //enreg les changements 
+    
     return $this->render('security/modifierCompte.html.twig');
   }
 }
