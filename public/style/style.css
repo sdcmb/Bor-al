@@ -303,7 +303,7 @@ nav a:hover{
 
 /**---------------------------------------Pages de gestion du site---------------------------------------**/
 
-/**----------------------accueils----------------------**/
+/**----------------------accueil----------------------**/
 
 h2{
      text-align: center;
@@ -402,6 +402,63 @@ form p{
      text-align: center;
      margin: 2%;
 }
+
+/**----------------------création produit----------------------**/
+
+.titre{
+  text-align: center;
+}
+
+.creaProdGauche{
+  margin-left: -100px;
+  border: solid 1px;
+  width: 45%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.choixNbImg{
+  border: solid 1px;
+  width: 45%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.sepa{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 400px;
+  text-align: center;
+}
+
+.poidVolDim{
+  margin-left: -46px;
+  border: solid 1px;
+  width: 45%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.colorProduitCrea{
+  border: solid 1px;
+  width: 45%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.form-group{
+  text-align: left;
+}
+
+.form-control{
+  width: 300px;
+  height: 10px;
+}
+
+.required{
+  margin-right: 100px;
+}
+
 
 /**-----------------------------------------------------------------------------------------------------**/
 

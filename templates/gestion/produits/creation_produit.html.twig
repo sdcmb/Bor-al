@@ -6,7 +6,7 @@
 
 <input class="retour_arriere" type="image" src="{{ asset('images/retour.png') }}" onClick="document.location.href = document.referrer" />
 
-    <h3>
+    <h3 class="titre">
       {% if editMode %}
         Modifier un produit
       {% else %}
@@ -17,16 +17,46 @@
 
     {{ form_start (formCreationProduit) }}
 
-    {{ form_row(formCreationProduit.reference, {'attr': {'placeholder': "Référence"}}) }}
-    {{ form_row(formCreationProduit.marque, {'attr': {'placeholder': "Marque"}}) }}
-    {{ form_row(formCreationProduit.modele, {'attr': {'placeholder': "Modèle"}}) }}
-    {{ form_row(formCreationProduit.image, {'attr': {'placeholder': "Url de l'image"}}) }}
-    {{ form_row(formCreationProduit.prix, {'attr': {'placeholder': "00.00€"}}) }}
-    {{ form_row(formCreationProduit.couleur, {'attr': {'placeholder': "Couleur"}}) }}
-    {{ form_row(formCreationProduit.poids, {'attr': {'placeholder': "00.00Kg"}}) }}
-    {{ form_row(formCreationProduit.dimensions, {'attr': {'placeholder': "(L)cm X (l)cm X (h)cm"}}) }}
-    {{ form_row(formCreationProduit.matiere, {'attr': {'placeholder': "Cuir, synthétique,..."}}) }}
-    {{ form_row(formCreationProduit.description, {'attr': {'placeholder': "Description"}}) }}
+    <div class="creaProdGauche">
+
+      {{ form_row(formCreationProduit.reference, {'attr': {'placeholder': ""}}) }}
+
+      {{ form_row(formCreationProduit.marque, {'attr': {'placeholder': ""}}) }}
+
+      {{ form_row(formCreationProduit.modele, {'attr': {'placeholder': ""}}) }}
+
+      {{ form_row(formCreationProduit.categorie, {'attr': {'placeholder': ""}}) }}
+
+      {{ form_row(formCreationProduit.prix, {'attr': {'placeholder': ""}}) }}
+
+    </div>
+
+    <div class="choixNbImg">
+
+      {{ form_row(formCreationProduit.image, {'attr': {'placeholder': ""}}) }}
+
+    </div>
+
+    <hr class="sepa">
+
+    <div class="poidVolDim">
+
+      {{ form_row(formCreationProduit.poids, {'attr': {'placeholder': ""}}) }}
+
+      {{ form_row(formCreationProduit.dimension, {'attr': {'placeholder': "(L)cm X (l)cm X (h)cm"}}) }}
+
+      {{ form_row(formCreationProduit.matiere, {'attr': {'placeholder': ""}}) }}
+
+      {{ form_row(formCreationProduit.description, {'attr': {'placeholder': ""}}) }}
+
+    </div>
+
+    <div class="colorProduitCrea">
+
+      {{ form_row(formCreationProduit.couleur, {'attr': {'placeholder': ""}}) }}
+
+    </div>
+
 
     <button type="submit" class"btn btn-success" name="button">
       {% if editMode %}

@@ -119,13 +119,13 @@ class BorealController extends AbstractController
     * @Route ("/gestion/produits/{id}/edit", name="boreal_edit_produit")
     * @Security("is_granted('ROLE_ADMIN')")
     */
-    public function formCreationProduit(Produit $produit = null, Request $request, ObjectManager $manager){
+    public function formCreationProduit(Produits $produit = null, Request $request, ObjectManager $manager){
 
       if (!$produit) {
-        $produit = new Produit();
+        $produit = new Produits();
       }
 
-      $form = $this->createForm(ProductType::class, $produit);
+      $form = $this->createForm(ProduitType::class, $produit);
 
       $form->handleRequest($request);
 
