@@ -17,21 +17,13 @@ function verifMdp(value) {
     //?>
     //if (<?php echo $encoded ?> == mdpActuel) { 
     if (value == "mdpActuel") {
-        var elem = document.getElementById('saisieNouveauMdp');
         elem.style.opacity = 1;
-        var nouveau = document.getElementById('nvMdp');
-        var confirm = document.getElementById('confMdp');
         nouveau.style.cursor = "auto";
         confirm.style.cursor = "auto";
-        bouton.style.cursor = "auto";
         nouveau.disabled = false;
         confirm.disabled = false;
-        bouton.disabled = false;
     } else {
-        var elem = document.getElementById('saisieNouveauMdp');
         elem.style.opacity = 0.4;
-        var nouveau = document.getElementById('nvMdp');
-        var confirm = document.getElementById('confMdp');
         nouveau.style.cursor = "not-allowed";
         confirm.style.cursor = "not-allowed";
         bouton.style.cursor = "not-allowed";
@@ -41,3 +33,15 @@ function verifMdp(value) {
         alert('Mot de passe incorrect')
     }
 }
+
+function memeMdp() {
+    if (nouveau.value == confirm.value) {
+        bouton.style.cursor = "auto";
+        bouton.disabled = false;
+    } else {
+        bouton.style.cursor = "not-allowed";
+        bouton.disabled = true;
+        alert('le mot de passe est différent')
+    }
+}
+
