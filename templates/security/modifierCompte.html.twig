@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+  {% if not app.user %}
+    <h1>Modification du compte</h1>
+    <h3>Personne n'est connecté</h3>
+  {% else %}
+    <h1>Modification du compte de {{ app.user.firstname }} {{ app.user.lastname }} </h1>
+
+    <form action="{{ path('security_update_account') }}" method="post" name="changerInfos">
+      <div class="form-group">
+        <h4>Informations générales</h4>
+
+        Identifiant : <input type="text" required name="email" value="{{ app.user.email }}" class="form-control">
+        <br>
+        Prénom : <input type="text" required name="prenom" value="{{ app.user.firstname }}" class="form-control">
+        <br>
+        Nom : <input type="text" required name="nom" value="{{ app.user.lastname }}" class="form-control">
+      </div>
+
+      <Button type="submit">Enregistrer les changements</Button>
+    </form>
+
+    <form action="{{ path('security_update_password') }}" method="post" name="changerMdp">
+      <div class="form-group">
+        <h4>Changer le mot de passe</h4>
+
+        Mot de passe actuel : <input type="password" name="old_password" onchange="verifMdp(this.value)" class="form-control">
+        <div id="saisieNouveauMdp">
+          Nouveau mot de passe : <input type="password" name="new_password" id="nvMdp" class="form-control">
+          <br>
+          Confirmer nouveau mot de passe : <input type="password" name="confirm_password" onchange="memeMdp()" id="confMdp" class="form-control">
+        </div>
+      </div>
+
+      <Button id="btnMdp" type="submit">Changer le mot de passe</Button>
+    </form>
+
+    <script src="../js/changerMdp.js"></script>
+
+  {% endif %}
+
+{% endblock %}
