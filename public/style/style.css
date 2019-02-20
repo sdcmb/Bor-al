@@ -408,34 +408,37 @@ nav a:hover{
 }
 
 .titre-img .nomPrix{
-  width: 30%;
+  width: 40%;
   vertical-align: top;
 }
 
 .titre-img #marque{
      text-align: inherit;
-     font-size: 20px;
+     font-size: 40px;
      font-weight: bold;
      margin-right: 15px;
 }
 
 .titre-img #modele{
      text-align: inherit;
-     font-size: 20px;
+     font-size: 40px;
      font-weight: normal;
 }
 
-.titre-img #prix{
-  font-size: 25px;
+.titre-img #prix {
+  font-size: 40px;
   display: block;
   margin-bottom: 50px;
 }
 
 .titre-img #couleur{
-  font-size: 18px;
+  font-size: 30px;
   display: inline-block;
   vertical-align: middle;
 
+}
+.nomPrix{
+     margin-left:-5%;
 }
 
 .titre-img p{
@@ -529,9 +532,10 @@ nav a:hover{
   background: #7CB342;
 }
 
+
 .nomPrix .ajoutPanier {
   margin-top: 100px;
-  background-color:#DD985C;
+  background-color:#473130;
   padding-right: 35px;
   padding-left: 35px;
   padding-bottom: 10px;
@@ -540,7 +544,7 @@ nav a:hover{
 
 .nomPrix .ajoutPanier{
   color: white;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .detail-table{
