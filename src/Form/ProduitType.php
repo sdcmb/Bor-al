@@ -22,7 +22,7 @@ class ProduitType extends AbstractType
             ->add('prix')
             ->add('couleur')
             ->add('poids')
-            ->add('dimensions')
+            ->add('dimension')
             ->add('matiere')
             ->add('description')
         ;
