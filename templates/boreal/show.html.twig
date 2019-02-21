@@ -21,7 +21,7 @@
 
                   <div class="nomPrix">
                        <p id="marque">{{ produit.marque }}</p>
-                       <p id="modele">{{ produit.modele }}</p>
+                       <p id="modele">{{ produit.modele }} ({{ produit.reference }})</p>
                        <p id="prix">{{ produit.prix }}€</p>
                        <p id="couleur">Couleurs :</p>
 
@@ -59,7 +59,7 @@
              <div class="detail-table">
 
                   <div class="desProd">
-                       <h3>Détail :</h3>
+                       <h3>Description :</h3>
                        <p>{{ produit.description | raw }}</p>
                   </div>
                   <div>
