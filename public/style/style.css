@@ -1,5 +1,6 @@
 .gest {
-  padding-bottom: 50px;
+
+  font-size: 20px;
 }
 
 .topnav {
@@ -134,11 +135,8 @@ nav a:hover{
   margin-top: 0.8%;
 }
 
-.logo{
-  font-family: 'Coneria Script Demo', sans-serif;
-  font-size: 50px;
-  text-decoration: none;
-  margin-left: -5%;
+.logo img{
+    width: 25%;    
 }
 
 .logo:hover{
@@ -169,6 +167,18 @@ nav a:hover{
 .topnav a{
   text-decoration: none;
   margin-left: 3%;
+}
+
+.topnav label{
+     font-size: 20px;
+}
+
+.topnav li{
+     margin-right: 4%;
+}
+
+.topnav label{
+     font-size: 20px;
 }
 
 
