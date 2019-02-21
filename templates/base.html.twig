@@ -25,7 +25,8 @@
             {% if not app.user %}
               <a href="{{ path('security_login') }}"><img src="{{ asset('images/iconCompte.png') }}" alt="compte"></a>
             {% else %}
-              <a href="{{ path('security_logout') }}"><img src="{{ asset('images/iconCompte.png') }}" alt="compte"></a>
+              <a href="{{ path('security_logout') }}"><img src="{{ asset('images/iconCompte.png') }}" alt="logout"></a>
+              <a href="{{ path('security_update_account', {'UserId': app.user.getId} ) }}"><img src="{{ asset('images/iconCompte.png') }}" alt="modifCompte"></a>
             {% endif %}
             {% if not app.user %}
               <a href="{{ path('security_login') }}"><img src="{{ asset('images/panier.svg') }}" alt="panier" style="width:15%;"></a>
