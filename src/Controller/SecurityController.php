@@ -9,8 +9,11 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
 use App\Entity\Panier;
+use App\Form\UpdateAccountType;
 use App\ Form\RegistrationType;
 use App\ Form\UpdateType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class SecurityController extends AbstractController
 {
@@ -53,27 +56,30 @@ class SecurityController extends AbstractController
   public function logout() {}
 
   /**
-   * @Route("/boreal/modifierCompte", name="security_update")
+   * @Route("/boreal/modifierCompte/{UserId}", name="security_update_account")
+   * @Security("is_granted('ROLE_USER')")
   */
-  public function modifierCompte(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder) {
-    return $this->render('security/modifierCompte.html.twig');
+  public function modifierCompte(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, $UserId) {
+
+    $user = $manager->getRepository(User::class)->findOneBy(['id'=> $UserId]);
+
+    $form = $this->createForm(RegistrationType::class, $user);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+
+      $hash = $encoder->encodePassword($user, $user->getPassword());
+      $user->setPassword($hash);
+      $manager->flush();
+
+      echo "<script>alert(\"Modifications enregistrées  ! \")</script>";
+      return $this->redirectToRoute('security_login');
+    }
+
+    return $this->render('security/modifierCompte.html.twig', [
+      'form' => $form->createView()
+    ]);
+
   }
 
-  /**
-   * @Route("/boreal/modifierCompte", name="security_update_account")
-  */
-  public function modifierInfosCompte(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder) {
-    //enreg les changements
-
-    return $this->render('security/modifierCompte.html.twig');
-  }
-
-  /**
-   * @Route("/boreal/modifierCompte", name="security_update_password")
-  */
-  public function modifierMdpCompte(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder) {
-    //enreg les changements 
-    
-    return $this->render('security/modifierCompte.html.twig');
-  }
 }
