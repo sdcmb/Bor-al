@@ -34,5 +34,10 @@
     <div class="panier-total">
       <p>Montant total : {{ prixTotal }} €</p>
     </div>
+    <div class="panier-suppr">
+      <a href="{{ path('payer', {'UserId': app.user.getId}) }}">
+        <p>Passer commande<br>(vous serez redirigé vers PayPal)</p>
+      </a>
+    </div>
   {% endif %}
 {% endblock %}
