@@ -405,42 +405,47 @@ form p{
 
 /**----------------------création produit----------------------**/
 
+.formulaireCreaProd{
+  margin-bottom: 150px;
+}
+
 .titre{
   text-align: center;
+  margin-bottom: 60px;
 }
 
 .creaProdGauche{
-  margin-left: -100px;
-  border: solid 1px;
+  margin-left: 100px;
+  /* border: solid 1px; */
   width: 45%;
   display: inline-block;
   vertical-align: top;
 }
 
 .choixNbImg{
-  border: solid 1px;
+  /* border: solid 1px; */
   width: 45%;
   display: inline-block;
   vertical-align: top;
 }
 
 .sepa{
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 100px;
+  margin-bottom: 100px;
   width: 400px;
   text-align: center;
 }
 
 .poidVolDim{
-  margin-left: -46px;
-  border: solid 1px;
+  margin-left: 100px;
+  /* border: solid 1px; */
   width: 45%;
   display: inline-block;
   vertical-align: top;
 }
 
 .colorProduitCrea{
-  border: solid 1px;
+  /* border: solid 1px; */
   width: 45%;
   display: inline-block;
   vertical-align: top;
@@ -448,6 +453,7 @@ form p{
 
 .form-group{
   text-align: left;
+  margin-bottom: 25px;
 }
 
 .form-control{
@@ -455,8 +461,51 @@ form p{
   height: 10px;
 }
 
+form input[type=text]{
+  height: 30px;
+  border-radius: 5px;
+}
+
 .required{
   margin-right: 100px;
+}
+
+#produit_reference{
+
+}
+
+#produit_marque{
+  margin-left: 20px;
+}
+
+#produit_modele{
+  margin-left: 23px;
+}
+
+#produit_categorie{
+  margin-left: 1.5px;
+}
+
+#produit_prix{
+  margin-left: 54px;
+}
+
+#produit_poids{
+  margin-left: 140px;
+}
+
+#produit_dimension{
+  margin-left: 97.5px;
+}
+
+#produit_matiere{
+  margin-left: 122px;
+}
+
+#produit_description{
+  margin-left: -8.5px;
+  height: 150px;
+  vertical-align: top;
 }
 
 
