@@ -1,5 +1,6 @@
 .gest {
-  padding-bottom: 50px;
+
+  font-size: 20px;
 }
 
 .topnav {
@@ -118,11 +119,12 @@ nav a:hover{
   border: none;
   border-bottom: 1px solid #000000;
   color: #323232;
-  width: 135px;
-  height: 27px;
+  width: 140px;
+  height: 28px;
   float: left;
   margin-top: 0.7%;
   margin-left: 5%;
+  padding-top: 50px;
 }
 
 .valider{
@@ -131,14 +133,11 @@ nav a:hover{
   border: 0;
   width: 25px;
   float: left;
-  margin-top: 0.8%;
+  margin-top: 70px;
 }
 
-.logo{
-  font-family: 'Coneria Script Demo', sans-serif;
-  font-size: 50px;
-  text-decoration: none;
-  margin-left: -5%;
+.logo img{
+    width: 25%;
 }
 
 .logo:hover{
@@ -150,17 +149,18 @@ nav a:hover{
   text-decoration: none;
   float: right;
   width: 200px;
-  padding-top: 25px;
+  padding-top: 50px;
 }
 
 .compte a{
   text-decoration: none;
-  padding-right: 40px;
+  padding-right: 20px;
 }
 
 .compte img{
-     width: 15%;
+     width: 20%;
 }
+
 
 .topnav{
     margin-top: 3%;
@@ -169,6 +169,18 @@ nav a:hover{
 .topnav a{
   text-decoration: none;
   margin-left: 3%;
+}
+
+.topnav label{
+     font-size: 20px;
+}
+
+.topnav li{
+     margin-right: 2%;
+}
+
+.topnav label{
+     font-size: 20px;
 }
 
 
@@ -193,28 +205,26 @@ nav a:hover{
   height: 300px;
 }
 
-/**-----effet images hommes femmes accueil-----**/
-
-  .col-md-4, .col-sm-6{width: 470px; margin-left: 5%;margin-right: 5%; display: inline-block;}
-  .box1 img,.box1:after,.box1:before{width:100%;transition:all .3s ease 0s}
-  .box1:after,.box1:before{content:""}
-  .box1{overflow:hidden}
-  .box1 .title{letter-spacing:1px}
-  .box1 .icon,.box1 .title{margin:0;position:absolute}
-  .box1{position:relative; margin-bottom: 200px;}
-  .box1:after,.box1:before{height:705px;background:rgba(0,0,0,.5);position:absolute;top:0;left:0;z-index:1;transform-origin:100% 0;transform:rotateX(90deg)}
-  .box1:after{top:auto;transform-origin:0 100%}
-  .box1:hover:after,.box1:hover:before{transform:rotateZ(0)}
-  .box1 img{height:auto;transform:scale(1)}
-  .box1:hover img{filter:drop-shadow(50%);}
-  .box1 .title{font-size:19px;font-weight:600;color:#fff;text-transform:uppercase;text-shadow:0 0 1px #004cbf;bottom:10px;left:10px;opacity:0;z-index:2;transform:scale(0);transition:all .5s ease .2s}
-  .box1:hover .title{opacity:1;transform:scale(1)}
 
 
-  .presentationHF{
+  .presentation{
        margin-top:5%;
        text-align: center;
  }
+ .presentation img{
+      max-width: 100%;
+ }
+ .presentation div{
+      width: 40%;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 5px;
+      margin-right: 5px;
+}
+.presentation p{
+      text-align: justify;
+}
+
 
 /**---------------------------------------login / register---------------------------------------**/
 
