@@ -15,8 +15,9 @@
     <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
-          <input type="text" name="q" placeholder="Rechercher" class="input-text" maxlength="128" autocomplete="off">
-          <input type="submit" value="" class="valider">
+                <input type="text" name="q" placeholder="Rechercher" class="input-text" maxlength="128" autocomplete="off">
+                <input type="submit" value="" class="valider">
+
 
           <a class="logo" href="{{ path('accueil')}}"><img src="{{ asset('images/boreal_logo2.png')}}"</a>
 
@@ -29,9 +30,9 @@
               <a href="{{ path('security_update_account', {'UserId': app.user.getId} ) }}"><img src="{{ asset('images/iconCompte.png') }}" alt="modifCompte"></a>
             {% endif %}
             {% if not app.user %}
-              <a href="{{ path('security_login') }}"><img src="{{ asset('images/panier.svg') }}" alt="panier" style="width:15%;"></a>
+              <a href="{{ path('security_login') }}"><img src="{{ asset('images/panier.svg') }}" alt="panier" ></a>
             {% else %}
-              <a href="{{ path('afficherPanier', {'UserId': app.user.getId} ) }}"><img src="{{ asset('images/panier.svg') }}" alt="panier" style="width:15%;"></a>
+              <a href="{{ path('afficherPanier', {'UserId': app.user.getId} ) }}"><img src="{{ asset('images/panier.svg') }}" alt="panier"></a>
             {% endif %}
           </form>
 
