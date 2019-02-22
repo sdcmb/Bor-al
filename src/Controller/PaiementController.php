@@ -7,9 +7,16 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Produits;
 use App\Entity\User;
 use App\Entity\Panier;
+use App\Form\UserType;
+use App\Form\ProduitType;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Validator\Constraints as Assert;
 use PayPal\Api\Payer;
 use PayPal\Api\Item;
 use PayPal\Api\ItemList;
@@ -20,18 +27,17 @@ use PayPal\Api\RedirectUrls;
 use PayPal\Api\Payment;
 use PayPal\Api\PaymentExecution;
 
-require 'paiement/start.php';
+use paiement\start;
 
 class PaiementController extends AbstractController
 {
     
     /**
-      * @Route("/boreal/panier/{UserId}", name="payer")
+      * @Route("/boreal/commander/{UserId}/{prixTotal}", name="payer")
       */
-      public function payer($UserId)
+      public function payer($UserId, $prixTotal)
       {
         $produits = array();
-        $prix = 0.00;
 
         $repo1 = $this->getDoctrine()->getRepository(Panier::class);
         $repo2 = $this->getDoctrine()->getRepository(Produits::class);
@@ -39,32 +45,39 @@ class PaiementController extends AbstractController
         $paniers = $repo1->findBy(['UserId'=>$UserId]);
         foreach ($paniers as $panier) {
           $produit = $repo2->find($panier->getProduitId());
-          $prix += $produit.prix;
-          $produits[] = ['produit' => $produit, 'quantite' => $panier->getQuantite()];
+          $produits[] = [
+            'reference' => $produit->getReference(),
+            'prix' => $produit->getPrix(),
+            'quantite' => $panier->getQuantite()
+          ];
         }
 
         $fraisDePort = 2.00;
-        $prixTTC = $prix + $fraisDePort;
+        $prixTTC = $prixTotal + $fraisDePort;
 
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
-
-        $item = new Item();
-        $item->setName($product)
-            ->setCurrency('EUR')
-            ->setQuantity(1)
-            ->setPrice($price);
+        
+        $liste = array();
+        foreach ($produits as $produit) {
+          $item = new Item();
+          $item->setName($produit['reference'])
+              ->setCurrency('EUR')
+              ->setQuantity($produit['quantite'])
+              ->setPrice($produit['prix']);
+          $liste[] = $item;
+        }
 
         $itemList = new ItemList();
-        $itemList->setItems([$item]);
+        $itemList->setItems([$liste]);
 
         $details = new Details();
-        $details->setShipping($shipping)
-                ->setSubtotal($price);
+        $details->setShipping($fraisDePort)
+                ->setSubtotal($prixTotal);
 
         $amount = new Amount();
         $amount->setCurrency('EUR')
-                ->setTotal($total)
+                ->setTotal($prixTTC)
                 ->setDetails($details);
 
         $transaction = new Transaction();
@@ -74,8 +87,8 @@ class PaiementController extends AbstractController
                     ->setInvoiceNumber(uniqid());
 
         $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl(SITE_URL, '/pay/true')
-                    ->setCancelUrl(SITE_URL, '/pay/false');
+        $redirectUrls->setReturnUrl('http://127.0.0.1:8000', '/pay/true')
+                    ->setCancelUrl('http://127.0.0.1:8000', '/pay/false');
 
         $payment = new Payment();
         $payment->setIntent('sale')

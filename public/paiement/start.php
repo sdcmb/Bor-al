@@ -1,6 +1,6 @@
 <?php
 
-require 'vendor/autoload.php';
+use vendor\autoload;
 
 define ('SITE_URL','http://127.0.0.1:8000/');
 
