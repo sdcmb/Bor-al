@@ -8,6 +8,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class RegistrationType extends AbstractType
 {
@@ -17,6 +19,8 @@ class RegistrationType extends AbstractType
             ->add('email', EmailType::class)
             ->add('firstname')
             ->add('lastname')
+            ->add('telephone', TelType::class)
+            ->add('adresse', TextType::class)
             ->add('password', PasswordType::class)
             ->add('confirm_password', PasswordType::class)
         ;

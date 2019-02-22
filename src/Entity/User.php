@@ -40,6 +40,17 @@ class User implements UserInterface
     private $lastname;
 
     /**
+     * @ORM\Column(type="string", length=10)
+     * @Assert\Length(min="10", minMessage="Erreut, votre numero de telephone doit faire minimum 10 caractères.")
+     */
+    private $telephone;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $adresse;
+
+    /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="8", minMessage="Votre mot de passe doit faire minimum 8 caractères.")
      */
@@ -85,6 +96,30 @@ class User implements UserInterface
     public function setFirstname(string $firstname): self
     {
         $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getTelephone(): ?string
+    {
+        return $this->telephone;
+    }
+
+    public function setTelephone(string $telephone): self
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    public function getAdresse(): ?string
+    {
+        return $this->adresse;
+    }
+
+    public function setAdresse(string $adresse): self
+    {
+        $this->adresse = $adresse;
 
         return $this;
     }
