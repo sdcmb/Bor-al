@@ -27,7 +27,7 @@ use PayPal\Api\RedirectUrls;
 use PayPal\Api\Payment;
 use PayPal\Api\PaymentExecution;
 
-use paiement\start;
+use vendor\autoload;
 
 class PaiementController extends AbstractController
 {
@@ -86,9 +86,10 @@ class PaiementController extends AbstractController
                     ->setDescription('PayForSomething Payment')
                     ->setInvoiceNumber(uniqid());
 
+        define ('SITE_URL','http://127.0.0.1:8000/');
         $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl('http://127.0.0.1:8000', '/pay/true')
-                    ->setCancelUrl('http://127.0.0.1:8000', '/pay/false');
+        $redirectUrls->setReturnUrl(SITE_URL, '/pay/true')
+                     ->setCancelUrl(SITE_URL, '/pay/false');
 
         $payment = new Payment();
         $payment->setIntent('sale')
@@ -96,6 +97,12 @@ class PaiementController extends AbstractController
                 ->setRedirectUrls($redirectUrls)
                 ->setTransactions([$transaction]);
 
+        $paypal = new \PayPal\Rest\ApiContext(
+                  new \PayPal\Auth\OAuthTokenCredential(
+                    'AQ84_WvSBCFRH9nyPZk2bDFXJSsT5JLWr0bl_AiW9sjQ0PInqZA4e2vCodXelZNRvhsZjMHYKzwqpj1V',
+                    'EGhTF-hzi3chTI-naFF-H3X_LTwm-zt_yy9FICotLMgQ0sokHLcAF5f-dGjAIMGcMN1FWDL-W_1AmGj_'
+                    )
+                  );
 
         try{
           $payment->create($paypal);
