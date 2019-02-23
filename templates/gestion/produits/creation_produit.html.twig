@@ -7,7 +7,7 @@
 <input class="retour_arriere" type="image" src="{{ asset('images/retour.png') }}" onClick="document.location.href = document.referrer" />
 
     <h3 class="titre">
-      {% if editMode %}
+      {% if editMode %}                         <!---   on vérifie ici s'il s'agit d'une mofication d'un produit ou de sa création   ---->
         Modifier un produit
       {% else %}
           CREER UN NOUVEAU PRODUIT
@@ -17,13 +17,13 @@
 
 <div class="formulaireCreaProd">
 
-    {{ form_start (formCreationProduit) }}
-
+    {{ form_start (formCreationProduit) }}                <!---   form_start permet la création du formulaire associé à la création du produit   ---->
+                                                          <!---   quand on affiche la page source associée à ce code, on poura remarquer que ces fonctions twig vont associées des balises html aux éléments ainsi que des id  ---->
       <div class="creaProdGauche">
 
-        {{ form_row(formCreationProduit.reference, {'label' : 'Référence', 'attr': {'placeholder': ""}}) }}
-
-        {{ form_row(formCreationProduit.marque, {'attr': {'placeholder': ""}}) }}
+        {{ form_row(formCreationProduit.reference, {'label' : 'Référence', 'attr': {'placeholder': ""}}) }}     <!--- form_row permet la mise en place d'un champs de saisie où l'on place le label adapté ainsi qu'un placeholder si nécessaire  -->
+                                                                                                                <!--- formCreationProduit.xxx permet de faire coresspondre le champ de saisie avec l'info coresspondante à mettre en base de données  -->
+        {{ form_row(formCreationProduit.marque, {'attr': {'placeholder': ""}}) }}                               <!--- 'attr' récupère le nom de l'élément de la table -->
 
         {{ form_row(formCreationProduit.modele, {'attr': {'placeholder': ""}}) }}
 
@@ -63,14 +63,14 @@
 
 
       <button type="submit" class"btn btn-success btnValProd" name="button">
-        {% if editMode %}
-        Enregistrer
+        {% if editMode %}                   <!---   on vérifie ici s'il s'agit d'une mofication d'un produit ou de sa création   ---->
+        Enregistrer                         <!---   le bouton va donc valider et exécuter l'ajout ou la modification de l'élément en BD  ---->
         {% else %}
         Créer
         {% endif %}
       </button>
 
-  {{ form_end(formCreationProduit) }}
+  {{ form_end(formCreationProduit) }}                  <!--- form_end clôture le formulaire  -->
 
 </div>
 
