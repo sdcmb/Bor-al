@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<menu class="filtre">
+<menu class="filtre">				<!--   Filtrage des produits pour l'instant innactif, pas de js associé   -->
 
 		<label>
 				<select name="product-type" id="product-type" class="filter">
@@ -52,15 +52,15 @@
 
   <section class="products">
 
-      {% for produit in produits %}
-				{% if produit.categorie == "Femme" or produit.categorie == "femme" %}
-
+      {% for produit in produits %}				<!--   Affiche chaque produit de l'Entity Produits initialisé dans BorealController l.30  -->
+				{% if produit.categorie == "Femme" or produit.categorie == "femme" %} 				<!--   On vérifie que les produits affichés font bien  parti de la catégorie femme  -->
+																																											<!--   On prend en compte si la cliente saisie Femme ou femme pour éviter tout oubli de produits  -->
             <div class="product-card">
 
 						  <div class="load">
 
 				              <div class="product-image">
-				                  <a href="{{ path('produit_femmes', {'id' : produit.id}) }}"><img src="{{ produit.image }}" alt"produit"></a>
+				                  <a href="{{ path('produit_femmes', {'id' : produit.id}) }}"><img src="{{ produit.image }}" alt"produit"></a>				<!--   On affiche l'image du produit et on récupère son id  -->
 				              </div>
 
 				              <h4>{{ produit.marque }} {{ produit.modele }}</h4>
@@ -79,5 +79,7 @@
 	<a href="#" id="loadmore">Afficher plus de produits</a>
 
 </div>
-<script src="{{ asset('js/loadMore.js') }}"></script>
+<script src="{{ asset('js/loadMore.js') }}"></script>				<!--   Script qui permet de limiter l'affichage à 15 produits  -->
+																	<!--   Quand l'utilisateur clique sur "afficher plus" alors 15 autres produits apparaissent.
+																	 Si il n'y a pas plus de produit à afficher alors le bouton devient un label indiquant qu'il n'y a pas plus de produit à afficher  -->
 {% endblock %}

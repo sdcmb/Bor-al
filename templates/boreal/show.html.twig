@@ -6,8 +6,8 @@
 
         <div class="content">
 
-             <div class="titre-img">
-                  <div class="mosaique">
+             <div class="titre-img">          <!--   partie haute de l'affichage du produit  -->
+                  <div class="mosaique">      <!--   petites photos en mosaïque sur la gauche de l'image principale du produit  -->
                        <img class="petit" src="{{ produit.image }}" alt"sac_desigual">
                        <img class="petit" src="{{ produit.image }}" alt"sac_desigual">
                        <img class="petit" src="{{ produit.image }}" alt"sac_desigual">
@@ -15,7 +15,7 @@
                        <img class="petit" src="{{ produit.image }}" alt"sac_desigual">
                   </div>
 
-                  <div class="principale">
+                  <div class="principale">      <!--  image principale du produit  -->
                     <img id="grosPlan" src="{{ produit.image }}" alt"sac_desigual">
                   </div>
 
@@ -25,7 +25,7 @@
                        <p id="prix">{{ produit.prix }}€</p>
                        <p id="couleur">Couleurs :</p>
 
-                       <div class="choixCouleur">
+                       <div class="choixCouleur">      <!--  radio bouton pour choisir le colori du produit  -->
                          <label class="orange">
                             <input type="radio" name="color" value="orange" class="rond">
                             <div class="layer"></div>
@@ -45,9 +45,9 @@
                           </label>
                        </div>
 
-                            {% if app.user %}
+                            {% if app.user %}      <!--  si l'utilisateur est connecté avec un compte alors le produit est ajouté à son panier  -->
                             <a href="{{ path('ajouterPanier', {'ProduitId': produit.id, 'UserId': app.user.getId }) }}" class"button primary-button"><p class="ajoutPanier">Ajouter au panier</p></a>
-                            {% else %}
+                            {% else %}      <!--  sinon on le renvoi à la page de connexion et le produit sera ajouté une fois la connexion établie  -->
                             <a href="{{ path('security_login') }}" class"button primary-button"><p class="ajoutPanier">Ajouter au panier</p></a>
                             {% endif %}
                   </div>
@@ -56,7 +56,7 @@
 
              <div class="delimitation">&nbsp;</div>
 
-             <div class="detail-table">
+             <div class="detail-table">      <!--  infos détaillées du produit  -->
 
                   <div class="desProd">
                        <h3>Description :</h3>
