@@ -25,13 +25,13 @@ class BorealController extends AbstractController
      */
     public function produitsFemme()
     {
-        $repo = $this->getDoctrine()->getRepository(Produits::class);
+        $repo = $this->getDoctrine()->getRepository(Produits::class);         //récupère la table correspondant à la classe Produits
 
-        $produits = $repo->findAll();
+        $produits = $repo->findAll();        //récupère chaque objets Produits
 
-        return $this->render('boreal/produitsFemme.html.twig', [
-            'controller_name' => 'BorealController',
-            'produits' => $produits
+        return $this->render('boreal/produitsFemme.html.twig', [        //on associe le rendu de cette fonction à la page produitsFemme.html.twig
+            'controller_name' => 'BorealController',        //nom du controller à mentionner sur la page de rendu
+            'produits' => $produits        //on donne à 'produits' le contenu de $produits à utiliser sur la page de rendu dans un for par exemple
         ]);
     }
 
@@ -40,13 +40,13 @@ class BorealController extends AbstractController
      */
     public function produitsHomme()
     {
-        $repo = $this->getDoctrine()->getRepository(Produits::class);
+        $repo = $this->getDoctrine()->getRepository(Produits::class);         //récupère la table correspondant à la classe Produits
 
-        $produits = $repo->findAll();
+        $produits = $repo->findAll();        //récupère chaque objets Produits
 
-        return $this->render('boreal/produitsHomme.html.twig', [
-            'controller_name' => 'BorealController',
-            'produits' => $produits
+        return $this->render('boreal/produitsHomme.html.twig', [        //on associe le rendu de cette fonction à la page produitsHomme.html.twig
+            'controller_name' => 'BorealController',        //nom du controller à mentionner sur la page de rendu
+            'produits' => $produits        //on donne à 'produits' le contenu de $produits à utiliser sur la page de rendu dans un for par exemple
         ]);
     }
 
@@ -55,13 +55,13 @@ class BorealController extends AbstractController
      */
     public function accessoires()
     {
-        $repo = $this->getDoctrine()->getRepository(Produits::class);
+        $repo = $this->getDoctrine()->getRepository(Produits::class);         //récupère la table correspondant à la classe Produits
 
-        $produits = $repo->findAll();
+        $produits = $repo->findAll();        //récupère chaque objets Produits
 
-        return $this->render('boreal/accessoires.html.twig', [
-            'controller_name' => 'BorealController',
-            'produits' => $produits
+        return $this->render('boreal/accessoires.html.twig', [        //on associe le rendu de cette fonction à la page accessoires.html.twig
+            'controller_name' => 'BorealController',        //nom du controller à mentionner sur la page de rendu
+            'produits' => $produits        //on donne à 'produits' le contenu de $produits à utiliser sur la page de rendu dans un for par exemple
         ]);
     }
 
@@ -70,13 +70,13 @@ class BorealController extends AbstractController
      */
     public function bagages()
     {
-        $repo = $this->getDoctrine()->getRepository(Produits::class);
+        $repo = $this->getDoctrine()->getRepository(Produits::class);         //récupère la table correspondant à la classe Produits
 
-        $produits = $repo->findAll();
+        $produits = $repo->findAll();        //récupère chaque objets Produits
 
-        return $this->render('boreal/bagages.html.twig', [
-            'controller_name' => 'BorealController',
-            'produits' => $produits
+        return $this->render('boreal/bagages.html.twig', [        //on associe le rendu de cette fonction à la page bagages.html.twig
+            'controller_name' => 'BorealController',        //nom du controller à mentionner sur la page de rendu
+            'produits' => $produits        //on donne à 'produits' le contenu de $produits à utiliser sur la page de rendu dans un for par exemple
         ]);
     }
 
