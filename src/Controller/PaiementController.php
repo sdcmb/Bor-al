@@ -33,14 +33,16 @@ class PaiementController extends AbstractController
 {
     
     /**
-      * @Route("/boreal/commander/{UserId}/{prixTotal}", name="payer")
+      * @Route("/boreal/commander/{UserId}", name="payer")
       */
-      public function payer($UserId, $prixTotal)
+      public function payer($UserId)
       {
         $produits = array();
 
         $repo1 = $this->getDoctrine()->getRepository(Panier::class);
         $repo2 = $this->getDoctrine()->getRepository(Produits::class);
+
+        $subTotal = 0;
 
         $paniers = $repo1->findBy(['UserId'=>$UserId]);
         foreach ($paniers as $panier) {
@@ -50,10 +52,11 @@ class PaiementController extends AbstractController
             'prix' => $produit->getPrix(),
             'quantite' => $panier->getQuantite()
           ];
+          $subTotal += $produit->getPrix();
         }
 
         $fraisDePort = 2.00;
-        $prixTTC = $prixTotal + $fraisDePort;
+        $prixTotal = $subTotal + $fraisDePort;
 
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
@@ -62,34 +65,34 @@ class PaiementController extends AbstractController
         foreach ($produits as $produit) {
           $item = new Item();
           $item->setName($produit['reference'])
-              ->setCurrency('EUR')
-              ->setQuantity($produit['quantite'])
-              ->setPrice($produit['prix']);
+               ->setCurrency('EUR')
+               ->setQuantity($produit['quantite'])
+               ->setPrice($produit['prix']);
           $liste[] = $item;
         }
 
         $itemList = new ItemList();
-        $itemList->setItems([$liste]);
+        $itemList->setItems($liste);
 
         $details = new Details();
         $details->setShipping($fraisDePort)
-                ->setSubtotal($prixTotal);
+                ->setSubtotal($subTotal);
 
         $amount = new Amount();
         $amount->setCurrency('EUR')
-                ->setTotal($prixTTC)
-                ->setDetails($details);
+               ->setTotal($prixTotal)
+               ->setDetails($details);
 
         $transaction = new Transaction();
-        $transaction ->setAmount($amount)
+        $transaction->setAmount($amount)
                     ->setItemList($itemList)
                     ->setDescription('PayForSomething Payment')
                     ->setInvoiceNumber(uniqid());
 
         define ('SITE_URL','http://127.0.0.1:8000/');
         $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl(SITE_URL, '/pay/true')
-                     ->setCancelUrl(SITE_URL, '/pay/false');
+        $redirectUrls->setReturnUrl(SITE_URL,'/pay?success=true')
+                     ->setCancelUrl(SITE_URL,'/pay?success=false');
 
         $payment = new Payment();
         $payment->setIntent('sale')
@@ -107,47 +110,45 @@ class PaiementController extends AbstractController
         try{
           $payment->create($paypal);
         }catch (Exception $e){
-          die($e);
+          return $this->redirectToRoute('accueil', [
+            'etatPaiement' => false
+          ]);
         }
 
         $approvalUrl = $payment->getApprovalLink();
 
-        return $this->render($approvalUrl);
+        return $this->redirect($approvalUrl);
       }
 
       /**
-      * @Route("/pay/true", name="payTrue")
+      * @Route("/pay", name="pay")
       */
-      public function payTrue()
+      public function pay($success)
       {
-        $paymentId = $_GET['paymentId'];
-        $payerID = $_GET['PayerID'];
+        if ($success) {
+          $paymentId = $_GET['paymentId'];
+          $payerID = $_GET['PayerID'];
 
-        $payment=Payment::get($paymentId, $paypal);
+          $payment=Payment::get($paymentId, $paypal);
 
-        $execute = new PaymentExecution();
-        $execute->setPayerId($payerID);
+          $execute = new PaymentExecution();
+          $execute->setPayerId($payerID);
 
-        try{
-          $result = $payment->execute($execute, $paypal);
-        }catch (Exception $e) {
-          $data = json_decode($e->getData());
-          var_dump(data);
-          die();
+          try{
+            $result = $payment->execute($execute, $paypal);
+          }catch (Exception $e) {
+            $data = json_decode($e->getData());
+            var_dump(data);
+            die();
+          }
+
+          return $this->redirectToRoute('accueil', [
+            'etatPaiement' => true
+          ]);
+        } else {
+          return $this->redirectToRoute('accueil', [
+            'etatPaiement' => false
+          ]);
         }
-
-        return $this->redirectToRoute('accueil', [
-          'etatPaiement' => true
-        ]);
-      }
-
-      /**
-      * @Route("/pay/false", name="payFalse")
-      */
-      public function payFalse()
-      {
-        return $this->redirectToRoute('accueil', [
-          'etatPaiement' => false
-        ]);
       }
 }
