@@ -4,8 +4,6 @@
 /public/bundles/
 /var/
 /vendor/
-composer.lock
-symfony.lock
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
@@ -28,3 +26,5 @@ yarn-error.log
 # contenu de ces fichiers est auto généré lors de 
 # l'installation ou d'un update sur composer et fait les 
 # installations en meme temps que l'execution de la commande
+composer.lock
+symfony.lock
