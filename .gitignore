@@ -4,6 +4,8 @@
 /public/bundles/
 /var/
 /vendor/
+composer.lock
+symfony.lock
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
@@ -21,3 +23,8 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+
+# on ignore le composer.lock et symfony.lock car le 
+# contenu de ces fichiers est auto généré lors de 
+# l'installation ou d'un update sur composer et fait les 
+# installations en meme temps que l'execution de la commande
