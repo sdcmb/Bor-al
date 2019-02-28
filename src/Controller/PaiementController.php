@@ -52,7 +52,7 @@ class PaiementController extends AbstractController
             'prix' => $produit->getPrix(),
             'quantite' => $panier->getQuantite()
           ];
-          $subTotal += $produit->getPrix();
+          $subTotal += $produit->getPrix() * $panier->getQuantite();
         }
 
         $fraisDePort = 2.00;
@@ -89,10 +89,10 @@ class PaiementController extends AbstractController
                     ->setDescription('PayForSomething Payment')
                     ->setInvoiceNumber(uniqid());
 
-        define ('SITE_URL','http://127.0.0.1:8000/');
+        define ('SITE_URL','http://127.0.0.1:8000');
         $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl(SITE_URL,'/pay?success=true')
-                     ->setCancelUrl(SITE_URL,'/pay?success=false');
+        $redirectUrls->setReturnUrl(SITE_URL.'/pay/'.$UserId.'?success=true')
+                     ->setCancelUrl(SITE_URL.'/pay/'.$UserId.'?success=false');
 
         $payment = new Payment();
         $payment->setIntent('sale')
@@ -121,13 +121,22 @@ class PaiementController extends AbstractController
       }
 
       /**
-      * @Route("/pay", name="pay")
+      * @Route("/pay/{UserId}", name="pay")
       */
-      public function pay($success)
+      public function pay($UserId)
       {
-        if ($success) {
+        $success = $_GET['success'];
+        if ($success == true) {
+
           $paymentId = $_GET['paymentId'];
           $payerID = $_GET['PayerID'];
+
+          $paypal = new \PayPal\Rest\ApiContext(
+            new \PayPal\Auth\OAuthTokenCredential(
+              'AQ84_WvSBCFRH9nyPZk2bDFXJSsT5JLWr0bl_AiW9sjQ0PInqZA4e2vCodXelZNRvhsZjMHYKzwqpj1V',
+              'EGhTF-hzi3chTI-naFF-H3X_LTwm-zt_yy9FICotLMgQ0sokHLcAF5f-dGjAIMGcMN1FWDL-W_1AmGj_'
+              )
+            );
 
           $payment=Payment::get($paymentId, $paypal);
 
@@ -139,8 +148,18 @@ class PaiementController extends AbstractController
           }catch (Exception $e) {
             $data = json_decode($e->getData());
             var_dump(data);
-            die();
+            return $this->redirectToRoute('accueil', [
+              'etatPaiement' => false
+            ]);
           }
+
+          // on retire du panier les produits achetés 
+          $em = $this->getDoctrine()->getManager();
+          $panier = $em->getRepository(Panier::class)->findBy(['UserId'=>$UserId]);
+          foreach ($panier as $produit) {
+            $em->remove($produit);
+          }
+          $em->flush();
 
           return $this->redirectToRoute('accueil', [
             'etatPaiement' => true
