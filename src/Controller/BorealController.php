@@ -18,6 +18,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Validator\Constraints as Assert;
 
+use App\Controller\GestionController;
+
 class BorealController extends AbstractController
 {
     /**
@@ -85,7 +87,9 @@ class BorealController extends AbstractController
     */
     public function home(){
 
-      $fichiers = $this->getFichiersSliderActif();
+      $gestionController = new GestionController();
+
+      $fichiers = $gestionController->getFichiersSliderActif();
 
       return $this->render('boreal/home.html.twig', [
         'fichiers' => $fichiers
