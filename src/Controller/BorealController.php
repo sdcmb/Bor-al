@@ -19,8 +19,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Validator\Constraints as Assert;
 
-use App\Controller\GestionController;
-
 class BorealController extends AbstractController
 {
     /**
