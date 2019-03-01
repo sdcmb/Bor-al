@@ -12,7 +12,7 @@
   <form action="{{ path('security_login') }}" method="post">
 
     <!-- Champs de saisie du formulaire -->
-    <div class="form-group">
+    <div class="form-group-lr">
 
       <!-- Input adresse mail avec en nom le _username indiquant à symfony que c'est un champ à prendre en compte pour la connexion -->
       Identifiant : <input placeholder="Adresse email" required name="_username" type="text" class="form-control">
@@ -23,7 +23,7 @@
       <input type="checkbox" id="remember_me" name="_remember_me"/> Se souvenir de moi
     </div>
 
-    <div class="form-group">
+    <div class="form-group-lr">
       Vous n'avez pas encore de compte ? <a href="{{ path('security_registration') }}">Inscrivez vous !</a>
       <button type="submit" name="btn btn-success">Se connecter</button>
     </div>

@@ -2,7 +2,7 @@
 
 {% block body %}
 
-  <h1>Modification du compte de {{ app.user.firstname }} {{ app.user.lastname }} </h1>
+  <h2>Modification du compte de {{ app.user.firstname }} {{ app.user.lastname }} </h2>
   <!-- Formulaire d'inscription avec les différents champs pré-remplis sauf pour le mot de passe -->
   {{ form_start(form) }}
     {{ form_row(form.firstname, {'label': 'Prénom','attr': {'placeholder': 'Prénom'}}) }}
