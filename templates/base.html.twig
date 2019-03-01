@@ -6,34 +6,53 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 
-        <link rel="stylesheet" href="{{ asset('style/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('style/style.css') }}"> <!-- Asset permettant de faire appel au fichier externe de css contenu dans public/style -->
 
         <link href="https://fonts.googleapis.com/css?family=Karma:300,400,500,600,700&amp;subset=devanagari,latin-ext" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
     </head>
     <body>
+      <!-- Barre de navigation -->
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
-                <input type="text" name="q" placeholder="Rechercher" class="input-text" maxlength="128" autocomplete="off">
-                <input type="submit" value="" class="valider">
+          <!-- Barre de recherche -->
+          <input type="text" name="q" placeholder="Rechercher" class="input-text" maxlength="128" autocomplete="off">
+          <input type="submit" value="" class="valider">
 
-
-          <a class="logo" href="{{ path('accueil')}}"><img src="{{ asset('images/boreal_logo2.png')}}" alt="logo" ></a>
+          <!-- Logo boreal -->
+          <a class="logo" href="{{ path('accueil')}}"> <!-- Route renvoyant à l'accueil -->
+          <img src="{{ asset('images/boreal_logo2.png')}}" alt="logo" ></a>  <!-- Asset permettant de faire appel aux images contenu dans public/images -->
 
           <form class="compte">
 
-            {% if not app.user %}
-              <a href="{{ path('security_login') }}"><img src="{{ asset('images/iconCompte.png') }}" alt="compte"></a>
-            {% else %}
-              <a href="{{ path('security_update_account', {'UserId': app.user.getId} ) }}"><img src="{{ asset('images/iconCompte.png') }}" alt="modifCompte"></a>
-              <a href="{{ path('security_logout') }}"><img src="{{ asset('images/iconCompte.png') }}" alt="logout"></a>
+            {% if not app.user %} <!-- Si la personne n'est pas connecté on affiche un icone renvoyant à la connexion-->
+
+              <a href="{{ path('security_login') }}"><!-- Route renvoyant à la connexion -->
+              <img src="{{ asset('images/iconCompte.png') }}" alt="compte"></a> <!-- Asset permettant de faire appel aux images contenu dans public/images -->
+
+            {% else %} <!-- Sinon on affiche une icone renvoyant à la modification du compte et une autre renvoyant à la déconnexion -->
+
+              <a href="{{ path('security_update_account', {'UserId': app.user.getId} ) }}"><!-- Route renvoyant à la modification du compte -->
+              <img src="{{ asset('images/iconCompte.png') }}" alt="modifCompte"></a> <!-- Asset permettant de faire appel aux images contenu dans public/images -->
+
+              <a href="{{ path('security_logout') }}"> <!-- Route renvoyant à la déconnexion -->
+              <img src="{{ asset('images/iconCompte.png') }}" alt="logout"></a><!-- Asset permettant de faire appel aux images contenu dans public/images -->
+
             {% endif %}
-            {% if not app.user %}
-              <a href="{{ path('security_login') }}"><img src="{{ asset('images/panier.svg') }}" alt="panier" ></a>
-            {% else %}
-              <a href="{{ path('afficherPanier', {'UserId': app.user.getId} ) }}"><img src="{{ asset('images/panier.svg') }}" alt="panier"></a>
+
+            {% if not app.user %} <!-- Si la personne n'est pas connecté l'icone du panier renvoie à la connexion -->
+
+              <a href="{{ path('security_login') }}"> <!-- Route renvoyant à la connexion -->
+              <img src="{{ asset('images/panier.svg') }}" alt="panier" ></a> <!-- Asset permettant de faire appel aux images contenu dans public/images -->
+
+            {% else %} <!-- Sinon l'icone du panier renvoie au panier -->
+
+              <a href="{{ path('afficherPanier', {'UserId': app.user.getId} ) }}"> <!-- Route renvoyant au panier -->
+              <img src="{{ asset('images/panier.svg') }}" alt="panier"></a><!-- Asset permettant de faire appel aux images contenu dans public/images -->
+
             {% endif %}
+
           </form>
 
           <div class="topnav">
@@ -45,7 +64,7 @@
                   <div class="blockcat">
                     <li>Sac à main</li>
                     <div class="scat">
-                      <a href="{{ path('boreal/femmes')}}">Sac bandoulière</a><br>
+                      <a href="{{ path('boreal/femmes')}}">Sac bandoulière</a><br> <!-- Route renvoyant à la catégorie femme -->
                       <a href="#">Sac shopping</a><br>
                       <a href="#">Sac à dos</a><br>
                       <a href="#">Pochette</a>
@@ -78,7 +97,7 @@
                   <div class="blockcat">
                     <li>Sac homme</li>
                     <div class="scat">
-                      <a href="{{ path('boreal/hommes')}}">Pochette bandoulière</a><br>
+                      <a href="{{ path('boreal/hommes')}}">Pochette bandoulière</a><br> <!-- Route renvoyant à la catégorie homme -->
                       <a href="#">Pochette main</a><br>
                       <a href="#">Sac ceinture</a><br>
                       <a href="#">Sac à dos</a>
@@ -113,7 +132,7 @@
                     <div class="blockcat">
                       <li>Valises</li>
                       <div class="scat">
-                        <a href="{{ path('boreal/bagages')}}">2 roues</a><br>
+                        <a href="{{ path('boreal/bagages')}}">2 roues</a><br> <!-- Route renvoyant à la catégorie bagages -->
                         <a href="#">4 roues</a><br>
                         <a href="#">Cabine</a><br>
                       </div>
@@ -139,7 +158,7 @@
                     <div class="blockcat">
                       <li>Accessoires</li>
                       <div class="scat">
-                        <a href="{{ path('boreal/accessoires')}}">Cadenas</a><br>
+                        <a href="{{ path('boreal/accessoires')}}">Cadenas</a><br> <!-- Route renvoyant à la catégorie accessoire -->
                         <a href="#">Sangle</a><br>
                       </div>
                     </div>
@@ -166,8 +185,8 @@
             		</ul>
               </li>
 
-              {% if is_granted('ROLE_ADMIN') %}
-                <li><a href="{{ path('gestion') }}" class="gest">Gestion du site</a></li>
+              {% if is_granted('ROLE_ADMIN') %} <!-- Si l'utilisateur est connecté avec un compte admin alors on affiche un onglet supplémentaire vers la gestion du site -->
+                <li><a href="{{ path('gestion') }}" class="gest">Gestion du site</a></li> <!-- Route renvoyant à la gestion du site -->
               {% endif %}
             </ul>
           </div>

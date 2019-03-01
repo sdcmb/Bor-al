@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+//imports
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Produits;
@@ -23,7 +24,7 @@ class GestionController extends AbstractController
 
     /**
     * @Route("/gestion/produits", name="gestionProduits")
-    * @Security("is_granted('ROLE_ADMIN')")
+    * @Security("is_granted('ROLE_ADMIN')") //accessible uniquement par un utilisateur connecté ayant pour rôle admin
     */
     public function gestionProduit(){
       // renvoit au menu concernant la gestion des produits
@@ -33,7 +34,7 @@ class GestionController extends AbstractController
     /**
     * @Route ("/gestion/produits/creation", name="creationProduit")
     * @Route ("/gestion/produits/{id}/edit", name="boreal_edit_produit")
-    * @Security("is_granted('ROLE_ADMIN')")
+    * @Security("is_granted('ROLE_ADMIN')") //accessible uniquement par un utilisateur connecté ayant pour rôle admin
     */
     public function formCreationProduit(Produits $produit = null, Request $request, ObjectManager $manager){
       // permet la création d'un nouveau produit ou la modification d'un existant
@@ -106,7 +107,7 @@ class GestionController extends AbstractController
 
     /**
     * @Route("/gestion", name="gestion")
-    * @Security("is_granted('ROLE_ADMIN')")
+    * @Security("is_granted('ROLE_ADMIN')") //accessible uniquement par un utilisateur connecté ayant pour rôle admin
     */
     public function gestion() {
       // renvoit au menu concernant la gestion du site
@@ -115,7 +116,7 @@ class GestionController extends AbstractController
 
     /**
     * @Route("/gestion/slider", name="gestionSlider")
-    * @Security("is_granted('ROLE_ADMIN')")
+    * @Security("is_granted('ROLE_ADMIN')") //accessible uniquement par un utilisateur connecté ayant pour rôle admin
     */
     public function gestionSlider() {
       // renvoit au menu concernant la gestion du slider
@@ -124,7 +125,7 @@ class GestionController extends AbstractController
 
     /**
     * @Route("/gestion/clients", name="gestionClients")
-    * @Security("is_granted('ROLE_ADMIN')")
+    * @Security("is_granted('ROLE_ADMIN')") //accessible uniquement par un utilisateur connecté ayant pour rôle admin
     */
     public function gestionClients() {
       // renvoit au menu concernant la gestion des clients
@@ -133,7 +134,7 @@ class GestionController extends AbstractController
 
     /**
     * @Route("/gestion/slider/creer", name="creerSlider")
-    * @Security("is_granted('ROLE_ADMIN')")
+    * @Security("is_granted('ROLE_ADMIN')") //accessible uniquement par un utilisateur connecté ayant pour rôle admin
     */
     public function creerSlider(Request $req) {
 
@@ -171,7 +172,7 @@ class GestionController extends AbstractController
         return $this->redirectToRoute('gestionSlider');
       }
 
-      // 1e itération 
+      // 1e itération
       $fichiersAAfficher = $this->getFichiersSelection();
 
       return $this->render('gestion/slider/creer.html.twig', [
@@ -181,7 +182,7 @@ class GestionController extends AbstractController
 
     /**
     * @Route("/gestion/slider/modifier", name="modifierSlider")
-    * @Security("is_granted('ROLE_ADMIN')")
+    * @Security("is_granted('ROLE_ADMIN')") //accessible uniquement par un utilisateur connecté ayant pour rôle admin
     */
     public function modifierSlider(Request $req) {
 
@@ -208,7 +209,7 @@ class GestionController extends AbstractController
         $nouveauChemin = 'gestionSlider/sliders/'.$req->request->get('nomSlider').'.txt';
 
         if ($ancienChemin != $nouveauChemin) {
-          // si le nom du slider a été changé 
+          // si le nom du slider a été changé
           rename($ancienChemin, $nouveauChemin);
 
           $defaultSlider = $this->getSliderActif();
@@ -224,8 +225,8 @@ class GestionController extends AbstractController
         // on ouvre le fichier en écriture seulement (suppression du contenu actuel)
         $fichierSlider = fopen("$nouveauChemin", 'w+');
 
-        // comme lors de la création d'un slider, on parcourt la liste des images 
-        // disponibles et si elle est cochée on l'ajoute dans le fichier 
+        // comme lors de la création d'un slider, on parcourt la liste des images
+        // disponibles et si elle est cochée on l'ajoute dans le fichier
         if($dossier = opendir('gestionSlider/img')){
           $index = 0;
           while(false !== ($fichier = readdir($dossier))){
@@ -256,7 +257,7 @@ class GestionController extends AbstractController
 
     /**
     * @Route("/gestion/slider/supprimer", name="supprimerSlider")
-    * @Security("is_granted('ROLE_ADMIN')")
+    * @Security("is_granted('ROLE_ADMIN')") //accessible uniquement par un utilisateur connecté ayant pour rôle admin
     */
     public function supprimerSlider(Request $req) {
 
@@ -279,7 +280,7 @@ class GestionController extends AbstractController
 
     /**
     * @Route("/gestion/slider/supprimerImage", name="supprimerImage")
-    * @Security("is_granted('ROLE_ADMIN')")
+    * @Security("is_granted('ROLE_ADMIN')") //accessible uniquement par un utilisateur connecté ayant pour rôle admin
     */
     public function supprimerImage(Request $req) {
 
@@ -293,7 +294,7 @@ class GestionController extends AbstractController
         unlink($cheminImageChoisie);
 
         // on supprime la photos de tous les sliders dans lesquels elle est
-        // pour ne pas créer d'erreur lors de l'affichage 
+        // pour ne pas créer d'erreur lors de l'affichage
         if($dossier = opendir('gestionSlider/sliders')) {
           while (false !== ($nomSlider = readdir($dossier))) {
             // on parcourt tous les slider existants
@@ -302,7 +303,7 @@ class GestionController extends AbstractController
               $slider = fopen($cheminSlider, 'r+');
               $estDedans = false;
               while ((!($estDedans) && false !== ( $cheminImage = fgets($slider) ))) {
-                // on parcourt le contenu du slider 
+                // on parcourt le contenu du slider
                 if ($cheminImageChoisie."\n" == $cheminImage) {
                   $estDedans = true;
                 }
@@ -315,7 +316,7 @@ class GestionController extends AbstractController
                 $tempo = fopen($cheminTemporaire, 'w+');
 
                 while (false !== ($cheminImage = fgets($slider))) {
-                  // on recopie le contenu du slider dans un fichier txt temporaire 
+                  // on recopie le contenu du slider dans un fichier txt temporaire
                   fputs($tempo, "$cheminImage");
                 }
 
@@ -353,13 +354,13 @@ class GestionController extends AbstractController
 
     /**
     * @Route("/gestion/slider/choisir", name="choisirSlider")
-    * @Security("is_granted('ROLE_ADMIN')")
+    * @Security("is_granted('ROLE_ADMIN')") //accessible uniquement par un utilisateur connecté ayant pour rôle admin
     */
     public function choisirSlider(Request $req) {
-      // choix du slider à afficher sur le site 
+      // choix du slider à afficher sur le site
 
       if ($req->request->count() > 0) {
-        // 2e itération 
+        // 2e itération
         $nomSliderChoisi = $req->request->get('cheminSlider');
         $cheminSlider = 'gestionSlider/sliders/'.$nomSliderChoisi.'.txt';
 
@@ -383,7 +384,7 @@ class GestionController extends AbstractController
 
     /**
     * @Route("/gestion/slider/ajouterImages", name="ajouterImages")
-    * @Security("is_granted('ROLE_ADMIN')")
+    * @Security("is_granted('ROLE_ADMIN')") //accessible uniquement par un utilisateur connecté ayant pour rôle admin
     */
     public function ajouterImagesSlider(Request $req) {
 
@@ -411,7 +412,7 @@ class GestionController extends AbstractController
                 // le fichier transmis est une image
 
                 // l'image est temporairement enregistrée dans le dossier
-                // temporaire du système, on va la récupérer avec son nom temporaire 
+                // temporaire du système, on va la récupérer avec son nom temporaire
                 $fichierTemporaire = $fichier["tmp_name"];
                 $src = realpath(dirname($fichierTemporaire)).'\\'.basename($fichierTemporaire);
 
@@ -449,7 +450,7 @@ class GestionController extends AbstractController
 
     /**
     * @Route("/gestion/slider/vitesse", name="changerVitesse")
-    * @Security("is_granted('ROLE_ADMIN')")
+    * @Security("is_granted('ROLE_ADMIN')") //accessible uniquement par un utilisateur connecté ayant pour rôle admin
     */
     public function changerVitesseSlider(Request $req) {
 

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+//imports
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Produits;
@@ -31,7 +32,7 @@ use vendor\autoload;
 
 class PaiementController extends AbstractController
 {
-    
+
     /**
       * @Route("/boreal/commander/{UserId}", name="payer")
       */
@@ -60,7 +61,7 @@ class PaiementController extends AbstractController
 
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
-        
+
         $liste = array();
         foreach ($produits as $produit) {
           $item = new Item();
@@ -153,7 +154,7 @@ class PaiementController extends AbstractController
             ]);
           }
 
-          // on retire du panier les produits achetés 
+          // on retire du panier les produits achetés
           $em = $this->getDoctrine()->getManager();
           $panier = $em->getRepository(Panier::class)->findBy(['UserId'=>$UserId]);
           foreach ($panier as $produit) {

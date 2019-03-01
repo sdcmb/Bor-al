@@ -6,11 +6,18 @@
 
   <h1>Connexion</h1>
 
+  <!-- Formulaire de connexion -->
+
+  <!-- Route à laquelle renvoie le formulaire -->
   <form action="{{ path('security_login') }}" method="post">
 
+    <!-- Champs de saisie du formulaire -->
     <div class="form-group">
+
+      <!-- Input adresse mail avec en nom le _username indiquant à symfony que c'est un champ à prendre en compte pour la connexion -->
       Identifiant : <input placeholder="Adresse email" required name="_username" type="text" class="form-control">
       <br>
+      <!-- Input mot de passe avec en nom le _password indiquant à symfony que c'est un champ à prendre en compte pour la connexion -->
       Mot de passe : <input placeholder="Mot de passe" required name="_password" type="password" class="form-control">
       <br>
       <input type="checkbox" id="remember_me" name="_remember_me"/> Se souvenir de moi

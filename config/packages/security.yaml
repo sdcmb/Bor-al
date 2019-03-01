@@ -1,7 +1,7 @@
 security:
     encoders:
       App\Entity\User:
-        algorithm: bcrypt
+        algorithm: bcrypt #cryptage du mot de passe de l'entité user
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
@@ -9,7 +9,7 @@ security:
         in_database:
           entity:
             class: App\Entity\User
-            property: email
+            property: email #identifiant utiliser pour permettre à symfony de retrouver l'utilisateur
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -20,11 +20,11 @@ security:
 
             provider: in_database
 
-            form_login:
-              login_path: security_login
-              check_path: security_login
+            form_login: #utilisation d'un formulaire de connexion
+              login_path: security_login #la route à prendre en charge
+              check_path: security_login #la route à utliser pour vérifié les infos saisie
 
-            logout:
+            logout: #déconnexion avec la route à prendre en charge et la route de redirection
               path: security_logout
               target: accueil
 
