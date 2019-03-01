@@ -9,6 +9,7 @@ use App\Entity\User;
 use App\Entity\Panier;
 use App\Form\UserType;
 use App\Form\ProduitType;
+use App\Controller\GestionController;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -85,7 +86,9 @@ class BorealController extends AbstractController
     */
     public function home(){
 
-      $fichiers = $this->getFichiersSliderActif();
+      $gestionController = new GestionController();
+
+      $fichiers = $gestionController->getFichiersSliderActif();
 
       return $this->render('boreal/home.html.twig', [
         'fichiers' => $fichiers
