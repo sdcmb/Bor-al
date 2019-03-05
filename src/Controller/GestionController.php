@@ -64,6 +64,23 @@ class GestionController extends AbstractController
       ]);
     }
 
+    /**
+    * @Route ("/gestion/clients/listeClients", name="listeClient")
+    * @Security("is_granted('ROLE_ADMIN')") //accessible uniquement par un utilisateur connecté ayant pour rôle admin
+    */
+    public function affichageClients(User $users = null, Request $request, ObjectManager $manager){
+      //sélectionne la table user
+      $repo = $this->getDoctrine()->getRepository(User::class);
+
+      //récupère tous les users contenus dans la table
+      $users = $repo->findAll();
+
+      return $this->render('gestion/clients/liste_clients.html.twig', [
+          'controller_name' => 'GestionController',
+          'users' => $users
+      ]);
+    }
+
     public function getSliderActif() {
       // renvoit le slider qui doit être affiché sur le site
       if (file_exists('gestionSlider/defaultSlider.txt')) {

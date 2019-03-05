@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<input class="retour_arriere" type="image" src="{{ asset('images/retour.png') }}" onClick="document.location.href = document.referrer" />
+
+<div class="listeClient">
+
+  <table>
+    <thead>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Téléphone</th>
+      <th>Adresse</th>
+      <th>Email</th>
+    </thead>
+
+    <tbody>
+      {% for user in users %}				<!--   Affiche chaque user de l'Entity User initialisé dans GestionController l.71  -->
+      <tr>
+        <td>{{user.firstname}}</td>				<!--   Affiche prénom user  -->
+        <td>{{user.lastname}}</td>				<!--   Affiche nom user  -->
+        <td>{{user.telephone}}</td>				<!--   Affiche téléphone user  -->
+        <td>{{user.email}}</td>		       	<!--   Affiche email user  -->
+        <td>{{user.adresse}}</td>			  	<!--   Affiche adresse user  -->
+      </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+
+</div>
+
+
+
+{% endblock %}

@@ -820,6 +820,28 @@ form input[type=text]{
   vertical-align: top;
 }
 
+/**-------------------------Gestion Clients-------------------------**/
+.listeClient{
+  text-align: -webkit-center;
+}
+
+.listeClient table{
+  width: 1000px;
+  background-color: white;
+  border: none;
+}
+
+.listeClient th{
+
+}
+
+.listeClient tr{
+  background-color: white;
+}
+
+.listeClient td{
+  padding-right: 40px;
+}
 
 /**-----------------------------------------------------------------------------------------------------**/
 
