@@ -34,10 +34,10 @@
             {% else %} <!-- Sinon on affiche une icone renvoyant à la modification du compte et une autre renvoyant à la déconnexion -->
 
               <a href="{{ path('security_update_account', {'UserId': app.user.getId} ) }}"><!-- Route renvoyant à la modification du compte -->
-              <img src="{{ asset('images/iconCompte.png') }}" alt="modifCompte"></a> <!-- Asset permettant de faire appel aux images contenu dans public/images -->
+              <img src="{{ asset('images/edit-user.png') }}" alt="modifCompte"></a> <!-- Asset permettant de faire appel aux images contenu dans public/images -->
 
               <a href="{{ path('security_logout') }}"> <!-- Route renvoyant à la déconnexion -->
-              <img src="{{ asset('images/iconCompte.png') }}" alt="logout"></a><!-- Asset permettant de faire appel aux images contenu dans public/images -->
+              <img src="{{ asset('images/logout.png') }}" alt="logout"></a><!-- Asset permettant de faire appel aux images contenu dans public/images -->
 
             {% endif %}
 
