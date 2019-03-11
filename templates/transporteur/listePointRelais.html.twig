@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Points Relais{% endblock %}
+
+{% block body %}
+    {% if curl_error == false and resp_error == false %}
+        <h3>Liste des Points Relais</h3>
+            <table style="text-align: center">
+                <tr>
+                    <th>Transporteur</th>
+                    <th>Nom</th>
+                    <th>Addresse</th>
+                    <th>Ville</th>
+                    <th>Code postal</th>
+                    <th>Pays</th>
+                </tr>
+            {% for carrier in carriers %} 
+                {% for point in carrier['points'] %}                              
+                        <tr>
+                            <td>{{carrier['operator']}}{{carrier['service']}}</td>
+                            <td>{{point['name']}} </td>
+                            <td>{{point['address']}} </td>
+                            <td>{{point['city']}}</td>
+                            <td>{{point['zipcode']}}</td>
+                            <td>{{point['country']}}</td>      
+                {% endfor %}
+            {% endfor %}
+        </table>
+    {% else %}
+        <p> Erreur dans les champs </p>
+    {% endif %}
+{% endblock %}

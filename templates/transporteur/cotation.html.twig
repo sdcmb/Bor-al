@@ -1,26 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TestController!{% endblock %}
+{% block title %}Choix du transporteur{% endblock %}
 
 {% block body %}
    
     {% if curl_error == false and resp_error == false %}<!--condition qui empêche d'afficher le tableau des transporteurs si il y a des erreurs-->
     <h3>Choix du transporteur :</h3>
+    <form  id="test" action="listePointRelais" method="post">
         <div>
             <table style="text-align: center">
                 <thead>
                     <tr>
-                        <th>Selectionner votre transporteur</th>
                         <th>Transporteur</th>
                         <th>Offre</th>
                         <th>Frais de livraison</th>
                         <th>Livraison</th>
+                        <th>Point Relais</th>
                     </tr>
                 </thead>
                 <tbody>
                 {% for offre in cotations %} 
+                    {% if offre['delivery']['type']== "PICKUP_POINT" %}<!-- Vérifie que la livraison est en point relais-->
                         <tr>
-                            <td><input type="radio" id="huey" name="transporteur" value="{{offre['operator']['code']}}"></td>
+                            
                             <td> {{offre['operator']['label']}}</td><!-- affiche le nom du transporteur-->
                             <td> {{offre['operator']['code']}}{{offre['service']['code']}}</td><!-- affiche le code du transporteur-->
                             <td>
@@ -30,16 +32,37 @@
                             <td>
                                 <span class="badge alert-  $offre['delivery']['type']== 'PICKUP_POINT' ? 'info':'success'; ">
                                 <span class="glyphicon   $offre['delivery']['type']== 'PICKUP_POINT'? 'glyphicon-map-marker':'glyphicon-home';   mr5"></span>
-                                      {{offre['delivery']['type']}};<!-- affiche le type de livraison (à domicile, en point relais...)-->
+                                      {{offre['delivery']['type']}}<!-- affiche le type de livraison (à domicile, en point relais...)-->
                                 </span>
                             </td>
+                            <td><button style="height:30px" name="transporteur" type="submit" value="{{offre['operator']['code']}}_{{offre['service']['code']}}">
+                            Voir Points Relais</button></td> <!-- Passe le code du transporteur pour ne proposer que les points relais du transporteur choisi -->
                         </tr>
-    
-                {% endfor %}
+                    {% else %}<!-- si le transpoteur ne livre pas en point relais-->
+                        <tr>
+                            
+                            <td> {{offre['operator']['label']}}</td><!-- affiche le nom du transporteur-->
+                            <td> {{offre['operator']['code']}}{{offre['service']['code']}}</td><!-- affiche le code du transporteur-->
+                            <td>
+                            <span class="badge alert-default">
+                              {{offre['price']['tax-exclusive']}}</td><!-- affiche le prix du transporteur-->
+                            </span>
+                            <td>
+                                <span class="badge alert-  $offre['delivery']['type']== 'PICKUP_POINT' ? 'info':'success'; ">
+                                <span class="glyphicon   $offre['delivery']['type']== 'PICKUP_POINT'? 'glyphicon-map-marker':'glyphicon-home';   mr5"></span>
+                                      {{offre['delivery']['type']}}<!-- affiche le type de livraison (à domicile, en point relais...)-->
+                                </span>
+                            </td>
+                            <td></td>
+                        </tr>
+                    {% endif %}
+                 {% endfor %}
                 </tbody>
             </table>
         </div>
     {% else %}
         <p> Erreur dans les champs </p><!--Si il y a une erreur dans le formulaire (problème de date, d'adresse...)-->
     {% endif %}
+        
+    </form>
 {% endblock %}
