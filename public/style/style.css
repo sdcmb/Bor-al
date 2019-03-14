@@ -228,73 +228,40 @@ nav a:hover{
 
 /**---------------------------------------login / register---------------------------------------**/
 
-.connexion h1{
+.form-group-lr h2 {
      text-align: center;
+     margin-bottom: 100px;
 }
 
 .form-group-lr input{
-     height: 20px;
+     height: 30px;
+     width : 25%;
      font-size: 15px;
-     text-align: center;
-     margin-bottom: 2%;
-}
-.form-group-lr .form-group{text-align: center;}
-
-
-
-/**---------------------------------------Panier---------------------------------------**/
-
-.panier{
-     text-align: center;
-     font-weight: normal;
-     text-decoration: underline;
-     margin-bottom: 2%;
-     font-size: 35px;
-}
-
-
-.produit_panier{
-     display: flex;
-     flex-wrap: wrap;
-     flex: 1 100%;
-     width: 70%;
-     margin: auto;
      text-align: left;
-     font-size: 20px;
-}
-
-.produit_panier h2{
-     text-align: left;
-     font-size: 20px;
-}
-
-.produit_panier div{
-     width: 25%;
-     padding-bottom: 2%;
-}
-
-.produit_panier img{
-     max-width: 25%;
-}
-
-.panier-total{
-     text-align: center;
-     font-size: 20px;
-     margin-left: 72%;
-     border-top: 1px solid #9DA6A7;
-     width: 13%;
-}
-.panier-suppr p{
-     text-align: center;
-     width: 25%;
-     background-color:#9DA6A7;
-     padding-bottom: 5px;
-     padding-top: 5px;
+     margin-bottom: 2%;
      border-radius: 5px;
-     font-size: 20px;
 }
-.panier-suppr a{
-     text-decoration: none;
+
+.form-group-lr label{
+  width: 150px;
+  display: block;
+  float:left;
+  margin-left: 30%;
+}
+
+#remember_me {
+  width : 20px;
+}
+
+.regist {
+  height: 30px;
+  font-size: 15px;
+  border-radius: 5px
+}
+
+.form-group-lr .form-group{
+  text-align: left;
+  margin-bottom: 50px;
 }
 
 
@@ -635,7 +602,8 @@ form{text-align: center;
 }
 
 #nomSlider input[type=text]{
-     height: 50px;
+     height: 30px;
+     width: 25%;
      font-size: 30px;
      text-align: center;
 }
@@ -679,11 +647,6 @@ form p{
 .creer{
      text-align: center;
      margin-bottom: 50px;
-}
-
-.creer input{
-     margin-top: 1%;
-     width: 10%;
 }
 
 /**----------------------modifier slider----------------------**/
