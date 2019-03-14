@@ -3,7 +3,7 @@
 {% block title %}Liste des Points Relais{% endblock %}
 
 {% block body %}
-    {% if curl_error == false and resp_error == false %}
+    {% if curl_error == false and resp_error == false %}<!--condition qui empêche d'afficher le tableau des points relais si il y a des erreurs-->
         <h3>Liste des Points Relais</h3>
             <table style="text-align: center">
                 <tr>
@@ -14,19 +14,19 @@
                     <th>Code postal</th>
                     <th>Pays</th>
                 </tr>
-            {% for carrier in carriers %} 
-                {% for point in carrier['points'] %}                              
+            {% for carrier in carriers %}<!--boucle qui parcourt les différents transporteurs -->
+                {% for point in carrier['points'] %}<!--boucle qui parcourt les différents point relais des transporteurs-->
                         <tr>
-                            <td>{{carrier['operator']}}{{carrier['service']}}</td>
-                            <td>{{point['name']}} </td>
-                            <td>{{point['address']}} </td>
-                            <td>{{point['city']}}</td>
-                            <td>{{point['zipcode']}}</td>
-                            <td>{{point['country']}}</td>      
+                            <td>{{carrier['operator']}}{{carrier['service']}}</td><!--nom du transporteur-->
+                            <td>{{point['name']}} </td><!--nom du point relais-->
+                            <td>{{point['address']}} </td><!--adresse du point relais-->
+                            <td>{{point['city']}}</td><!--ville du point relais-->
+                            <td>{{point['zipcode']}}</td><!--code postal du point relais-->
+                            <td>{{point['country']}}</td><!--pays du point relais-->
                 {% endfor %}
             {% endfor %}
         </table>
     {% else %}
-        <p> Erreur dans les champs </p>
+        <p> Erreur dans les champs </p><!--si il y a une erreur-->
     {% endif %}
 {% endblock %}
