@@ -7,8 +7,8 @@
     {% if curl_error == false and resp_error == false %}<!--condition qui empêche d'afficher le tableau des transporteurs si il y a des erreurs-->
     <h3>Choix du transporteur :</h3>
     <form  id="test" action="listePointRelais" method="post">
-        <div>
-            <table style="text-align: center">
+        <div class="choixTrans">
+            <table>
                 <thead>
                     <tr>
                         <th>Transporteur</th>
@@ -35,7 +35,7 @@
                                       {{offre['delivery']['type']}}<!-- affiche le type de livraison (à domicile, en point relais...)-->
                                 </span>
                             </td>
-                            <td><button style="height:30px" name="transporteur" type="submit" value="{{offre['operator']['code']}}_{{offre['service']['code']}}">
+                            <td><button id="voirPR" name="transporteur" type="submit" value="{{offre['operator']['code']}}_{{offre['service']['code']}}">
                             Voir Points Relais</button></td> <!-- Passe le code du transporteur pour ne proposer que les points relais du transporteur choisi -->
                         </tr>
                     {% else %}<!-- si le transporteur ne livre pas en point relais-->

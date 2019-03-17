@@ -4,8 +4,11 @@
 
 {% block body %}
     {% if curl_error == false and resp_error == false %}<!--condition qui empêche d'afficher le tableau des points relais si il y a des erreurs-->
-        <h3>Liste des Points Relais</h3>
+        <h3>Liste des Points Relais :</h3>
+
+          <div class="choixTrans">
             <table style="text-align: center">
+              <thead>
                 <tr>
                     <th>Transporteur</th>
                     <th>Nom</th>
@@ -14,18 +17,23 @@
                     <th>Code postal</th>
                     <th>Pays</th>
                 </tr>
-            {% for carrier in carriers %}<!--boucle qui parcourt les différents transporteurs -->
-                {% for point in carrier['points'] %}<!--boucle qui parcourt les différents point relais des transporteurs-->
-                        <tr>
-                            <td>{{carrier['operator']}}{{carrier['service']}}</td><!--nom du transporteur-->
-                            <td>{{point['name']}} </td><!--nom du point relais-->
-                            <td>{{point['address']}} </td><!--adresse du point relais-->
-                            <td>{{point['city']}}</td><!--ville du point relais-->
-                            <td>{{point['zipcode']}}</td><!--code postal du point relais-->
-                            <td>{{point['country']}}</td><!--pays du point relais-->
-                {% endfor %}
-            {% endfor %}
-        </table>
+              </thead>
+              <tbody>
+                  {% for carrier in carriers %}<!--boucle qui parcourt les différents transporteurs -->
+                  {% for point in carrier['points'] %}<!--boucle qui parcourt les différents point relais des transporteurs-->
+                  <tr>
+                    <td>{{carrier['operator']}}{{carrier['service']}}</td><!--nom du transporteur-->
+                    <td>{{point['name']}} </td><!--nom du point relais-->
+                    <td>{{point['address']}} </td><!--adresse du point relais-->
+                    <td>{{point['city']}}</td><!--ville du point relais-->
+                    <td>{{point['zipcode']}}</td><!--code postal du point relais-->
+                    <td>{{point['country']}}</td><!--pays du point relais-->
+                  </tr>
+                  {% endfor %}
+                  {% endfor %}
+                </tbody>
+              </table>
+          </div>
     {% else %}
         <p> Erreur dans les champs </p><!--si il y a une erreur-->
     {% endif %}
