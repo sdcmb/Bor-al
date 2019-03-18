@@ -20,6 +20,14 @@ class ProduitFixtures extends Fixture
         $produitRiter = new Produits();
         $produitDesigual3 = new Produits();
         $produitLancaster3 = new Produits();
+        $produitDesigual4 = new Produits();
+        $produitLancaster4 = new Produits();
+        $produitArthurEtAston3 = new Produits();
+        $produitTest1 = new Produits();
+        $produitTest2 = new Produits();
+        $produitTest3 = new Produits();
+        $produitTest4 = new Produits();
+        $produitTest5 = new Produits();
 
         $produitDesigual->setReference("19SAXPGF")
                 ->setMarque("Desigual")
@@ -32,7 +40,7 @@ class ProduitFixtures extends Fixture
                 ->setMatiere("Cuir")
                 ->setDescription("<p>Nous avons conçu ce sac en PU noir à bandoulière amovible en forme de demi-lune avec de discrets mandalas gravés ton sur ton.
                 Une bande horizontale à boucle orne l'accessoire et inclut un charm Desigual qui lui apporte une note contrastante de couleur rouge.</p>")
-                        ->setImage("http://www.boreal-maroquinerie.com/2039-9158-thickbox/desigual-bols-abby-siberia.jpg");
+                        ->setImage("/imagesProduits/desigual-bols-abby-siberia.jpg");
 
         $produitLancaster->setReference("571-28")
                 ->setMarque("Lancaster")
@@ -48,24 +56,19 @@ class ProduitFixtures extends Fixture
                 Ce petit sac seau Lancaster cognac se ferme par un lacet en cuir
                 Ce petit sac seau Pur Treasure cognac par Lancaster comporte une petite poche fermée et une poche simple.
                 La bandoulière en chainette argentée est réglable à la longueur souhaitée.</p>")
-                        ->setImage("http://www.boreal-maroquinerie.com/1929-8573-large/lancaster-cuir-parisienne-treasure.jpg");
+                        ->setImage("/imagesProduits/lancaster-cuir-parisienne-treasure.jpg");
 
-        $produitDesigual2->setReference("18WAXF35")
+        $produitDesigual2->setReference("19SAXPE0")
                 ->setMarque("Desigual")
-                ->setModele("Blue Painter Rotterdam")
+                ->setModele("Water Mandala Loverty")
                 ->setCategorie("Femme")
-                ->setCouleur("Bleu")
-                ->setPrix("79.95")
+                ->setCouleur("Blanc")
+                ->setPrix("69.95")
                 ->setPoids("0.7")
-                ->setDimension("45cm x 28cm x 16cm")
-                ->setMatiere("Textile / Synthétique")
-                ->setDescription("<p>A la recherche d'un sac qui vous ressemble ?
-                Si vous vous arrêtez sur cette création Desigual, c'est qu'elle est forcément faite pour vous !
-                Une couleur violette pour un air contemporain et un format idéal pour emporter tout ce dont nous avons besoin : voilà ses atouts.
-                On aime tout de ce produit : son design, sa forme et son panache.
-                Il viendra compléter une tenue avec brio.
-                Grand espace de rangement avec poches internes et emplacement téléphone, fermeture principale à glissière, poches externes avec zip, 2 anses ajustables et une bandoulière réglable et amovible</p>")
-                ->setImage("http://www.boreal-maroquinerie.com/1939-8627-large/desigual-bols-blue-painter-rotterdam.jpg");
+                ->setDimension("29cm x 24cm x 9cm")
+                ->setMatiere("Simili cuir")
+                ->setDescription("<p>Sac à main blanc à mandalas imprimés et taches de peinture. Son intérieur bleu à pochette supplémentaire se ferme à l'aide d'un zip à effet arc-en-ciel. Porte-le avec ses deux poignées ou avec sa longue bandoulière.</p>")
+                ->setImage("/imagesProduits/desigual-bols-water-mandala-loverty.jpg");
 
         $produitLancaster2->setReference("110-27")
                 ->setMarque("Lancaster")
@@ -79,7 +82,7 @@ class ProduitFixtures extends Fixture
                 ->setDescription("<p>Tout-en-un Lancaster, compatible avec un chéquier et à assortir avec les sacs 'Basic & Sport'.
                 Il est muni de 16 emplacements pour cartes bancaires, d'une poche pour votre chéquier (talon en haut), d'une autre poche pour la carte grise, le permis de conduire et la carte d'identité et d'une poche à billets.
                 Au dos, un porte-monnaie à deux soufflets et entièrement zippé.</p>")
-                ->setImage("http://www.boreal-maroquinerie.com/1962-8730-large/lancaster-basic-sport.jpg");
+                ->setImage("/imagesProduits/lancaster-basic-sport.jpg");
 
         $produitArthurEtAston->setReference("1613605")
                 ->setMarque("Arthur et Aston")
@@ -92,7 +95,7 @@ class ProduitFixtures extends Fixture
                 ->setMatiere("Cuir")
                 ->setDescription("<p>Sac à main , porté travers , en croute de cuir de vachette et doublure polyester.
                 Nouvelle collection été 2016.</p>")
-                ->setImage("http://www.boreal-maroquinerie.com/1179-4981-thickbox/arthur-et-aston-ligne-victoria.jpg");
+                ->setImage("/imagesProduits/arthur-et-aston-ligne-victoria.jpg");
 
            $produitArthurEtAston2->setReference("1647-10")
                    ->setMarque("Arthur et Aston")
@@ -105,7 +108,7 @@ class ProduitFixtures extends Fixture
                    ->setMatiere("Cuir")
                    ->setDescription("<p>À en juger par son apparence, cette GIBECIERE CUIR EPAIS – Huilé de la marque ARTHUR & ASTON a tout d'un sac solide depuis les détails les plus flagrants jusqu'aux moindres petits détails.
                    Entièrement confectionnée en cuir, le corps ainsi que la bandoulière témoignent parfaitement de sa solidité, faisant de ce sac un indispensable du quotidien.</p>")
-                   ->setImage("http://www.boreal-maroquinerie.com/1734-7685-thickbox/arthur-et-aston-cuir-huile.jpg");
+                   ->setImage("/imagesProduits/arthur-et-aston-cuir-huile.jpg");
 
 
          $produitJlFoures->setReference("9247")
@@ -118,7 +121,7 @@ class ProduitFixtures extends Fixture
                 ->setDimension("10cm x 7cm x 2cm")
                 ->setMatiere("Cuir")
                 ->setDescription("<p>Porte monnaie cuvette , porte carte , JL FOURES , en cuir de vachette souple pleine fleur , au toucher gras et de fabrication française.</p>")
-                ->setImage("http://www.boreal-maroquinerie.com/2022-9057-thickbox/jl-foures-cuir-baroudeur.jpg");
+                ->setImage("/imagesProduits/jl-foures-cuir-baroudeur.jpg");
 
 
 
@@ -132,7 +135,7 @@ class ProduitFixtures extends Fixture
                    ->setDimension("24cm x 27cm x 11cm")
                    ->setMatiere("Cuir de vachette pleine fleur")
                    ->setDescription("<p>Sacoche homme , cuir vachette , finition grainée , et doublure polyester , de marque RITELLE.</p>")
-                   ->setImage("http://www.boreal-maroquinerie.com/1858-8285-thickbox/ritelle-cuir-vachette.jpg");
+                   ->setImage("/imagesProduits/ritelle-cuir-vachette.jpg");
 
 
 
@@ -147,7 +150,9 @@ class ProduitFixtures extends Fixture
                  ->setMatiere("Cuir de vachette pleine fleur")
                  ->setDescription("<p>A utiliser ensemble ou séparément, ce CABAS DESIGUAL et sa pochette coordonnée vous rendront de multiples services. Du bureau à la plage, vous ne pourrez plus vous en séparer !
                  Envie de changer de décor ? Pour un look plus ville votre cabas se retourne comme un gant et arbore une couleur unie très chic !</p>")
-                 ->setImage("http://www.boreal-maroquinerie.com/2034-9124-thickbox/desigual-bols-confetti-black-seattle.jpg");
+                 ->setImage("/imagesProduits/desigual-bols-confetti-black-seattle.jpg");
+
+
 
 
 
@@ -162,7 +167,109 @@ class ProduitFixtures extends Fixture
                ->setMatiere("Cuir de vachette pleine fleur")
                ->setDescription("<p>Trotteur façon cuir de la ligne Maya de Lancaster. On craque pour sa petite poche colorée en forme d'enveloppe.
                L'intérieur, également grainé, dispose d'une poche zippée et vous trouverez une seconde poche à fermeture Eclair au dos.</p>")
-               ->setImage("http://www.boreal-maroquinerie.com/1968-8766-thickbox/lancaster-maya.jpg");
+               ->setImage("/imagesProduits/lancaster-maya.jpg");
+
+     $produitDesigual4->setReference("19SAXPFT")
+             ->setMarque("Desigual")
+             ->setModele("Patch Mandala Cella")
+             ->setCategorie("Femme")
+             ->setCouleur("Bleu")
+             ->setPrix("71.95")
+             ->setPoids("0.5")
+             ->setDimension("38cm x 11cm x 32cm")
+             ->setMatiere("Cuir de vachette")
+             ->setDescription("<pShopper avec des patchs en denim usé et des broderies en mandala de luxe ton sur ton et de paillettes argentées et bleues. Avec double compartiment interne et un grand soufflet pour obtenir une capacité maximale. Avec double poignée.</p>")
+             ->setImage("/imagesProduits/desigual-bols-patch-mandala-cella.jpg");
+
+   $produitLancaster4->setReference("430-13")
+           ->setMarque("Lancaster")
+           ->setModele("Nao")
+           ->setCategorie("Femme")
+           ->setCouleur("Rouge / Noir")
+           ->setPrix("139.30")
+           ->setPoids("0.8")
+           ->setDimension("20cm x 17cm x 8cm")
+           ->setMatiere("Cuir de vachette pleine fleur")
+           ->setDescription("<p>Le grand sac cabas cuir Nao de Lancaster (430-13) vous comblera avec sa ligne originale et ses dimensions idéales. Sa forme structurée offre un sac racé avec des effets de matières chics et modernes.
+
+On retrouve à l'extérieur une poche frontale simple ainsi qu'une poche arrière zippée. L'intérieur ouvre sur une poche intérieure simple et une poche intérieure zippée.
+
+Les anses sont réglables pour un porté main ou un porté épaule en tout confort (hauteur de porté : 22 à 29 cm).</p>")
+           ->setImage("/imagesProduits/lancaster-cuir-nao.jpg");
+
+      $produitArthurEtAston3->setReference("1672-06")
+             ->setMarque("Arthur et Aston")
+             ->setModele("Cuir Dune")
+             ->setCategorie("Femme")
+             ->setCouleur("Gris")
+             ->setPrix("54.10")
+             ->setPoids("1.2")
+             ->setDimension("35cm x 27cm x 12cm")
+             ->setMatiere("Cuir")
+             ->setDescription("<p>Sac à main , en cuir de vachette destroy et doublure polyester. Avec son coté dynamique et fashion , il vous accompagnera dans tous vos déplacements. Il est pourvu d'un espace de rangement avec poche plate et emplacement téléphone. Fermeture pincipale à rabat et pression. Une poche zippée externe. Fantaisie à franges en cuir. Livré avec un certificat de garantie de 2 ans.</p>")
+             ->setImage("/imagesProduits/arthur-et-aston-ligne-cuir-kalinka.jpg");
+
+   $produitTest1->setReference("1672-06")
+          ->setMarque("Arthur et Aston")
+          ->setModele("Cuir Dune")
+          ->setCategorie("Femme")
+          ->setCouleur("Gris")
+          ->setPrix("54.10")
+          ->setPoids("1.2")
+          ->setDimension("35cm x 27cm x 12cm")
+          ->setMatiere("Cuir")
+          ->setDescription("<p>Sac à main , en cuir de vachette destroy et doublure polyester. Avec son coté dynamique et fashion , il vous accompagnera dans tous vos déplacements. Il est pourvu d'un espace de rangement avec poche plate et emplacement téléphone. Fermeture pincipale à rabat et pression. Une poche zippée externe. Fantaisie à franges en cuir. Livré avec un certificat de garantie de 2 ans.</p>")
+          ->setImage("/imagesProduits/desigual-bols-apolo-piadena.jpg");
+
+
+     $produitTest2->setReference("1672-06")
+            ->setMarque("Arthur et Aston")
+            ->setModele("Apolo Piedena")
+            ->setCategorie("Femme")
+            ->setCouleur("Gris")
+            ->setPrix("54.10")
+            ->setPoids("1.2")
+            ->setDimension("35cm x 27cm x 12cm")
+            ->setMatiere("Cuir")
+            ->setDescription("<p>Sac à main , en cuir de vachette destroy et doublure polyester. Avec son coté dynamique et fashion , il vous accompagnera dans tous vos déplacements. Il est pourvu d'un espace de rangement avec poche plate et emplacement téléphone. Fermeture pincipale à rabat et pression. Une poche zippée externe. Fantaisie à franges en cuir. Livré avec un certificat de garantie de 2 ans.</p>")
+            ->setImage("/imagesProduits/desigual-bols-torine-cella.jpg");
+
+       $produitTest3->setReference("1672-06")
+             ->setMarque("Arthur et Aston")
+             ->setModele("Apolo Piedena")
+             ->setCategorie("Femme")
+             ->setCouleur("Gris")
+             ->setPrix("54.10")
+             ->setPoids("1.2")
+             ->setDimension("35cm x 27cm x 12cm")
+             ->setMatiere("Cuir")
+             ->setDescription("<p>Sac à main , en cuir de vachette destroy et doublure polyester. Avec son coté dynamique et fashion , il vous accompagnera dans tous vos déplacements. Il est pourvu d'un espace de rangement avec poche plate et emplacement téléphone. Fermeture pincipale à rabat et pression. Une poche zippée externe. Fantaisie à franges en cuir. Livré avec un certificat de garantie de 2 ans.</p>")
+             ->setImage("/imagesProduits/desigual-bols-mary-jackson-capri-zipper.jpg");
+
+        $produitTest4->setReference("1672-06")
+               ->setMarque("Arthur et Aston")
+               ->setModele("Apolo Piedena")
+               ->setCategorie("Femme")
+               ->setCouleur("Gris")
+               ->setPrix("54.10")
+               ->setPoids("1.2")
+               ->setDimension("35cm x 27cm x 12cm")
+               ->setMatiere("Cuir")
+               ->setDescription("<p>Sac à main , en cuir de vachette destroy et doublure polyester. Avec son coté dynamique et fashion , il vous accompagnera dans tous vos déplacements. Il est pourvu d'un espace de rangement avec poche plate et emplacement téléphone. Fermeture pincipale à rabat et pression. Une poche zippée externe. Fantaisie à franges en cuir. Livré avec un certificat de garantie de 2 ans.</p>")
+               ->setImage("/imagesProduits/desigual-bols-winter-valkyria-redmond.jpg");
+
+          $produitTest5->setReference("1672-06")
+                 ->setMarque("Arthur et Aston")
+                 ->setModele("Apolo Piedena")
+                 ->setCategorie("Femme")
+                 ->setCouleur("Gris")
+                 ->setPrix("54.10")
+                 ->setPoids("1.2")
+                 ->setDimension("35cm x 27cm x 12cm")
+                 ->setMatiere("Cuir")
+                 ->setDescription("<p>Sac à main , en cuir de vachette destroy et doublure polyester. Avec son coté dynamique et fashion , il vous accompagnera dans tous vos déplacements. Il est pourvu d'un espace de rangement avec poche plate et emplacement téléphone. Fermeture pincipale à rabat et pression. Une poche zippée externe. Fantaisie à franges en cuir. Livré avec un certificat de garantie de 2 ans.</p>")
+                 ->setImage("/imagesProduits/lancaster-cuir-saffiano-signature.jpg");
+
 
 
         $manager->persist($produitDesigual);
@@ -175,6 +282,15 @@ class ProduitFixtures extends Fixture
         $manager->persist($produitRiter);
         $manager->persist($produitDesigual3);
         $manager->persist($produitLancaster3);
+        $manager->persist($produitDesigual4);
+        $manager->persist($produitLancaster4);
+        $manager->persist($produitArthurEtAston3);
+        $manager->persist($produitTest1);
+        $manager->persist($produitTest2);
+        $manager->persist($produitTest3);
+        $manager->persist($produitTest4);
+        $manager->persist($produitTest5);
+
 
 
         $manager->flush();
