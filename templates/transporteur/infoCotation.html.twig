@@ -4,31 +4,32 @@
 
 {% block body %}
 
-    <h1 style="text-align: center">Information Livraison </h1><!--Formulaire pour trouver un transporteur en fonction de l'adresse, du poid...-->
+    <h1 style="text-align: center">Informations Livraison </h1><!--Formulaire pour trouver un transporteur en fonction de l'adresse, du poids...-->
 
-    <form style="text-align: center" action="cotation" method="post">
-        <p>Pays<br>
-        <input type="text" name="country" placeholder="FR" value="FR">
-        <br>
-        Adresse<br>
-        <input type="text" name="adress" placeholder="15 rue marsollier" value="15 rue marsollier">
-        <br>
-        Code postale<br>
-        <input type="text" name="zipcode" placeholder="75002" value="75002">
-        <br>
-        Ville<br>
-        <input type="text" name="city" placeholder="PARIS" value="PARIS">
-        <br>
-        Date livraison<br>
-        <input type="text" name="collection_date" placeholder="2019-03-25" value="2019-03-25">
-        <br>
-        Valeur colis<br>
-        <input type="text" name="colis_valeur" placeholder="48.50" value="48.50">
-        <br>
-        Poids colis<br>
-        <input type="text" name="colis_poids" placeholder="2" value="2">
+    <form class="formCotations" action="cotation" method="post">
+
+      <!--informations adresse-->
+        <label>Adresse</label>
+          <input id="add" type="text" name="adress" placeholder="15 rue marsollier" value="15 rue marsollier">
+          <br>
+          <input id="city" type="text" name="city" placeholder="PARIS" value="PARIS">
+          <input id="country" type="text" name="country" placeholder="FR" value="FR">
+          <input id="cp" type="text" name="zipcode" placeholder="75002" value="75002">
+          <br>
+
+      <!--date livraison-->
+        <label>Date livraison</label>
+          <input id="dateLiv" type="date" name="collection_date" placeholder="2019-03-25" value="2019-03-25">
+          <br>
+
+      <!--informations colis-->
+      <label>Informations colis</label>
+        <input id="valCol" type="text" name="colis_valeur" placeholder="48.50" value="48.50" style="border: 0px solid; border-bottom: 1px solid;">€
+        <input id="poidsCol" type="text" name="colis_poids" placeholder="2" value="2" style="border: 0px solid; border-bottom: 1px solid;">Kg
         <br><br>
-        <button style="height:40px" type="submit">Faire cotation</button></p>
-        
+
+      <!--validation cotation-->
+        <button id="faireCot" type="submit">Faire cotation</button>
+
 
 {% endblock %}

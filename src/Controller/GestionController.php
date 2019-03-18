@@ -233,7 +233,7 @@ class GestionController extends AbstractController
           if ($defaultSlider = $ancienChemin) {
             // si c'était le slider actif, on change le chemin du slider à afficher
 
-            $fichierSlider = fopen('gestionSlider/defaultSlide.txt', 'w+');
+            $fichierSlider = fopen('gestionSlider/defaultSlider.txt', 'w+');
             fputs($fichierSlider, $nouveauChemin);
             fclose($fichierSlider);
           }
@@ -544,7 +544,7 @@ class GestionController extends AbstractController
     }
 
     public function getFichierAModifier($cheminSlider) {
-      dump($cheminSlider);
+      //dump($cheminSlider);
 
       $fichiersAModifier = array();
 
@@ -562,14 +562,14 @@ class GestionController extends AbstractController
             $dejaDedans = false;
             while ((!$dejaDedans) && (false !== ( $cheminImage = fgets($slider) ))) {
               $imageSlider = basename($cheminImage, "\n");
-              dump($imageSlider);
-              dump($fichier);
-              if ($imageSlider == $fichier) {
+              // dump($imageSlider);
+              // dump($fichier);
+              if ($imageSlider == $fichier."\r") {
                 $dejaDedans = true;
               }
-              dump($dejaDedans);
+              // dump($dejaDedans);
             }
-            dump($dejaDedans);
+            // dump($dejaDedans);
             $fichiersAModifier[] = [
               'fichier' => $fichier,
               'index' => $index,
@@ -581,7 +581,7 @@ class GestionController extends AbstractController
         }
       }
 
-      dump($fichiersAModifier);
+      // dump($fichiersAModifier);
 
       return $fichiersAModifier;
     }
