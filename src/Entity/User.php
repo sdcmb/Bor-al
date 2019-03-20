@@ -51,6 +51,21 @@ class User implements UserInterface
     private $adresse;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $codepostal;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ville;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $pays;
+
+    /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="8", minMessage="Votre mot de passe doit faire minimum 8 caractères.")
      */
@@ -120,6 +135,42 @@ class User implements UserInterface
     public function setAdresse(string $adresse): self
     {
         $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    public function getCodePostal(): ?int
+    {
+        return $this->codepostal;
+    }
+
+    public function setCodePostal(int $codepostal): self
+    {
+        $this->codepostal = $codepostal;
+
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getPays(): ?string
+    {
+        return $this->pays;
+    }
+
+    public function setPays(string $pays): self
+    {
+        $this->pays = $pays;
 
         return $this;
     }
