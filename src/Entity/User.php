@@ -41,7 +41,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=10)
-     * @Assert\Length(min="10", minMessage="Erreut, votre numero de telephone doit faire minimum 10 caractères.")
+     * @Assert\Length(min="10", minMessage="Votre numero de telephone doit faire minimum 10 caractères.")
      */
     private $telephone;
 

@@ -243,7 +243,7 @@ nav a:hover{
 }
 
 .form-group-lr label{
-  width: 150px;
+  width: 180px;
   display: block;
   float:left;
   margin-left: 30%;
@@ -262,6 +262,11 @@ nav a:hover{
 .form-group-lr .form-group{
   text-align: left;
   margin-bottom: 50px;
+}
+
+.form-error-icon {
+  color : red;
+  font-weight: bold;
 }
 
 /**---------------------------------------Panier---------------------------------------**/
