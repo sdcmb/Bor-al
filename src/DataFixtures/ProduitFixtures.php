@@ -28,6 +28,10 @@ class ProduitFixtures extends Fixture
         $produitTest3 = new Produits();
         $produitTest4 = new Produits();
         $produitTest5 = new Produits();
+        $produitDesigualv3 = new Produits();
+        $produitLancasterv3 = new Produits();
+        $produitDesiguav3 = new Produits();
+
 
         $produitDesigual->setReference("19SAXPGF")
                 ->setMarque("Desigual")
@@ -270,6 +274,47 @@ Les anses sont réglables pour un porté main ou un porté épaule en tout confo
                  ->setDescription("<p>Sac à main , en cuir de vachette destroy et doublure polyester. Avec son coté dynamique et fashion , il vous accompagnera dans tous vos déplacements. Il est pourvu d'un espace de rangement avec poche plate et emplacement téléphone. Fermeture pincipale à rabat et pression. Une poche zippée externe. Fantaisie à franges en cuir. Livré avec un certificat de garantie de 2 ans.</p>")
                  ->setImage("/imagesProduits/lancaster-cuir-saffiano-signature.jpg");
 
+                 $produitDesigualv3->setReference("19SAXPGF")
+                         ->setMarque("Desigual")
+                         ->setModele("Abby Siberia")
+                         ->setCategorie("femme")
+                         ->setCouleur("Cognac / Noir")
+                         ->setPrix("62.96")
+                         ->setPoids("0.7")
+                         ->setDimension("36cm x 24cm x 2cm")
+                         ->setMatiere("Cuir")
+                         ->setDescription("<p>Nous avons conçu ce sac en PU noir à bandoulière amovible en forme de demi-lune avec de discrets mandalas gravés ton sur ton.
+                         Une bande horizontale à boucle orne l'accessoire et inclut un charm Desigual qui lui apporte une note contrastante de couleur rouge.</p>")
+                                 ->setImage("/imagesProduits/desigual-bols-abby-siberia.jpg");
+
+                 $produitLancasterv3->setReference("571-28")
+                         ->setMarque("Lancaster")
+                         ->setModele("Cuir Parisienne Treasure")
+                         ->setCategorie("Femme")
+                         ->setCouleur("Cognac / Noir / Rouge")
+                         ->setPrix("159.00")
+                         ->setPoids("0.9")
+                         ->setDimension("20cm x 21cm x 11cm")
+                         ->setMatiere("Cuir de vachette pleine fleur")
+                         ->setDescription("<p>Le petit sac seau cognac de la nouvelle collection en cuir Parisienne Pur Treasure par Lancaster.
+                         Un sac seau à bandoulière pour femme très chic et tendance, fabriqué en cuir de vachette souple.
+                         Ce petit sac seau Lancaster cognac se ferme par un lacet en cuir
+                         Ce petit sac seau Pur Treasure cognac par Lancaster comporte une petite poche fermée et une poche simple.
+                         La bandoulière en chainette argentée est réglable à la longueur souhaitée.</p>")
+                                 ->setImage("/imagesProduits/lancaster-cuir-parisienne-treasure.jpg");
+
+                 $produitDesigualv3->setReference("19SAXPE0")
+                         ->setMarque("Desigual")
+                         ->setModele("Water Mandala Loverty")
+                         ->setCategorie("Femme")
+                         ->setCouleur("Blanc")
+                         ->setPrix("69.95")
+                         ->setPoids("0.7")
+                         ->setDimension("29cm x 24cm x 9cm")
+                         ->setMatiere("Simili cuir")
+                         ->setDescription("<p>Sac à main blanc à mandalas imprimés et taches de peinture. Son intérieur bleu à pochette supplémentaire se ferme à l'aide d'un zip à effet arc-en-ciel. Porte-le avec ses deux poignées ou avec sa longue bandoulière.</p>")
+                         ->setImage("/imagesProduits/desigual-bols-water-mandala-loverty.jpg");
+
 
 
         $manager->persist($produitDesigual);
@@ -290,6 +335,9 @@ Les anses sont réglables pour un porté main ou un porté épaule en tout confo
         $manager->persist($produitTest3);
         $manager->persist($produitTest4);
         $manager->persist($produitTest5);
+        $manager->persist($produitDesigualv3);
+        $manager->persist($produitLancasterv3);
+        $manager->persist($produitDesigualv3);
 
 
 
