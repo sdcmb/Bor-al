@@ -13,8 +13,12 @@
         <th>Nom</th>
         <th>Prénom</th>
         <th>Téléphone</th>
-        <th>Adresse</th>
         <th>Email</th>
+        <th>Adresse</th>
+        <th>Code Postal</th>
+        <th>Ville</th>
+        <th>Pays</th>
+
       </tr>
     </thead>
 
@@ -26,6 +30,9 @@
         <td>{{user.telephone}}</td>				<!--   Affiche téléphone user  -->
         <td>{{user.email}}</td>		       	<!--   Affiche email user  -->
         <td>{{user.adresse}}</td>			  	<!--   Affiche adresse user  -->
+        <td>{{user.codepostal}}</td>			<!--   Affiche codepostal user  -->
+        <td>{{user.ville}}</td>			    	<!--   Affiche ville user  -->
+        <td>{{user.pays}}</td>			     	<!--   Affiche pays user  -->
       </tr>
       {% endfor %}
     </tbody>
